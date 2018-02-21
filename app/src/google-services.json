@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "597511792094",
+    "firebase_url": "https://course-registration-19b4c.firebaseio.com",
+    "project_id": "course-registration-19b4c",
+    "storage_bucket": "course-registration-19b4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597511792094:android:40464b25bf11f4ff",
+        "android_client_info": {
+          "package_name": "com.example.courseregistration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597511792094-tjrkmngvpdrm4jcq8hh5okjta8t787sq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtVMgzewBC-DdpsQ-gpmT2H3UKdLwU46Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
