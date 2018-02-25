@@ -1,7 +1,9 @@
 package com.example.courseregistration;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -9,86 +11,64 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.courseregistration.models.CourseInfo;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class TimeTableActivity extends AppCompatActivity {
-
-    private DatabaseReference mDatabase;
-
-    private Button button2;
-    private EditText editText;
-    private ListView listView;
-
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_table);
 
-        button2 = (Button)findViewById(R.id.button2);
-        editText = (EditText)findViewById(R.id.editText);
-        listView = (ListView)findViewById(R.id.lv_TimeTable);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
-        listView.setAdapter(adapter);
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mDatabase.push().setValue(editText.getText().toString());
-
-
-            }
-        });
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                String string = dataSnapshot.getValue(String.class);
-
-                arrayList.add(string);
-
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                String string = dataSnapshot.getValue(String.class);
-
-                arrayList.remove(string);
-
-                adapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//
+//        nameTxt = (TextView) findViewById(R.id.nameDetailTxt);
+//        descTxt= (TextView) findViewById(R.id.descDetailTxt);
+//        propTxt = (TextView) findViewById(R.id.propellantDetailTxt);
+//
+//        //GET INTENT
+//        Intent i=this.getIntent();
+//
+//
+//        //RECEIVE DATA
+//        String name=i.getExtras().getString("NAME_KEY");
+//        String desc=i.getExtras().getString("DESC_KEY");
+//        String propellant=i.getExtras().getString("PROP_KEY");
+//
+//        //BIND DATA
+//        nameTxt.setText(name);
+//        descTxt.setText(desc);
+//        propTxt.setText(propellant);
+//
+//
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+//    }
+//
+//    public void writeNewCourse(String course_id, String course_name, int course_section,
+//                               String course_type, double course_crdhrs, String course_days,
+//                               String course_times, String course_location, int course_max,
+//                               int course_cur, int course_available, int course_wl,
+//                               double course_per, String course_instructor){
+//
+//        CourseInfo courseInfo = new CourseInfo(course_id, course_name, course_section, course_type,
+//                course_crdhrs, course_days, course_times, course_location, course_max,
+//                course_cur, course_available, course_wl, course_per, course_instructor);
     }
 }
