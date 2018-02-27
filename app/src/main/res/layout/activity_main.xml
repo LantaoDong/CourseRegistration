@@ -7,7 +7,7 @@
     tools:context="com.example.courseregistration.MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/register"
         android:layout_width="154dp"
         android:layout_height="73dp"
         android:layout_marginBottom="8dp"

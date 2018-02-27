@@ -1,6 +1,5 @@
 package com.example.courseregistration;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +21,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText name;
     private EditText username;
     private EditText password;
-    private Button register;
+    private Button registerButton;
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,17 @@ public class RegisterActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        register = findViewById(R.id.button);
+        registerButton = findViewById(R.id.register);
+        backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToLogin = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intentToLogin);
+            }
+        });
         //after clicking the "Register"button, push user information into database if input username does not exist in database
-        register.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String iName = name.getText().toString();
