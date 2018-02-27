@@ -11,9 +11,21 @@
     tools:context="com.example.courseregistration.MajorListActivity"
     tools:showIn="@layout/activity_major_list">
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="18dp"
+        android:text="Button" />
+
     <ListView
         android:id="@+id/lv_MajorList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+    </ListView>
 </RelativeLayout>

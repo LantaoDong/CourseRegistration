@@ -30,16 +30,15 @@ public class AddMajorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_majors);
 
         //INITIALIZE FIREBASE DB
-        db= FirebaseDatabase.getInstance().getReference();
-        firebasehelper = new FirebaseHelper(db);
-
-
+       // db= FirebaseDatabase.getInstance().getReference();
+       // firebasehelper = new FirebaseHelper(db);
 
         lv_addMajors = (ListView) findViewById(R.id.lv_MajorList);
 
+
         //ADAPTER
-//        adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
-//        lv_addMajors.setAdapter(adapter);
+        adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
+        lv_addMajors.setAdapter(adapter);
 
 //        displayInputDialog();
 
