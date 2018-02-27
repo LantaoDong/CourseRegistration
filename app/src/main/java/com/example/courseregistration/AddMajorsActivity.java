@@ -17,9 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AddMajorsActivity extends AppCompatActivity {
 
-    DatabaseReference db;
+    /*DatabaseReference db;
     FirebaseHelper firebasehelper;
-    MajorListAdapter adapter;
+    //MajorListAdapter adapter;
     ListView lv_addMajors;
     EditText et_majorid, et_majorname;
     Button btn_addMajor;
@@ -37,8 +37,8 @@ public class AddMajorsActivity extends AppCompatActivity {
 
 
         //ADAPTER
-        adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
-        lv_addMajors.setAdapter(adapter);
+        //adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
+        //lv_addMajors.setAdapter(adapter);
 
 //        displayInputDialog();
 
@@ -137,5 +137,5 @@ public class AddMajorsActivity extends AppCompatActivity {
 //
 //        d.show();
 //    }
-
+*/
 }

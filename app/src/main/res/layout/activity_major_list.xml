@@ -10,7 +10,6 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/majors"
+        android:id="@+id/lv_MajorList"
         />
-
 </android.support.design.widget.CoordinatorLayout>
