@@ -55,6 +55,16 @@ public class ButtonTest {
                 allOf(withId(R.id.create), withText("Create Account"),isDisplayed()));
         button.perform(click());
 
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ViewInteraction register = onView(
+                allOf(withId(R.id.register), withText("Register"),isDisplayed()));
+        register.perform(click());
+
 
         try {
             Thread.sleep(2000);
