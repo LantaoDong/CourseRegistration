@@ -79,10 +79,10 @@ public class MajorListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_major_list);
         final String[] majors ={
                 "Biology",
-                //"Commerce",
-                //"Computer Science",
-                //"Economics",
-                //"Engineering"
+                "Commerce",
+                "Computer Science",
+                "Economics",
+                "Engineering"
         };
         ListAdapter adapter = new ArrayAdapter<String>(MajorListActivity.this, android.R.layout.simple_list_item_1,majors);
         ListView listviews = (ListView)findViewById(R.id.listviews );
