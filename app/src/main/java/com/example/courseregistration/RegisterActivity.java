@@ -60,9 +60,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 usernameNotFound = false;
 
                             }
+
+
                         }
                         //if the input username is not in database, user information is pushed into database
-                        if(usernameNotFound){
+                        if(!iPassword.equals("")&&!name.equals("")&&!iUsername.equals("")&&usernameNotFound){
                             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
                             User user = new User(iName,iUsername,iPassword);
                             Map<String,Object> users = user.toMap();
@@ -74,8 +76,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                         //if the input username is already in database, pop out a message showing the username is taken.
-                        else
+                        else if(!iPassword.equals("")&&!name.equals("")&&!iUsername.equals("")&&!usernameNotFound)
                             Toast.makeText(RegisterActivity.this,"Username already exists!",Toast.LENGTH_SHORT).show();
+                        //added conditions to avoid null input when creating account
+                        else
+                            Toast.makeText(RegisterActivity.this,"Missing input!",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
