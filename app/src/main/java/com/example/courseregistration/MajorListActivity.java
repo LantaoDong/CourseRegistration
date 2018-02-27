@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.courseregistration.DBHelper.FirebaseHelper;
@@ -100,5 +101,13 @@ public class MajorListActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, CourseInfo.class);
+        TextView editText = (TextView) findViewById(R.id.textView1);
+        String message = editText.getText().toString();
+        String EXTRA_MESSAGE="BIOL 1020 Introductory Biology Cr Hrs: 3, Max: 120, Cur: 75, Instructor: Staff";
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }

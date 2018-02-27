@@ -18,9 +18,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
+        android:id="@+id/listviews1"
+        android:layout_width="wrap_content"
+        android:layout_height="343dp" />
+
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listviews1"
-        />
+        android:text="Select Courses"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="438dp" />
 </android.support.constraint.ConstraintLayout>

@@ -6,23 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class CourseInfo extends AppCompatActivity {
     private TextView textview1;
-    /*protected void onCreate(Bundle savedInstanceState) {
-        MajorListActivity mj = new MajorListActivity();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_info);
-        textview1 = (TextView) findViewById(R.id.textView1);
-        textview1.setText("BIOL 1020 Introductory Biology Cr Hrs: 3, Max: 120, Cur: 75, Instructor Staff");
+    private Button but1;
 
+    /*public void init(){
+        but1= (Button) findViewById(R.id.button2);
+        but1.setOnClickListener(View.OnClickListener(){
+            @Override
+            Intent intent = new Intent(CourseInfo.this, CourseInfo.class);
+        };
     }*/
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        MajorListActivity mj = new MajorListActivity();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_list);
         final String[] majors ={
@@ -32,10 +36,10 @@ public class CourseInfo extends AppCompatActivity {
                 "Economics 2200 Macrco Economics Cr Hrs: 3, Max: 150, Cur 50, Instructor: Staff",
                 "Engineering ENGI 1103 Engineering Design Cr Hrs: 3, Max: 90, Cur 40, Instructor: Staff"
         };
+        mj.getIntent();
         ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,majors);
         ListView listviews1 = (ListView)findViewById(R.id.listviews );
         listviews1.setAdapter(adapter);
-
         listviews1.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -47,5 +51,6 @@ public class CourseInfo extends AppCompatActivity {
                     }
                 }
         );
+        //init();
     }
 }
