@@ -1,4 +1,4 @@
-package com.example.courseregistration.UI;
+/*package com.example.courseregistration.UI;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,15 +30,15 @@ public class ClassInfo extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+   // private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+    //private ViewPager mViewPager;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    //@Override
+    /*protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_info);
 
@@ -89,21 +89,21 @@ public class ClassInfo extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+  /*  public static class PlaceholderFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+        /*private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
-        }
+        }*/
 
         /**
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+       /* public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -125,7 +125,7 @@ public class ClassInfo extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+  /*  public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -143,9 +143,9 @@ public class ClassInfo extends AppCompatActivity {
             // Show 3 total pages.
             return 3;
         }
-    }
+    }*/
 
-    public CharSequence getPageTitle(int position){
+    /*public CharSequence getPageTitle(int position){
         switch(position){
             case 0:
                 return "COURSE";
@@ -155,5 +155,5 @@ public class ClassInfo extends AppCompatActivity {
                 return "STATUS";
         }
         return null;
-    }
-}
+    }*/
+//}

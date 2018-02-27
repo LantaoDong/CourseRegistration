@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 import com.example.courseregistration.UI.MajorListAdapter;
@@ -21,11 +24,11 @@ import java.util.List;
 
 public class MajorListActivity extends AppCompatActivity {
 
-    DatabaseReference db;
-    FirebaseHelper firebasehelper;
-    MajorListAdapter adapter;
-    ListView lv_MajorList;
-    EditText nameEditTxt,propTxt,descTxt;
+    //DatabaseReference db;
+    //FirebaseHelper firebasehelper;
+    //MajorListAdapter adapter;
+    //ListView lv_MajorList;
+    //EditText nameEditTxt,propTxt,descTxt;
 
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +61,7 @@ public class MajorListActivity extends AppCompatActivity {
         //ADAPTER
         adapter = new MajorListAdapter(this,firebasehelper.retrieveMajor());
         lv_MajorList.setAdapter(adapter);*/
-        String[] majors = new String[]{
-                "Biology",
-                "Commerce",
-                "Computer Science",
-                "Economics",
-                "Engineering"
-        };
+
 
     /*public void configureNextButtom(){
         Button nextButton = (Button) findViewById(R.id.lv_MajorList);
@@ -75,12 +72,33 @@ public class MajorListActivity extends AppCompatActivity {
             }
         }};
     }*/
+    private int position =0;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ListView lv_MajorList = (ListView)findViewById(R.id.lv_MajorList);
-        ArrayAdapter adapter = new ArrayAdapter(MajorListActivity.this, android.R.layout.simple_list_item_1,majors);
-        lv_MajorList.setAdapter(adapter);
+        setContentView(R.layout.activity_major_list);
+        final String[] majors ={
+                "Biology",
+                //"Commerce",
+                //"Computer Science",
+                //"Economics",
+                //"Engineering"
+        };
+        ListAdapter adapter = new ArrayAdapter<String>(MajorListActivity.this, android.R.layout.simple_list_item_1,majors);
+        ListView listviews = (ListView)findViewById(R.id.listviews );
+        listviews.setAdapter(adapter);
+
+        listviews.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        String courses = String.valueOf(adapterView.getItemAtPosition(i));
+                        Toast.makeText(MajorListActivity.this,courses,Toast.LENGTH_LONG).show();;
+                        Intent intent = new Intent(MajorListActivity.this,CourseInfo.class);
+                        startActivityForResult(intent,i);
+                        position = i;
+                    }
+                }
+        );
     }
 }
