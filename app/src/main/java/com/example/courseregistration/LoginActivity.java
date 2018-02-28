@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     //check if the input username and password are valid
     public void performLogin(final String userName, final String password){
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("users");
+
         //check if the input username is in database
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

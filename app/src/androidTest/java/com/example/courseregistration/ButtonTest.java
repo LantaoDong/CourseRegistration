@@ -30,15 +30,6 @@ public class ButtonTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.register), withText("Start"), isDisplayed()));
-        appCompatButton.perform(click());
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         ViewInteraction Login = onView(
                 allOf(withId(R.id.login), withText("Login"), isDisplayed()));
         Login.perform(click());
