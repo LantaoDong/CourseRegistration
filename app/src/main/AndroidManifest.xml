@@ -9,23 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TimeTableActivity" />
-        <activity android:name=".MajorListActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddMajorsActivity"></activity>
-        <activity
-            android:name=".UI.ClassInfo"
-            android:label="@string/title_activity_class_info"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CourseInfo"></activity>
-        <activity
-            android:name=".ViewSchedule">
-        </activity>
+
     </application>
 
 </manifest>
