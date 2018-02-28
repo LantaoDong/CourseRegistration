@@ -16,112 +16,137 @@ import java.lang.reflect.Array;
 
 public class Coursechoose extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursechoose);
-        final Button button = (Button) findViewById(R.id.button2);
+
+        final Button button = (Button) findViewById(R.id.button3);
         //button.setOnClickListener(new View.OnClickListener() {
         //public void onClick(View v) {
-        final TextView textView1=(TextView) findViewById(R.id.textView4);
-        final TextView textView2=(TextView) findViewById(R.id.textView5);
-        final TextView textView3=(TextView) findViewById(R.id.textView6);
-        final TextView textView4=(TextView) findViewById(R.id.textView7);
+        final CheckBox checkbox11 = (CheckBox) findViewById(R.id.checkBox11);
+        final CheckBox checkbox12 = (CheckBox) findViewById(R.id.checkBox12);
+        final CheckBox checkbox13 = (CheckBox) findViewById(R.id.checkBox13);
+        final CheckBox checkbox14 = (CheckBox) findViewById(R.id.checkBox14);
 
-        final Button button2=(Button) findViewById(R.id.button4);
-        final Button button3=(Button) findViewById(R.id.button5);
-        final Button button4=(Button) findViewById(R.id.button6);
-        final Button button5=(Button) findViewById(R.id.button7);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("data");
+        // String message1 = null;
 
-        Intent intent2 = getIntent();
-        String message2 = intent2.getStringExtra("data1");
+        //TextView textView = findViewById(R.id.textView3);
+        if(message.equals("Computer Science"))
+        {
+            checkbox11.setText("CSCI1100");
+            checkbox12.setText("CSCI1101");
+            checkbox13.setText("CSCI2200");
+            checkbox14.setText("CSCI3300");
+        }
+        if(message.equals("Mathematics"))
 
-        if(message2.equals("CSCI1100")) {
-            textView1.setText("100001 CSCI1100 Jack");
+        {
+            checkbox11.setText("MATH1020");
+            checkbox12.setText("MATH1030");
+            checkbox13.setText("MATH2050");
+            checkbox14.setText("MATH3070");
         }
-        if(message2.equals("CSCI1101")) {
-            textView1.setText("100002 CSCI1101 Jack");
+        if(message.equals("Statistic"))
+
+        {
+            checkbox11.setText("STAT1330");
+            checkbox12.setText("STAT1340");
+            checkbox13.setText("STAT2330");
+            checkbox14.setText("STAT3330");
         }
-        if(message2.equals("CSCI2200")) {
-            textView1.setText("100003 CSCI2200 Tom");
+        if(message.equals("Economic"))
+
+        {
+            checkbox11.setText("ECON1015");
+            checkbox12.setText("ECON1016");
+            checkbox13.setText("ECON2015");
+            checkbox14.setText("ECON3015");
         }
-        if(message2.equals("CSCI3300")) {
-            textView1.setText("100004 CSCI3300 Rose");
-        }
-        if(message2.equals("MATH1020")) {
-            textView1.setText("120001 MATH1020 Kitty");
-        }
-        if(message2.equals("MATH1030")) {
-            textView1.setText("120002 MATH1030 John");
-        }
-        if(message2.equals("MATH2050")) {
-            textView1.setText("120003 MATH2050 John");
-        }
-        if(message2.equals("MATH3070")) {
-            textView1.setText("120004 MATH3070 White");
-        }
-        if(message2.equals("STAT1330")) {
-            textView1.setText("210001 STAT1330 Black");
-        }
-        if(message2.equals("STAT1340")) {
-            textView1.setText("210002 STAT1340 Kim");
-        }
-        if(message2.equals("STAT2330")) {
-            textView1.setText("210003 STAT2330 Black");
-        }
-        if(message2.equals("STAT3330")) {
-            textView1.setText("210004 STAT3330 Green");
-        }
-        if(message2.equals("ECON1015")) {
-            textView1.setText("170001 ECON1015 Kimmy");
-        }
-        if(message2.equals("ECON1016")) {
-            textView1.setText("170002 ECON1016 Jewel");
-        }
-        if(message2.equals("ECON2015")) {
-            textView1.setText("170003 ECON2015 Kimmy");
-        }
-        if(message2.equals("ECON3015")) {
-            textView1.setText("170004 ECON3015 Jewel");
-        }
-        if(message2.equals("COMM1231")) {
-            textView1.setText("190201 COMM1231 Lina");
-        }
-        if(message2.equals("COMM1232")) {
-            textView1.setText("190202 COMM1232 Lina");
-        }
-        if(message2.equals("COMM2231")) {
-            textView1.setText("190203 COMM2231 Miya");
-        }
-        if(message2.equals("COMM3231")) {
-            textView1.setText("190204 COMM2231 Miya");
+        if(message.equals("Commence"))
+
+        {
+            checkbox11.setText("COMM1231");
+            checkbox12.setText("COMM1232");
+            checkbox13.setText("COMM2231");
+            checkbox14.setText("COMM3231");
         }
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textView1.setText("");
+        //choose course
+            /*if(checkbox11.isChecked())
+            {
+                message1 = checkbox11.getText().toString();
+                checkbox12.setEnabled(false);
+                checkbox13.setEnabled(false);
+                checkbox14.setEnabled(false);
             }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textView2.setText("");
+            if(checkbox12.isChecked())
+            {
+                message1 = checkbox12.getText().toString();
+                checkbox11.setEnabled(false);
+                checkbox13.setEnabled(false);
+                checkbox14.setEnabled(false);
             }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textView3.setText("");
+            if(checkbox13.isChecked())
+            {
+                message1 = checkbox13.getText().toString();
+                checkbox11.setEnabled(false);
+                checkbox12.setEnabled(false);
+                checkbox14.setEnabled(false);
             }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textView4.setText("");
-            }
-        });
+            if(checkbox14.isChecked())
+            {
+                message1 = checkbox14.getText().toString();
+                checkbox11.setEnabled(false);
+                checkbox12.setEnabled(false);
+                checkbox13.setEnabled(false);
+            }*/
+        //final String message2="";
+        //message2.equals(message1);
         button.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
+                String message1 = "";
+                if(checkbox11.isChecked())
+
+                {
+                    message1 = checkbox11.getText().toString();
+                    checkbox12.setEnabled(false);
+                    checkbox13.setEnabled(false);
+                    checkbox14.setEnabled(false);
+                }
+                if(checkbox12.isChecked())
+
+                {
+                    message1 = checkbox12.getText().toString();
+                    checkbox11.setEnabled(false);
+                    checkbox13.setEnabled(false);
+                    checkbox14.setEnabled(false);
+                }
+                if(checkbox13.isChecked())
+
+                {
+                    message1 = checkbox13.getText().toString();
+                    checkbox11.setEnabled(false);
+                    checkbox12.setEnabled(false);
+                    checkbox14.setEnabled(false);
+                }
+                if(checkbox14.isChecked())
+
+                {
+                    message1 = checkbox14.getText().toString();
+                    checkbox11.setEnabled(false);
+                    checkbox12.setEnabled(false);
+                    checkbox13.setEnabled(false);
+                }
+                Intent intent = new Intent();
+                intent.setClass(Coursechoose.this, Adddroptable.class);
+                intent.putExtra("data1", message1);
+                startActivity(intent);
             }
-
         });
-
     }
 }
