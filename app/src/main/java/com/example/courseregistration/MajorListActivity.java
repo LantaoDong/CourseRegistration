@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 import com.example.courseregistration.UI.MajorListAdapter;
@@ -20,12 +21,13 @@ public class MajorListActivity extends AppCompatActivity {
     FirebaseHelper firebasehelper;
     MajorListAdapter adapter;
     ListView lv_MajorList;
-    EditText nameEditTxt,propTxt,descTxt;
+
+//    com.firebase.ui.FirebaseListAdapter<String> myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_major_list);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -37,7 +39,21 @@ public class MajorListActivity extends AppCompatActivity {
         firebasehelper=new FirebaseHelper(db);
 
         //ADAPTER
-        adapter = new MajorListAdapter(this,firebasehelper.retrieveMajor());
+        adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor());
+
+        ////////////
+        System.out.println("retrieve"+firebasehelper.retrieveMajor().toString());
+
+//        db= new Firebase("");
+
+//        myAdapter = new FirebaseListAdapter<String>(this,String.class,android.R.layout.simple_list_item_1,db) {
+//            @Override
+//            protected void populateView(View view, String s, int i) {
+//                TextView text = (TextView) view.findViewById(android.R.id.text1);
+//                text.setText(s);
+//            }
+//        };
+
         lv_MajorList.setAdapter(adapter);
     }
 

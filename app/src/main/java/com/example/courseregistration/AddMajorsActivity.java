@@ -56,9 +56,6 @@ public class AddMajorsActivity extends AppCompatActivity {
                 String majorid=et_majorid.getText().toString();
                 String majorname=et_majorname.getText().toString();
 
-                //////////
-                System.out.println("majorID:" + majorid);
-                System.out.println("majorName:" + majorname);
 
                 //SET DATA
                 Major major=new Major(majorid, majorname);
@@ -73,6 +70,7 @@ public class AddMajorsActivity extends AppCompatActivity {
                         //IF SAVED CLEAR EDITXT
                         et_majorid.setText("");
                         et_majorname.setText("");
+                        Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
 
 //                        adapter=new MajorListAdapter(AddMajorsActivity.this, firebasehelper.retrieveMajor());
 //                        lv_addMajors.setAdapter(adapter);
