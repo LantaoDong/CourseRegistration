@@ -31,8 +31,5 @@
             android:label="@string/title_activity_class_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CourseInfo" />
-=======
-
->>>>>>> master
     </application>
 </manifest>
