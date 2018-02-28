@@ -25,12 +25,11 @@
             android:name=".MajorListActivity"
             android:label="@string/title_activity_major_list"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddMajorsActivity" />
         <activity
             android:name=".UI.ClassInfo"
             android:label="@string/title_activity_class_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CourseInfo" />
-        <activity android:name=".AddMajorsActivity"></activity>
     </application>
-
 </manifest>

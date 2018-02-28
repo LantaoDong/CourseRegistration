@@ -15,11 +15,9 @@ public class Departmentchoose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departmentchoose);
         final Button button = (Button) findViewById(R.id.button);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Button button = (Button) findViewById(R.id.button);
                 String message = "";
                 //final Intent intent = new Intent(this, Main3Activity.class);
                 final CheckBox checkbox6 = (CheckBox) findViewById(R.id.checkBox6);

@@ -15,9 +15,7 @@ public class Adddroptable extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddroptable);
-        final Button button = (Button) findViewById(R.id.button2);
-        //button.setOnClickListener(new View.OnClickListener() {
-        //public void onClick(View v) {
+
         final TextView textView1=(TextView) findViewById(R.id.textView4);
         final TextView textView2=(TextView) findViewById(R.id.textView5);
         final TextView textView3=(TextView) findViewById(R.id.textView6);
@@ -27,6 +25,7 @@ public class Adddroptable extends AppCompatActivity {
         final Button button3=(Button) findViewById(R.id.button5);
         final Button button4=(Button) findViewById(R.id.button6);
         final Button button5=(Button) findViewById(R.id.button7);
+        final Button button6 = (Button) findViewById(R.id.button8);
 
         Intent intent2 = getIntent();
         String message2 = intent2.getStringExtra("data1");
@@ -112,10 +111,12 @@ public class Adddroptable extends AppCompatActivity {
                 textView4.setText("");
             }
         });
-        button.setOnClickListener(new View.OnClickListener() {
+        button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Adddroptable.this, Departmentchoose.class);
+                startActivity(intent);
             }
-
         });
 
     }
