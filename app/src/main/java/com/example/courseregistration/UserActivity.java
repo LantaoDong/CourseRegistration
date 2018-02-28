@@ -19,6 +19,7 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         back = (Button) findViewById(R.id.backToLogin);
         timeTable = (Button) findViewById(R.id.timeTable);
+        //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
