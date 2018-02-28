@@ -29,14 +29,14 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(backToLogin);
             }
         });
-        /*
+
         timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentToTimeTable = new Intent(UserActivity.this,MajorListActivity.class);
                 startActivity(intentToTimeTable);
             }
-        });*/
+        });
         viewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
