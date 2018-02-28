@@ -20,6 +20,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserActivity" />
+        <activity android:name=".ViewSchedule" />
 
         <activity android:name=".MajorListActivity"/>
         <activity android:name=".AddMajorsActivity"></activity>

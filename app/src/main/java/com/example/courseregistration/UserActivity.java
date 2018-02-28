@@ -11,6 +11,7 @@ public class UserActivity extends AppCompatActivity {
     private Button add;
     private Button drop;
     private Button timeTable;
+    private Button viewSchedule;
 
 
     @Override
@@ -19,6 +20,7 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         back = (Button) findViewById(R.id.backToLogin);
         timeTable = (Button) findViewById(R.id.timeTable);
+        viewSchedule = (Button) findViewById(R.id.schedule);
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,13 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentToTimeTable = new Intent(UserActivity.this,MajorListActivity.class);
                 startActivity(intentToTimeTable);
+            }
+        });
+        viewSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewSche = new Intent(UserActivity.this,ViewSchedule.class);
+                startActivity(viewSche);
             }
         });
 
