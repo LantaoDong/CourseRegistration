@@ -11,7 +11,7 @@ public class ViewSchedule extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.viewschedule);
+        setContentView(R.layout.ViewSchedule);
 
         String times[] = {  "8:00", "8:30", "9:00", "9:30",
                 "10:00", "10:30", "11:00", "11:30",
