@@ -15,7 +15,7 @@ public class Departmentchoose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departmentchoose);
         final Button button = (Button) findViewById(R.id.button);
-
+        //sadasda
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
