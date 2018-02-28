@@ -36,7 +36,6 @@ public class Coursechoose extends AppCompatActivity {
 
         //TextView textView = findViewById(R.id.textView3);
         if(message.equals("Computer Science"))
-
         {
             checkbox11.setText("CSCI1100");
             checkbox12.setText("CSCI1101");
