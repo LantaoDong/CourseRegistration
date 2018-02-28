@@ -60,30 +60,6 @@ public class CourseList extends AppCompatActivity {
                 }
             }};
         }*/
-        String[] majors = new String[]{
-                "Biology",
-                "Commerce",
-                "Computer Science",
-                "Economics",
-                "Engineering"
-        };
-        @Override
-        protected void onCreate(Bundle savedInstanceState){
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            ListView lv_MajorList = (ListView)findViewById(R.id.lv_MajorList);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.activity_list_item,android.R.id.text1,majors);
-            lv_MajorList.setAdapter(adapter);
-
-            lv_MajorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    //Toast.makeText(getApplicationContext(), "Major: "+majors[i], Toast.LENGTH_LONG).show();
-                    Intent myintent = new Intent(view.getContext(), AddMajorsActivity.class);
-                    startActivityForResult(myintent, i);
-                }
-            });
-        }
     }
 
 }
