@@ -29,6 +29,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(backToLogin);
             }
         });
+
         timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
