@@ -11,7 +11,7 @@ public class ViewSchedule extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ViewSchedule);
+        setContentView(R.layout.viewschedule);
 
         String times[] = {  "8:00", "8:30", "9:00", "9:30",
                 "10:00", "10:30", "11:00", "11:30",
@@ -21,7 +21,7 @@ public class ViewSchedule extends AppCompatActivity{
                 "6:00", "6:30", "7:00", "7:30",
                 "8:00", "8:30", "9:00", "9:30"  };
         String toptext[] = { "TIME", "Mon", "Tues", "Wed", "Thurs", "Fri"};
-        TableLayout t1 = findViewById(R.id.ScheduleTable);
+        TableLayout t1 = findViewById(R.id.scheduleTable);
         TableRow daterow = new TableRow(this);
         // Initializing the top row of the UI (Days/Dates)
         for (int i = 0; i < 6; i++) {
