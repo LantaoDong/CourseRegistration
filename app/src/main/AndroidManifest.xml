@@ -21,6 +21,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserActivity" />
         <activity android:name=".ViewSchedule" />
+        <activity android:name=".Departmentchoose" />
+        <activity android:name=".Coursechoose" />
+        <activity android:name=".Adddroptable" />
         <activity
             android:name=".MajorListActivity"
             android:label="@string/title_activity_major_list"

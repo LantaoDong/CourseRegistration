@@ -65,19 +65,20 @@ public class MajorListActivity extends AppCompatActivity {
             }
         }};
     }*/
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_list);
-        final String[] majors ={
+        final String[] majors = {
                 "Biology",
                 "Commerce",
                 "Computer Science",
                 "Economics",
                 "Engineering"
         };
-        ListAdapter adapter = new ArrayAdapter<String>(MajorListActivity.this, android.R.layout.simple_list_item_1,majors);
-        ListView listviews = (ListView)findViewById(R.id.listviews );
+        ListAdapter adapter = new ArrayAdapter<String>(MajorListActivity.this, android.R.layout.simple_list_item_1, majors);
+        ListView listviews = (ListView) findViewById(R.id.listviews);
         listviews.setAdapter(adapter);
 
         listviews.setOnItemClickListener(
@@ -85,11 +86,16 @@ public class MajorListActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         String courses = String.valueOf(adapterView.getItemAtPosition(i));
+
                         Toast.makeText(MajorListActivity.this,courses,Toast.LENGTH_LONG).show();;
                         Intent intent = new Intent(MajorListActivity.this,CourseInfo.class);
                         startActivityForResult(intent,i);
+
                     }
                 }
         );
     }
+
+
 }
+
