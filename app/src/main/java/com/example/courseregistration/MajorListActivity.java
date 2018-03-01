@@ -65,7 +65,6 @@ public class MajorListActivity extends AppCompatActivity {
             }
         }};
     }*/
-    private int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,22 +86,16 @@ public class MajorListActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         String courses = String.valueOf(adapterView.getItemAtPosition(i));
-                        Toast.makeText(MajorListActivity.this, courses, Toast.LENGTH_LONG).show();
-                        ;
-                        Intent intent = new Intent(MajorListActivity.this, CourseInfo.class);
-                        startActivityForResult(intent, i);
-                        position = i;
+
+                        Toast.makeText(MajorListActivity.this,courses,Toast.LENGTH_LONG).show();;
+                        Intent intent = new Intent(MajorListActivity.this,CourseInfo.class);
+                        startActivityForResult(intent,i);
+
                     }
                 }
         );
     }
 
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, CourseInfo.class);
-        TextView editText = (TextView) findViewById(R.id.textView);
-        String message = editText.getText().toString();
-        String EXTRA_MESSAGE = "BIOL 1020 Introductory Biology Cr Hrs: 3, Max: 120, Cur: 75, Instructor: Staff";
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+
 }
+

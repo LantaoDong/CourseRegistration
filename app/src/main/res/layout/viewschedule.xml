@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableLayout
-            android:id="@+id/ScheduleTable"
+            android:id="@+id/scheduleTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
