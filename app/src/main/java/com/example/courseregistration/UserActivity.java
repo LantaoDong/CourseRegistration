@@ -11,6 +11,7 @@ public class UserActivity extends AppCompatActivity {
     private Button drop;
     private Button timeTable;
     private Button viewSchedule;
+    private Button search;
 
 
     @Override
@@ -51,6 +52,14 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intentToD);
             }
         });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToSearch = new Intent(UserActivity.this, CourseFilter.class);
+                startActivity(intentToSearch);
+            }
+        });
+
 
 
     }

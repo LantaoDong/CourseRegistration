@@ -88,7 +88,6 @@ public class MajorListActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         String courses = String.valueOf(adapterView.getItemAtPosition(i));
                         Toast.makeText(MajorListActivity.this, courses, Toast.LENGTH_LONG).show();
-                        ;
                         Intent intent = new Intent(MajorListActivity.this, CourseInfo.class);
                         startActivityForResult(intent, i);
                         position = i;
