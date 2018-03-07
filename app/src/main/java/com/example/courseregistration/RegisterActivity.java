@@ -58,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
                             String user = snapshot.child("username").getValue(String.class);
                             if(user.equals(iUsername)){
                                 usernameNotFound = false;
-
                             }
 
 
