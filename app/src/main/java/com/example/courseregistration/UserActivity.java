@@ -8,7 +8,6 @@ import android.widget.Button;
 
 public class UserActivity extends AppCompatActivity {
     private Button back;
-    private Button add;
     private Button drop;
     private Button timeTable;
     private Button viewSchedule;
@@ -21,6 +20,7 @@ public class UserActivity extends AppCompatActivity {
         back = (Button) findViewById(R.id.backToLogin);
         timeTable = (Button) findViewById(R.id.timeTable);
         viewSchedule = (Button) findViewById(R.id.schedule);
+        drop = (Button) findViewById(R.id.drop);
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +29,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(backToLogin);
             }
         });
+
         timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +44,14 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(viewSche);
             }
         });
+        drop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToD = new Intent(UserActivity.this, Departmentchoose.class);
+                startActivity(intentToD);
+            }
+        });
+
 
     }
 }
