@@ -63,8 +63,4 @@ public class ViewSchedule extends AppCompatActivity{
         row.addView(text);
         t1.addView(row);
     }
-
-
-
-
 }
