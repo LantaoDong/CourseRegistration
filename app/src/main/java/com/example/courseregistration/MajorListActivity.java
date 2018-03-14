@@ -24,64 +24,48 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MajorListActivity extends AppCompatActivity {
 
-    //DatabaseReference db;
-    //FirebaseHelper firebasehelper;
-    //MajorListAdapter adapter;
-    //ListView lv_MajorList;
-    //EditText nameEditTxt,propTxt,descTxt;
-
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //configureNextButtom();
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-        lv_MajorList = (ListView) findViewById(R.id.lv_MajorList);*(/
-        //INITIALIZE FIREBASE DB
-        /*if(!FirebaseApp.getApps(this).isEmpty()){
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        }
-        /*DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://courseregistration-314f3.firebaseio.com/");
-        FirebaseListAdapter<String> firebaseListAdapter = new FirebaseListAdapter<String>(){
-            @overide
-            protected void populateView(View v, String model, int postition){
-            }
-        }
-        db= FirebaseDatabase.getInstance().getReference();
-        firebasehelper=new FirebaseHelper(db);
-        //ADAPTER
-        adapter = new MajorListAdapter(this,firebasehelper.retrieveMajor());
-        lv_MajorList.setAdapter(adapter);*/
-
-
-    /*public void configureNextButtom(){
-        Button nextButton = (Button) findViewById(R.id.lv_MajorList);
-        nextButton.setOnClickListener(new View.OnClickListener()){
-            @Override
-            public void onClick(View view){
-                startActivity(new Intent(MajorListActivity.this, AddMajorsActivity.class));
-            }
-        }};
-    }*/
+    DatabaseReference db;
+    FirebaseHelper firebasehelper;
+    MajorListAdapter adapter;
+    ListView lv_MajorList;
+    EditText nameEditTxt,propTxt,descTxt;
+    private List<String> majors = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //INITIALIZE FIREBASE DB
+        //ADAPTER
+        adapter = new MajorListAdapter(this,firebasehelper.retrieveMajor());
+        lv_MajorList.setAdapter(adapter);
+
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    //String majorKey = snapshot.getKey();
+                    //String major = snapshot.child("computerscience").getValue(String.class);
+                    majors.add(snapshot.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_list);
-        final String[] majors = {
-                "Biology",
-                "Commerce",
-                "Computer Science",
-                "Economics",
-                "Engineering"
-        };
         ListAdapter adapter = new ArrayAdapter<String>(MajorListActivity.this, android.R.layout.simple_list_item_1, majors);
         ListView listviews = (ListView) findViewById(R.id.listviews);
         listviews.setAdapter(adapter);
@@ -102,24 +86,6 @@ public class MajorListActivity extends AppCompatActivity {
 
 
     //check if the input username is in database
-    public void performLogin(String major){
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects");
-        db.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String majorKey = snapshot.getKey();
-                    String major = snapshot.child("computerscience").getValue(String.class);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     /*class Major{
         String major;

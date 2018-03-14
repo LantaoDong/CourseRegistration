@@ -7,6 +7,7 @@ import org.junit.Test;
  */
 
 public class ConflictTest {
+
     @Test
     public void checkConflict(User user, Class class){
         validator val = new validator();
