@@ -24,7 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MajorListActivity extends AppCompatActivity {
 
@@ -118,5 +120,22 @@ public class MajorListActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*class Major{
+        String major;
+        String course;
+        public Major(String major,String course){
+            this.major=major;
+            this.course=course;
+        }
+        public String getMajor(){return major;}
+        public String getCourse(){return course;}
+        public Map<String, Object> toMap(){
+            HashMap<String, Object> result = new HashMap<>();
+            result.put("major",major);
+            result.put("course",course);
+            return result;
+        }
+    }*/
 }
 

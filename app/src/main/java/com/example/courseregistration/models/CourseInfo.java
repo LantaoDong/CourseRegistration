@@ -49,5 +49,11 @@ public class CourseInfo {
         this.course_instructor = course_instructor;
         this.major_id = major_id;
     }
+    public String getCourse_id(){
+        return course_id;
+    }
+    public String getCourse_name(){
+        return course_name;
+    }
 
 }
