@@ -35,10 +35,6 @@
                 android:layout_alignParentLeft="true"
                 />
 
-
-
-
-
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
