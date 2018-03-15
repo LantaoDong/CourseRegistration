@@ -12,21 +12,19 @@ import android.widget.TextView;
 
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 import com.example.courseregistration.UI.MajorListAdapter;
-import com.example.courseregistration.interfaces.ModelCallBacks;
+import com.example.courseregistration.interfaces.MajorCallbacks;
 import com.example.courseregistration.models.Major;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class MajorListActivity extends AppCompatActivity implements ModelCallBacks {
+public class MajorListActivity extends AppCompatActivity implements MajorCallbacks {
 
     DatabaseReference db;
     FirebaseHelper firebasehelper;
     MajorListAdapter adapter;
     ListView lv_MajorList;
-
-//    com.firebase.ui.FirebaseListAdapter<String> myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,60 +40,21 @@ public class MajorListActivity extends AppCompatActivity implements ModelCallBac
         db= FirebaseDatabase.getInstance().getReference();
         firebasehelper=new FirebaseHelper(db);
 
-
-
-//        //////TEST
-//        System.out.println("onCreate");
-//
-//        ArrayList<Major> majors = new ArrayList<>();
-//        majors = firebasehelper.retrieveMajor(this);
-////
-////        try {
-////            synchronized (majors) {
-////                majors.wait();
-////            }
-////        } catch (InterruptedException e1) {
-////            e1.printStackTrace();
-////        }
-
-
-//        System.out.println("firebasehelper.retrieveMajor():" + majors);
-//        Major m = new Major();
-//        for (int i = 0; i < majors.size(); i++) {
-//            m = (Major) majors.get(i);
-//            System.out.println("id: " + m.getMajor_id());
-//            System.out.println("name: " + m.getMajor_name());
-//        }
-
         //ADAPTER
         adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(this));
-
-//        db= new Firebase("");
-
-//        myAdapter = new FirebaseListAdapter<String>(this,String.class,android.R.layout.simple_list_item_1,db) {
-//            @Override
-//            protected void populateView(View view, String s, int i) {
-//                TextView text = (TextView) view.findViewById(android.R.id.text1);
-//                text.setText(s);
-//            }
-//        };
-
-        adapter.notifyDataSetChanged();
         lv_MajorList.setAdapter(adapter);
 
 
     }
 
-
-    /////////////
     @Override
-    public void onModelUpdated(ArrayList<Major> majors) {
+    public void onMajorCallback(ArrayList<Major> majors) {
 
         adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(this));
         lv_MajorList.setAdapter(adapter);
 
+        ////////////
         majors = firebasehelper.retrieveMajor(this);
-
         System.out.println("/////////firebasehelper.retrieveMajor():" + majors);
         Major m = new Major();
         for (int i = 0; i < majors.size(); i++) {
