@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 import com.example.courseregistration.UI.MajorListAdapter;
+import com.example.courseregistration.models.Major;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class MajorListActivity extends AppCompatActivity {
 
@@ -38,11 +41,21 @@ public class MajorListActivity extends AppCompatActivity {
         db= FirebaseDatabase.getInstance().getReference();
         firebasehelper=new FirebaseHelper(db);
 
+
+        //////TEST
+        System.out.println("onCreate");
+        ArrayList<Major> majors = new ArrayList<>();
+        majors = firebasehelper.retrieveMajor();
+        System.out.println("firebasehelper.retrieveMajor():" + majors);
+        Major m = new Major();
+        for (int i = 0; i < majors.size(); i++) {
+            m = (Major) majors.get(i);
+            System.out.println("id: " + m.getMajor_id());
+            System.out.println("name: " + m.getMajor_name());
+        }
+
         //ADAPTER
         adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor());
-
-        ////////////
-        System.out.println("retrieve"+firebasehelper.retrieveMajor().toString());
 
 //        db= new Firebase("");
 
@@ -54,7 +67,9 @@ public class MajorListActivity extends AppCompatActivity {
 //            }
 //        };
 
+        adapter.notifyDataSetChanged();
         lv_MajorList.setAdapter(adapter);
     }
+
 
 }
