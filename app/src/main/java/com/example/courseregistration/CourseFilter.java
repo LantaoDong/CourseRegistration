@@ -61,6 +61,14 @@ public class CourseFilter extends AppCompatActivity{
                     Intent intentToStatistics = new Intent(CourseFilter.this,StatisticsCourses.class);
                     startActivity(intentToStatistics);
                 }
+                if(subject.equals("computer science")){
+                    Intent intentToCS = new Intent(CourseFilter.this, ComputerScienceCourses.class);
+                    startActivity(intentToCS);
+                }
+                if(subject.equals("math")){
+                    Intent intentToMath = new Intent(CourseFilter.this,MathCourses.class);
+                    startActivity(intentToMath);
+                }
 
 
             }

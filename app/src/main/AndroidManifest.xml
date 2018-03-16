@@ -35,7 +35,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CourseInfo" />
         <activity android:name=".CourseFilter" />
-        <activity android:name=".StatisticsCourses"></activity>
+        <activity android:name=".StatisticsCourses" />
+        <activity android:name=".ComputerScienceCourses" />
+        <activity android:name=".MathCourses"></activity>
     </application>
 
 </manifest>

@@ -17,7 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class StatisticsCourses extends AppCompatActivity {
+public class ComputerScienceCourses extends AppCompatActivity {
+
     ListView courses;
     ArrayList<String> course = new ArrayList<String>();
     Button back;
@@ -25,20 +26,20 @@ public class StatisticsCourses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics_courses);
-        courses = (ListView) findViewById(R.id.statistics);
+        setContentView(R.layout.activity_computer_science_courses);
+        courses = (ListView) findViewById(R.id.CS);
         back = (Button) findViewById(R.id.back);
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/Statistics");
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/computer science");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     String courseName = snapshot.child("courseID").getValue().toString();
-                    courseName+=" "+snapshot.child("courseName").getValue().toString();
+                    courseName += " "+snapshot.child("courseName").getValue().toString();
                     course.add(courseName);
                 }
-                ListAdapter adapter = new ArrayAdapter<String>(StatisticsCourses.this,android.R.layout.simple_list_item_1,course);
-                courses = (ListView) findViewById(R.id.statistics);
+                ListAdapter adapter = new ArrayAdapter<String>(ComputerScienceCourses.this,android.R.layout.simple_list_item_1,course);
+                courses = (ListView) findViewById(R.id.CS);
                 courses.setAdapter(adapter);
             }
 
@@ -50,7 +51,7 @@ public class StatisticsCourses extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent backToSubject = new Intent(StatisticsCourses.this, CourseFilter.class);
+                Intent backToSubject = new Intent(ComputerScienceCourses.this, CourseFilter.class);
                 startActivity(backToSubject);
             }
         });
