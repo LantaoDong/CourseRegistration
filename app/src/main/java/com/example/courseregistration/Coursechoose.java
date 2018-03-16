@@ -14,6 +14,12 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
 public class Coursechoose extends AppCompatActivity {
 
 
@@ -23,41 +29,64 @@ public class Coursechoose extends AppCompatActivity {
         setContentView(R.layout.activity_coursechoose);
 
         final Button button = (Button) findViewById(R.id.button3);
-        //button.setOnClickListener(new View.OnClickListener() {
-        //public void onClick(View v) {
+
         final CheckBox checkbox11 = (CheckBox) findViewById(R.id.checkBox11);
         final CheckBox checkbox12 = (CheckBox) findViewById(R.id.checkBox12);
         final CheckBox checkbox13 = (CheckBox) findViewById(R.id.checkBox13);
         final CheckBox checkbox14 = (CheckBox) findViewById(R.id.checkBox14);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra("data");
-        // String message1 = null;
+        final String message = intent.getStringExtra("data");
 
-        //TextView textView = findViewById(R.id.textView3);
-        if(message.equals("Computer Science"))
-        {
-            checkbox11.setText("CSCI1100");
-            checkbox12.setText("CSCI1101");
-            checkbox13.setText("CSCI2200");
-            checkbox14.setText("CSCI3300");
-        }
-        if(message.equals("Mathematics"))
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("subjects");
 
-        {
-            checkbox11.setText("MATH1020");
-            checkbox12.setText("MATH1030");
-            checkbox13.setText("MATH2050");
-            checkbox14.setText("MATH3070");
-        }
-        if(message.equals("Statistic"))
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String course1 = dataSnapshot.child("computer science").child("course 1").child("courseID").getValue(String.class);
+                String course2 = dataSnapshot.child("computer science").child("course 2").child("courseID").getValue(String.class);
+                String course3 = dataSnapshot.child("computer science").child("course 3").child("courseID").getValue(String.class);
+                String course4 = dataSnapshot.child("computer science").child("course 4").child("courseID").getValue(String.class);
+                String course5 = dataSnapshot.child("math").child("course 1").child("courseID").getValue(String.class);
+                String course6 = dataSnapshot.child("math").child("course 2").child("courseID").getValue(String.class);
+                String course7 = dataSnapshot.child("math").child("course 3").child("courseID").getValue(String.class);
+                String course8 = dataSnapshot.child("math").child("course 4").child("courseID").getValue(String.class);
+                String course9 = dataSnapshot.child("Statistics").child("course 4").child("courseID").getValue(String.class);
+                String course10 = dataSnapshot.child("Statistics").child("course 4").child("courseID").getValue(String.class);
+                String course11 = dataSnapshot.child("Statistics").child("course 4").child("courseID").getValue(String.class);
+                String course12 = dataSnapshot.child("Statistics").child("course 4").child("courseID").getValue(String.class);
+                if(message.equals("Computer Science"))
+                {
+                    checkbox11.setText(course1);
+                    checkbox12.setText(course2);
+                    checkbox13.setText(course3);
+                    checkbox14.setText(course4);
+                }
+                if(message.equals("Mathematics"))
 
-        {
-            checkbox11.setText("STAT1330");
-            checkbox12.setText("STAT1340");
-            checkbox13.setText("STAT2330");
-            checkbox14.setText("STAT3330");
-        }
+                {
+                    checkbox11.setText(course5);
+                    checkbox12.setText(course6);
+                    checkbox13.setText(course7);
+                    checkbox14.setText(course8);
+                }
+                if(message.equals("Statistic"))
+
+                {
+                    checkbox11.setText(course9);
+                    checkbox12.setText(course10);
+                    checkbox13.setText(course11);
+                    checkbox14.setText(course12);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         if(message.equals("Economic"))
 
         {
@@ -75,37 +104,7 @@ public class Coursechoose extends AppCompatActivity {
             checkbox14.setText("COMM3231");
         }
 
-        //choose course
-            /*if(checkbox11.isChecked())
-            {
-                message1 = checkbox11.getText().toString();
-                checkbox12.setEnabled(false);
-                checkbox13.setEnabled(false);
-                checkbox14.setEnabled(false);
-            }
-            if(checkbox12.isChecked())
-            {
-                message1 = checkbox12.getText().toString();
-                checkbox11.setEnabled(false);
-                checkbox13.setEnabled(false);
-                checkbox14.setEnabled(false);
-            }
-            if(checkbox13.isChecked())
-            {
-                message1 = checkbox13.getText().toString();
-                checkbox11.setEnabled(false);
-                checkbox12.setEnabled(false);
-                checkbox14.setEnabled(false);
-            }
-            if(checkbox14.isChecked())
-            {
-                message1 = checkbox14.getText().toString();
-                checkbox11.setEnabled(false);
-                checkbox12.setEnabled(false);
-                checkbox13.setEnabled(false);
-            }*/
-        //final String message2="";
-        //message2.equals(message1);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

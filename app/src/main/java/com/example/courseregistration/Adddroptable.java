@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
 
 public class Adddroptable extends AppCompatActivity {
 
@@ -30,7 +36,11 @@ public class Adddroptable extends AppCompatActivity {
         Intent intent2 = getIntent();
         String message2 = intent2.getStringExtra("data1");
 
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("subjects");
+
         if(message2.equals("CSCI1100")) {
+
             textView1.setText("100001 CSCI1100 Jack");
         }
         if(message2.equals("CSCI1101")) {
