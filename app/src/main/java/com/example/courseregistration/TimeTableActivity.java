@@ -32,13 +32,13 @@ public class TimeTableActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//
+
 //        nameTxt = (TextView) findViewById(R.id.nameDetailTxt);
 //        descTxt= (TextView) findViewById(R.id.descDetailTxt);
 //        propTxt = (TextView) findViewById(R.id.propellantDetailTxt);
 //
 //        //GET INTENT
-//        Intent i=this.getIntent();
+        Intent i=this.getIntent();
 //
 //
 //        //RECEIVE DATA

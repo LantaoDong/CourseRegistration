@@ -46,42 +46,37 @@ public class MajorListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup viewGroup) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
-//        View view = inflater.inflate(R.layout.item_major_list,null);
+
 
         if(convertView==null)
         {
             convertView= LayoutInflater.from(context).inflate(R.layout.model,viewGroup,false);
         }
-//        convertView = inflater.inflate(R.layout.item_major_list, null);
 
-        TextView tv_majorid= (TextView) convertView.findViewById(R.id.tx_majorid);
         TextView tv_majorname= (TextView) convertView.findViewById(R.id.tx_majorname);
 
         final Major major= (Major) this.getItem(position);
 
-        tv_majorid.setText(major.getMajor_id());
         tv_majorname.setText(major.getMajor_name());
-
-        System.out.println("majot Id" + tv_majorid.getText().toString());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //OPEN TIMETABLE
-//                openTimeTableActivity(major.getMajor_id(), major.getMajor_name());
+               openTimeTableActivity(major.getMajor_id());
             }
         });
 
         return convertView;
     }
 
-//    //OPEN DETAIL ACTIVITY
-//    private void openTimeTableActivity(String major_id)
-//    {
-//        ///c????
-//        Intent intent=new Intent(context,TimeTableActivity.class);
-//        intent.putExtra("MAJOR_ID",major_id);
-//
-//        context.startActivity(intent);
-//    }
+    //OPEN DETAIL ACTIVITY
+    private void openTimeTableActivity(String major_id)
+    {
+        Intent intent=new Intent(context,TimeTableActivity.class);
+        intent.putExtra("MAJOR_ID",major_id);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        
+        context.startActivity(intent);
+    }
 }

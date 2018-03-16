@@ -1,35 +1,51 @@
 {
   "project_info": {
-    "project_number": "140650405023",
-    "firebase_url": "https://courseregistration-314f3.firebaseio.com",
-    "project_id": "courseregistration-314f3",
-    "storage_bucket": "courseregistration-314f3.appspot.com"
+    "project_number": "334444209820",
+    "firebase_url": "https://course-registration-25e2b.firebaseio.com",
+    "project_id": "course-registration-25e2b",
+    "storage_bucket": "course-registration-25e2b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:140650405023:android:40464b25bf11f4ff",
+        "mobilesdk_app_id": "1:334444209820:android:40464b25bf11f4ff",
         "android_client_info": {
           "package_name": "com.example.courseregistration"
         }
       },
       "oauth_client": [
         {
-          "client_id": "140650405023-p0l2v5k2uenko00q7od2fp8amfit1rpq.apps.googleusercontent.com",
+          "client_id": "334444209820-fn5k1dclg57907tjatugdcjcvvps40ba.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.courseregistration",
-            "certificate_hash": "d10852adc7b31e6c8e6f9ead3f3f9f3d03b314b0"
+            "certificate_hash": "4b28a9a5a724dfee3b6b0efb5cc316df782622c0"
           }
         },
         {
-          "client_id": "140650405023-lqofichnmv6vhu9uodkdek87sif1areh.apps.googleusercontent.com",
+          "client_id": "334444209820-0t5m1hiv2q1md3k802bllgotuaclt6po.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.courseregistration",
+            "certificate_hash": "d263fd7a9a1a9830422b9edfb6b656f37485b3bb"
+          }
+        },
+        {
+          "client_id": "334444209820-22f4adoqklvcnjcq5h0quc5og10sm14u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.courseregistration",
+            "certificate_hash": "b1f1521242b5e5065f730314d16457537b1d3443"
+          }
+        },
+        {
+          "client_id": "334444209820-hnub2tntb3dlj8sonr79kjdmor9qtbk5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDLMIEhUefeCm0Ulm1-U5kdd1b0r4aN3Eg"
+          "current_key": "AIzaSyCyUZOtWCHYd9NXoEUGTZP6u_Zvz0TiFOI"
         }
       ],
       "services": {
@@ -40,7 +56,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "140650405023-lqofichnmv6vhu9uodkdek87sif1areh.apps.googleusercontent.com",
+              "client_id": "334444209820-hnub2tntb3dlj8sonr79kjdmor9qtbk5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
