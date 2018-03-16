@@ -22,6 +22,7 @@ public class UserActivity extends AppCompatActivity {
         timeTable = (Button) findViewById(R.id.timeTable);
         viewSchedule = (Button) findViewById(R.id.schedule);
         drop = (Button) findViewById(R.id.drop);
+        search = (Button) findViewById(R.id.searchCourse);
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
