@@ -34,8 +34,13 @@ public class MathCourses extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String courseName = snapshot.child("courseID").getValue().toString();
-                    courseName += " "+snapshot.child("courseName").getValue().toString();
+                    String courseName = snapshot.child("courseName").getValue().toString();
+                    String courseID = snapshot.child("courseID").getValue().toString();
+                    String instructor = snapshot.child("instructor").getValue().toString();
+                    String time = snapshot.child("time").getValue().toString();
+                    String location = snapshot.child("location").getValue().toString();
+                    //String num = snapshot.child("numberOfStudents").getValue().toString();
+                    courseName+="   "+snapshot.child("courseName").getValue().toString()+"    "+courseID+"    Instructor: "+instructor+"    Location: "+location+"    Course Schdule: "+time;
                     course.add(courseName);
                 }
                 ListAdapter adapter = new ArrayAdapter<String>(MathCourses.this,android.R.layout.simple_list_item_1,course);
