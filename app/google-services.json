@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "334444209820-0t5m1hiv2q1md3k802bllgotuaclt6po.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.courseregistration",
+            "certificate_hash": "d263fd7a9a1a9830422b9edfb6b656f37485b3bb"
+          }
+        },
+        {
+          "client_id": "334444209820-22f4adoqklvcnjcq5h0quc5og10sm14u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.courseregistration",
+            "certificate_hash": "b1f1521242b5e5065f730314d16457537b1d3443"
+          }
+        },
+        {
           "client_id": "334444209820-hnub2tntb3dlj8sonr79kjdmor9qtbk5.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334444209820-hnub2tntb3dlj8sonr79kjdmor9qtbk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

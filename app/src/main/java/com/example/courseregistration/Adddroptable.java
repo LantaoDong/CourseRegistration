@@ -43,7 +43,7 @@ public class Adddroptable extends AppCompatActivity {
         final DatabaseReference rcRef = usidRef.child("registered courses");
 
 
-        
+
         rcRef.addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(DataSnapshot dataSnapshot) {

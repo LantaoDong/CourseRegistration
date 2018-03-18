@@ -167,7 +167,7 @@
         app:layout_constraintVertical_bias="0.191" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/c1wctextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -231,7 +231,7 @@
         app:layout_constraintVertical_bias="0.191" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/c2wntextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -247,7 +247,7 @@
         app:layout_constraintVertical_bias="0.244" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/c4wntextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -263,7 +263,7 @@
         app:layout_constraintVertical_bias="0.587" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/c3wntextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -279,7 +279,7 @@
         app:layout_constraintVertical_bias="0.587" />
 
     <TextView
-        android:id="@+id/textView39"
+        android:id="@+id/c1maxtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -295,7 +295,7 @@
         app:layout_constraintVertical_bias="0.299" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/c1curtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -311,7 +311,7 @@
         app:layout_constraintVertical_bias="0.351" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/c2maxtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -327,7 +327,7 @@
         app:layout_constraintVertical_bias="0.297" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/c2curtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -343,7 +343,7 @@
         app:layout_constraintVertical_bias="0.351" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/c3maxtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -359,7 +359,7 @@
         app:layout_constraintVertical_bias="0.64" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/c3curtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -375,7 +375,7 @@
         app:layout_constraintVertical_bias="0.693" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/c4maxtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -391,7 +391,7 @@
         app:layout_constraintVertical_bias="0.64" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/c4curtextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -423,7 +423,7 @@
         app:layout_constraintVertical_bias="0.587" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/c2wctextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -551,7 +551,7 @@
         app:layout_constraintVertical_bias="0.297" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/c3wctextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -567,7 +567,7 @@
         app:layout_constraintVertical_bias="0.534" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/c1wntextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -599,7 +599,7 @@
         app:layout_constraintVertical_bias="0.244" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/c4wctextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
