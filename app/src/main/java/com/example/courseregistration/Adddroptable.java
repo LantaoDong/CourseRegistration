@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-
+import com.google.firebase.database.*;
 
 public class Adddroptable extends AppCompatActivity {
 
@@ -33,91 +33,53 @@ public class Adddroptable extends AppCompatActivity {
         final Button button5=(Button) findViewById(R.id.button7);
         final Button button6 = (Button) findViewById(R.id.button8);
 
-        Intent intent2 = getIntent();
-        String message2 = intent2.getStringExtra("data1");
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("subjects");
+        final DatabaseReference myRef = database.getReference();
+        Intent intent = getIntent();
+        final String userID = intent.getStringExtra("userID");
 
-        if(message2.equals("CSCI1100")) {
+        final DatabaseReference usRef = myRef.child("users");
+        final DatabaseReference usidRef = usRef.child(userID);
+        final DatabaseReference rcRef = usidRef.child("registered courses");
 
-            textView1.setText("100001 CSCI1100 Jack");
-        }
-        if(message2.equals("CSCI1101")) {
-            textView1.setText("100002 CSCI1101 Jack");
-        }
-        if(message2.equals("CSCI2200")) {
-            textView1.setText("100003 CSCI2200 Tom");
-        }
-        if(message2.equals("CSCI3300")) {
-            textView1.setText("100004 CSCI3300 Rose");
-        }
-        if(message2.equals("MATH1020")) {
-            textView1.setText("120001 MATH1020 Kitty");
-        }
-        if(message2.equals("MATH1030")) {
-            textView1.setText("120002 MATH1030 John");
-        }
-        if(message2.equals("MATH2050")) {
-            textView1.setText("120003 MATH2050 John");
-        }
-        if(message2.equals("MATH3070")) {
-            textView1.setText("120004 MATH3070 White");
-        }
-        if(message2.equals("STAT1330")) {
-            textView1.setText("210001 STAT1330 Black");
-        }
-        if(message2.equals("STAT1340")) {
-            textView1.setText("210002 STAT1340 Kim");
-        }
-        if(message2.equals("STAT2330")) {
-            textView1.setText("210003 STAT2330 Black");
-        }
-        if(message2.equals("STAT3330")) {
-            textView1.setText("210004 STAT3330 Green");
-        }
-        if(message2.equals("ECON1015")) {
-            textView1.setText("170001 ECON1015 Kimmy");
-        }
-        if(message2.equals("ECON1016")) {
-            textView1.setText("170002 ECON1016 Jewel");
-        }
-        if(message2.equals("ECON2015")) {
-            textView1.setText("170003 ECON2015 Kimmy");
-        }
-        if(message2.equals("ECON3015")) {
-            textView1.setText("170004 ECON3015 Jewel");
-        }
-        if(message2.equals("COMM1231")) {
-            textView1.setText("190201 COMM1231 Lina");
-        }
-        if(message2.equals("COMM1232")) {
-            textView1.setText("190202 COMM1232 Lina");
-        }
-        if(message2.equals("COMM2231")) {
-            textView1.setText("190203 COMM2231 Miya");
-        }
-        if(message2.equals("COMM3231")) {
-            textView1.setText("190204 COMM2231 Miya");
-        }
+        rcRef.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            String course1 = dataSnapshot.child("course1").getValue().toString();
+                                            textView1.setText(course1);
+                                            String course2 = dataSnapshot.child("course1").getValue().toString();
+                                            textView2.setText(course2);
+                                            String course3 = dataSnapshot.child("course1").getValue().toString();
+                                            textView3.setText(course3);
+                                            String course4 = dataSnapshot.child("course1").getValue().toString();
+                                            textView4.setText(course4);
+                                        }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
 
+        }
+    });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                myRef.child("users").child(userID).child("registered courses").child(textView1.getText().toString()).removeValue();
                 textView1.setText("");
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                myRef.child("users").child(userID).child("registered courses").child(textView2.getText().toString()).removeValue();
                 textView2.setText("");
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                myRef.child("users").child(userID).child("registered courses").child(textView3.getText().toString()).removeValue();
                 textView3.setText("");
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                myRef.child("users").child(userID).child("registered courses").child(textView4.getText().toString()).removeValue();
                 textView4.setText("");
             }
         });

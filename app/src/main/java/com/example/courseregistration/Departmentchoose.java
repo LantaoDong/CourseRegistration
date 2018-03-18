@@ -22,6 +22,9 @@ public class Departmentchoose extends AppCompatActivity {
         setContentView(R.layout.activity_departmentchoose);
         final Button button = (Button) findViewById(R.id.button);
 
+        Intent intent = getIntent();
+        final String userID = intent.getStringExtra("userID");
+
         String message = "";
         //final Intent intent = new Intent(this, Main3Activity.class);
         final CheckBox checkbox6 = (CheckBox) findViewById(R.id.checkBox6);
@@ -72,6 +75,7 @@ public class Departmentchoose extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(Departmentchoose.this, Coursechoose.class);
                 intent.putExtra("data", check);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

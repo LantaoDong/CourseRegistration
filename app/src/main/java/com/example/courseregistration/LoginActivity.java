@@ -95,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (passWord.equals(password)) {
                         Intent intentUserActivity = new Intent(LoginActivity.this, UserActivity.class);
                         startActivity(intentUserActivity);
+                        intentUserActivity.putExtra("userID", userID);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid password!", Toast.LENGTH_SHORT).show();
                     }

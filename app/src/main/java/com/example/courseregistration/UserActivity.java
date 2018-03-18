@@ -21,6 +21,9 @@ public class UserActivity extends AppCompatActivity {
         timeTable = (Button) findViewById(R.id.timeTable);
         viewSchedule = (Button) findViewById(R.id.schedule);
         drop = (Button) findViewById(R.id.drop);
+        Intent intent = getIntent();
+        final String userID = intent.getStringExtra("userID");
+
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +52,7 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentToD = new Intent(UserActivity.this, Departmentchoose.class);
                 startActivity(intentToD);
+                intentToD.putExtra("userID", userID);
             }
         });
 
