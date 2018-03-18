@@ -16,41 +16,50 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AddMajorsActivity extends AppCompatActivity {
-    //..
 
-    /*DatabaseReference db;
+    DatabaseReference db;
     FirebaseHelper firebasehelper;
-    //MajorListAdapter adapter;
+    MajorListAdapter adapter;
     ListView lv_addMajors;
-    EditText et_majorid, et_majorname;
+    EditText et_majorid, et_majorname,et_coursename;
     Button btn_addMajor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_majors);
+
         //INITIALIZE FIREBASE DB
-       // db= FirebaseDatabase.getInstance().getReference();
-       // firebasehelper = new FirebaseHelper(db);
+        db= FirebaseDatabase.getInstance().getReference();
+        firebasehelper = new FirebaseHelper(db);
         lv_addMajors = (ListView) findViewById(R.id.lv_MajorList);
+
         //ADAPTER
-        //adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
-        //lv_addMajors.setAdapter(adapter);
+//        adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
+//        lv_addMajors.setAdapter(adapter);
+
 //        displayInputDialog();
+
         et_majorid= (EditText) findViewById(R.id.et_majorid);
         et_majorname= (EditText) findViewById(R.id.et_majorname);
+        et_coursename=(EditText)findViewById(R.id.et_coursename);
         btn_addMajor= (Button) findViewById(R.id.btn_addMajor);
+
         //SAVE
         btn_addMajor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //GET DATA
                 String majorid=et_majorid.getText().toString();
                 String majorname=et_majorname.getText().toString();
-                //////////
-                System.out.println("majorID:" + majorid);
-                System.out.println("majorName:" + majorname);
+                String course_name=et_coursename.getText().toString();
+
+
                 //SET DATA
-                Major major=new Major(majorid, majorname);
+                Major major=new Major(majorid, majorname,course_name);
+
+
                 //SIMPLE VALIDATION
                 if(majorid != null && majorid.length()>0)
                 {
@@ -60,6 +69,8 @@ public class AddMajorsActivity extends AppCompatActivity {
                         //IF SAVED CLEAR EDITXT
                         et_majorid.setText("");
                         et_majorname.setText("");
+                        Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
+
 //                        adapter=new MajorListAdapter(AddMajorsActivity.this, firebasehelper.retrieveMajor());
 //                        lv_addMajors.setAdapter(adapter);
                     }
@@ -67,9 +78,12 @@ public class AddMajorsActivity extends AppCompatActivity {
                 {
                     Toast.makeText(AddMajorsActivity.this, "Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
+
     }
+
     //DISPLAY INPUT DIALOG
 //    private void displayInputDialog()
 //    {
@@ -119,5 +133,5 @@ public class AddMajorsActivity extends AppCompatActivity {
 //
 //        d.show();
 //    }
-*/
+
 }
