@@ -106,8 +106,7 @@ public class Coursechoose extends AppCompatActivity {
                     c1maxtextView.setText(maxnum4);
                     c1curtextView.setText(curnum4);
                 }
-                if (message.equals("Mathematics"))
-                {
+                if (message.equals("Mathematics")) {
                     checkbox11.setText(course1);
                     String wcnum1 = dataSnapshot.child("subjects").child(message).child("course1").child("waitlistcapacity").getValue().toString();
                     String wnnum1 = dataSnapshot.child("subjects").child(message).child("course1").child("waitlistnum").getValue().toString();
@@ -145,8 +144,7 @@ public class Coursechoose extends AppCompatActivity {
                     c1maxtextView.setText(maxnum4);
                     c1curtextView.setText(curnum4);
                 }
-                if (message.equals("Statistic"))
-                {
+                if (message.equals("Statistic")) {
                     checkbox11.setText(course1);
                     String wcnum1 = dataSnapshot.child("subjects").child(message).child("course1").child("waitlistcapacity").getValue().toString();
 
@@ -200,76 +198,82 @@ public class Coursechoose extends AppCompatActivity {
                     c1maxtextView.setText(maxnum4);
                     c1curtextView.setText(curnum4);
                 }
+            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String message1 = "";
-                        int counter = 0;
-                        if (checkbox11.isChecked())
-                        {
-                            message1 = checkbox11.getText().toString();
-                            checkbox12.setEnabled(false);
-                            checkbox13.setEnabled(false);
-                            checkbox14.setEnabled(false);
-                            myRef.child("user").child(userID).child("registered courses").child("course1").push().setValue(message1);
-                            String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num+1);
-                            counter = 1;
-                        }
-                        if (checkbox12.isChecked())
-                        {
-                            message1 = checkbox12.getText().toString();
-                            checkbox11.setEnabled(false);
-                            checkbox13.setEnabled(false);
-                            checkbox14.setEnabled(false);
-                            myRef.child("user").child(userID).child("registered courses").child("course2").push().setValue(message1);
-                            String num = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num+1);
-                            counter = 1;
-                        }
-                        if (checkbox13.isChecked())
-                        {
-                            message1 = checkbox13.getText().toString();
-                            checkbox11.setEnabled(false);
-                            checkbox12.setEnabled(false);
-                            checkbox14.setEnabled(false);
-                            myRef.child("user").child(userID).child("registered courses").child("course3").push().setValue(message1);
-                            String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num+1);
-                            counter = 1;
-                        }
-                        if (checkbox14.isChecked())
-                        {
-                            message1 = checkbox14.getText().toString();
-                            checkbox11.setEnabled(false);
-                            checkbox12.setEnabled(false);
-                            checkbox13.setEnabled(false);
-                            myRef.child("user").child(userID).child("registered courses").child("course4").push().setValue(message1);
-                            String num = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
-                            myRef.child("subjects").child(message).child("course 4").child("numberOfStudents").setValue(num+1);
-
-                                String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
-                                if(check.contains("CSCI 1100")){
+                        myRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(final DataSnapshot dataSnapshot) {
+                                String message1 = "";
+                                int counter = 0;
+                                if (checkbox11.isChecked()) {
+                                    message1 = checkbox11.getText().toString();
+                                    checkbox12.setEnabled(false);
+                                    checkbox13.setEnabled(false);
+                                    checkbox14.setEnabled(false);
+                                    myRef.child("user").child(userID).child("registered courses").child("course1").push().setValue(message1);
+                                    String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
+                                    myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num + 1);
                                     counter = 1;
                                 }
-                        }
-                        if(counter == 1) {
-                            Intent intent = new Intent();
-                            intent.setClass(Coursechoose.this, Adddroptable.class);
-                            intent.putExtra("userID", userID);
-                            startActivity(intent);
-                        }
-                        else{
-                            System.out.print("You need a pre courses.");
-                        }
-                    }
-                });
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                                if (checkbox12.isChecked()) {
+                                    message1 = checkbox12.getText().toString();
+                                    checkbox11.setEnabled(false);
+                                    checkbox13.setEnabled(false);
+                                    checkbox14.setEnabled(false);
+                                    myRef.child("user").child(userID).child("registered courses").child("course2").push().setValue(message1);
+                                    String num = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
+                                    myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num + 1);
+                                    counter = 1;
+                                }
+                                if (checkbox13.isChecked()) {
+                                    message1 = checkbox13.getText().toString();
+                                    checkbox11.setEnabled(false);
+                                    checkbox12.setEnabled(false);
+                                    checkbox14.setEnabled(false);
+                                    myRef.child("user").child(userID).child("registered courses").child("course3").push().setValue(message1);
+                                    String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
+                                    myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num + 1);
+                                    counter = 1;
+                                }
+                                if (checkbox14.isChecked()) {
+                                    message1 = checkbox14.getText().toString();
+                                    checkbox11.setEnabled(false);
+                                    checkbox12.setEnabled(false);
+                                    checkbox13.setEnabled(false);
+                                    myRef.child("user").child(userID).child("registered courses").child("course4").push().setValue(message1);
+                                    String num = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
+                                    myRef.child("subjects").child(message).child("course 4").child("numberOfStudents").setValue(num + 1);
 
-            }
-        });
+                                    String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
+                                    if (check.contains("CSCI 1100")) {
+                                        counter = 1;
+                                    }
+                                }
+                                if (counter == 1) {
+                                    Intent intent = new Intent();
+                                    intent.setClass(Coursechoose.this, Adddroptable.class);
+                                    intent.putExtra("userID", userID);
+                                    startActivity(intent);
+                                } else {
+                                    System.out.print("You need a pre courses.");
+                                }
+                            }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            });
+
     }
 }
