@@ -37,6 +37,7 @@ public class Coursechoose extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String message = intent.getStringExtra("data");
+        final String userID = intent.getStringExtra("userID");
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("subjects");
@@ -87,24 +88,6 @@ public class Coursechoose extends AppCompatActivity {
             }
         });
 
-        if(message.equals("Economic"))
-
-        {
-            checkbox11.setText("ECON1015");
-            checkbox12.setText("ECON1016");
-            checkbox13.setText("ECON2015");
-            checkbox14.setText("ECON3015");
-        }
-        if(message.equals("Commence"))
-
-        {
-            checkbox11.setText("COMM1231");
-            checkbox12.setText("COMM1232");
-            checkbox13.setText("COMM2231");
-            checkbox14.setText("COMM3231");
-        }
-
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +99,7 @@ public class Coursechoose extends AppCompatActivity {
                     checkbox12.setEnabled(false);
                     checkbox13.setEnabled(false);
                     checkbox14.setEnabled(false);
+                    myRef.child("user").child(userID).child("registered courses").child("course1").push().setValue(message1);
                 }
                 if(checkbox12.isChecked())
 
@@ -124,6 +108,7 @@ public class Coursechoose extends AppCompatActivity {
                     checkbox11.setEnabled(false);
                     checkbox13.setEnabled(false);
                     checkbox14.setEnabled(false);
+                    myRef.child("user").child(userID).child("registered courses").child("course2").push().setValue(message1);
                 }
                 if(checkbox13.isChecked())
 
@@ -132,6 +117,7 @@ public class Coursechoose extends AppCompatActivity {
                     checkbox11.setEnabled(false);
                     checkbox12.setEnabled(false);
                     checkbox14.setEnabled(false);
+                    myRef.child("user").child(userID).child("registered courses").child("course3").push().setValue(message1);
                 }
                 if(checkbox14.isChecked())
 
@@ -140,10 +126,11 @@ public class Coursechoose extends AppCompatActivity {
                     checkbox11.setEnabled(false);
                     checkbox12.setEnabled(false);
                     checkbox13.setEnabled(false);
+                    myRef.child("user").child(userID).child("registered courses").child("course4").push().setValue(message1);
                 }
                 Intent intent = new Intent();
                 intent.setClass(Coursechoose.this, Adddroptable.class);
-                intent.putExtra("data1", message1);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
