@@ -11,11 +11,11 @@ public class CourseDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
 
-        //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
+//
+//       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//
 //        nameTxt = (TextView) findViewById(R.id.nameDetailTxt);
 //        descTxt= (TextView) findViewById(R.id.descDetailTxt);
 //        propTxt = (TextView) findViewById(R.id.propellantDetailTxt);

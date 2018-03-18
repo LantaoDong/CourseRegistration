@@ -1,10 +1,12 @@
 package com.example.courseregistration;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -59,7 +61,18 @@ public class MajorListActivity extends AppCompatActivity {
             }
         }));
         lv_MajorList.setAdapter(adapter);
-
+        //switch activity after click major list
+        lv_MajorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                for (int i=0;i<position;i++){
+                    if(position==i){
+                        Intent myintent = new Intent(view.getContext(),CourseDetailActivity.class);
+                        startActivityForResult(myintent,i);
+                    }
+                }
+            }
+        });
 
     }
 
