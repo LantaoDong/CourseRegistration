@@ -38,7 +38,7 @@ public class FirebaseHelper{
         {
             try
             {
-                db.child("Major").push().setValue(major);
+                db.child("subjects").push().setValue(major);
                 saved =true;
 
             }catch (DatabaseException e)
