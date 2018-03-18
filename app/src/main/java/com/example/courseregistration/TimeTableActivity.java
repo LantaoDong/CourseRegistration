@@ -70,7 +70,6 @@ public class TimeTableActivity extends AppCompatActivity {
 //                            System.out.println("id: " + m.getMajor_id());
 //                            System.out.println("name: " + m.getMajor_name());
 //                        }
-
                     }
                 }));
 
