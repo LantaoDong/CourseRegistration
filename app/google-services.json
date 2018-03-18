@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "334444209820-grvjht2sb5pe2afiov9hpbdn6pmnadmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.courseregistration",
+            "certificate_hash": "7e9086659ed4c0d0a09bdd78f106cba35d8630f4"
+          }
+        },
+        {
           "client_id": "334444209820-fn5k1dclg57907tjatugdcjcvvps40ba.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
