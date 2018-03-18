@@ -50,13 +50,13 @@ public class MajorListAdapter extends BaseAdapter {
             convertView= LayoutInflater.from(context).inflate(R.layout.model,viewGroup,false);
         }
 
-        TextView tv_majorid= (TextView) convertView.findViewById(R.id.tx_majorid);
-        TextView tv_majorname= (TextView) convertView.findViewById(R.id.tx_majorname);
+        TextView tx_majorid= (TextView) convertView.findViewById(R.id.tx_majorid);
+        TextView tx_majorname= (TextView) convertView.findViewById(R.id.tx_majorname);
 
         final Major major= (Major) this.getItem(position);
 
-        tv_majorid.setText(major.getMajor_id());
-        tv_majorname.setText(major.getMajor_name());
+        tx_majorid.setText(major.getMajor_id());
+        tx_majorname.setText(major.getMajor_name());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
