@@ -21,7 +21,7 @@ public class AddMajorsActivity extends AppCompatActivity {
     FirebaseHelper firebasehelper;
     MajorListAdapter adapter;
     ListView lv_addMajors;
-    EditText et_majorid, et_majorname;
+    EditText et_majorid, et_majorname,et_coursename;
     Button btn_addMajor;
 
     @Override
@@ -32,9 +32,6 @@ public class AddMajorsActivity extends AppCompatActivity {
         //INITIALIZE FIREBASE DB
         db= FirebaseDatabase.getInstance().getReference();
         firebasehelper = new FirebaseHelper(db);
-
-
-
         lv_addMajors = (ListView) findViewById(R.id.lv_MajorList);
 
         //ADAPTER
@@ -45,6 +42,7 @@ public class AddMajorsActivity extends AppCompatActivity {
 
         et_majorid= (EditText) findViewById(R.id.et_majorid);
         et_majorname= (EditText) findViewById(R.id.et_majorname);
+        et_coursename=(EditText)findViewById(R.id.et_coursename);
         btn_addMajor= (Button) findViewById(R.id.btn_addMajor);
 
         //SAVE
@@ -55,10 +53,11 @@ public class AddMajorsActivity extends AppCompatActivity {
                 //GET DATA
                 String majorid=et_majorid.getText().toString();
                 String majorname=et_majorname.getText().toString();
+                String course_name=et_coursename.getText().toString();
 
 
                 //SET DATA
-                Major major=new Major(majorid, majorname);
+                Major major=new Major(majorid, majorname,course_name);
 
 
                 //SIMPLE VALIDATION
@@ -74,8 +73,6 @@ public class AddMajorsActivity extends AppCompatActivity {
 
 //                        adapter=new MajorListAdapter(AddMajorsActivity.this, firebasehelper.retrieveMajor());
 //                        lv_addMajors.setAdapter(adapter);
-
-
                     }
                 }else
                 {
