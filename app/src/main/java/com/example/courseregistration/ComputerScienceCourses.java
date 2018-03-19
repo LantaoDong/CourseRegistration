@@ -29,6 +29,7 @@ public class ComputerScienceCourses extends AppCompatActivity {
         setContentView(R.layout.activity_computer_science_courses);
         courses = (ListView) findViewById(R.id.CS);
         back = (Button) findViewById(R.id.back);
+        //retrieve subjects from firebase into a listview
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/computer science");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -48,6 +49,7 @@ public class ComputerScienceCourses extends AppCompatActivity {
 
             }
         });
+        //set click listener for each item of the list
         courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
