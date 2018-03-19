@@ -29,6 +29,7 @@ public class HelpContact extends AppCompatActivity {
         setContentView(R.layout.activity_help_contact);
         back = (Button) findViewById(R.id.back);
         help = (ListView) findViewById(R.id.help);
+        //retrieve contactIndex for each technical team
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("ContactInformation");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -45,7 +46,7 @@ public class HelpContact extends AppCompatActivity {
 
             }
         });
-
+        //put the name of technical team into a list view
         help.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

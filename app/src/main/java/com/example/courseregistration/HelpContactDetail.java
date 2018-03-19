@@ -29,6 +29,7 @@ public class HelpContactDetail extends AppCompatActivity {
         if(index!=null){
             contactIndex = (String) index.get("name");
         }
+        //retrieve contact information of technical team
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("ContactInformation");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
