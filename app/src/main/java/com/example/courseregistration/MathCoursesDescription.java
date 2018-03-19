@@ -29,7 +29,7 @@ public class MathCoursesDescription extends AppCompatActivity {
         if(courseDetail!=null){
             courseName = (String) courseDetail.get("name");
         }
-
+        //retrieve course description from firebase
         DatabaseReference math = FirebaseDatabase.getInstance().getReference("subjects/math");
         math.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

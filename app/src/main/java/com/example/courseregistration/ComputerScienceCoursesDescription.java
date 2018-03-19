@@ -29,6 +29,7 @@ public class ComputerScienceCoursesDescription extends AppCompatActivity {
         if(courseDetail!=null){
             courseName = (String) courseDetail.get("name");
         }
+        //retrieve course description from firebase
         DatabaseReference cs = FirebaseDatabase.getInstance().getReference("subjects/computer science");
         cs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
