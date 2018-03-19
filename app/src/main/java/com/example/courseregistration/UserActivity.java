@@ -55,6 +55,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intentToD);
             }
         });
+        //button to transit to course search activity
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +63,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intentToSearch);
             }
         });
+        //button to transit to help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
