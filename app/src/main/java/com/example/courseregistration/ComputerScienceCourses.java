@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -22,7 +23,6 @@ public class ComputerScienceCourses extends AppCompatActivity {
     ListView courses;
     ArrayList<String> course = new ArrayList<String>();
     Button back;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,15 @@ public class ComputerScienceCourses extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+        courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
+                String courseName = String.valueOf(adapterView.getItemAtPosition(i));
+                Intent courseDescription = new Intent(ComputerScienceCourses.this,ComputerScienceCoursesDescription.class);
+                courseDescription.putExtra("name",courseName);
+                startActivity(courseDescription);
             }
         });
         back.setOnClickListener(new View.OnClickListener() {

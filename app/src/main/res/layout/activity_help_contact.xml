@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.courseregistration.CourseFilter">
+    tools:context="com.example.courseregistration.HelpContact">
 
     <ListView
-        android:id="@+id/subject"
+        android:id="@+id/help"
         android:layout_width="368dp"
-        android:layout_height="404dp"
-        android:layout_marginLeft="8dp"
+        android:layout_height="419dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/back"
@@ -24,5 +25,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subject" />
+        app:layout_constraintTop_toBottomOf="@+id/help" />
 </android.support.constraint.ConstraintLayout>

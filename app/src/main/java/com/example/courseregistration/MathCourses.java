@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -46,6 +47,16 @@ public class MathCourses extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+        courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
+                String courseName = String.valueOf(adapterView.getItemAtPosition(i));
+                Intent intentToMathCoursesDescription = new Intent(MathCourses.this,MathCoursesDescription.class);
+                intentToMathCoursesDescription.putExtra("name",courseName);
+                startActivity(intentToMathCoursesDescription);
             }
         });
         back.setOnClickListener(new View.OnClickListener() {

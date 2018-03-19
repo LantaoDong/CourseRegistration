@@ -6,24 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.courseregistration.DBHelper.FirebaseHelper;
-import com.example.courseregistration.UI.MajorListAdapter;
-import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CourseFilter extends AppCompatActivity{
+    Button back;
     ListView subjects;
     final ArrayList<String> majors = new ArrayList<String>();
 
@@ -32,6 +27,7 @@ public class CourseFilter extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_filter);
+        back = (Button) findViewById(R.id.back);
         subjects = (ListView) findViewById(R.id.subject);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -71,6 +67,13 @@ public class CourseFilter extends AppCompatActivity{
                 }
 
 
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToUser = new Intent(CourseFilter.this, UserActivity.class);
+                startActivity(intentToUser);
             }
         });
 
