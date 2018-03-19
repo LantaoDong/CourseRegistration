@@ -1,5 +1,5 @@
 package com.example.courseregistration;
-
+import com.example.courseregistration.DBHelper.FirebaseHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
+import com.example.courseregistration.models.CourseInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,7 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Coursechoose extends AppCompatActivity {
 
-
+    public ArrayList<CourseInfo> courseList =  new ArrayList<CourseInfo>();
+    //FirebaseHelper firebasehelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +62,6 @@ public class Coursechoose extends AppCompatActivity {
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -210,9 +212,20 @@ public class Coursechoose extends AppCompatActivity {
                     public void onClick(View v) {
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
+
+
                             public void onDataChange(final DataSnapshot dataSnapshot) {
                                 String message1 = "";
+                                DatabaseReference checktime=myRef.child("user").child(userID).child("registered courses");
                                 int counter = 0;
+
+                                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                    String userKey = snapshot.getKey();
+                                    String user = snapshot.child("registered courses").getValue(String.class);
+                                    CourseInfo course = snapshot.getValue(CourseInfo.class);
+                                    courseList.add(course);
+                                }
+
                                 if (checkbox11.isChecked()) {
                                     message1 = checkbox11.getText().toString();
                                     checkbox12.setEnabled(false);
@@ -238,6 +251,7 @@ public class Coursechoose extends AppCompatActivity {
                                     checkbox11.setEnabled(false);
                                     checkbox12.setEnabled(false);
                                     checkbox14.setEnabled(false);
+                                    //if(checktime.child("time").)
                                     myRef.child("user").child(userID).child("registered courses").child("course3").push().setValue(message1);
                                     String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
                                     myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num + 1);
