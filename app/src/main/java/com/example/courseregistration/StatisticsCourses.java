@@ -29,6 +29,7 @@ public class StatisticsCourses extends AppCompatActivity {
         setContentView(R.layout.activity_statistics_courses);
         courses = (ListView) findViewById(R.id.statistics);
         back = (Button) findViewById(R.id.back);
+        //retrieve stat courses from firebase into a listview
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/Statistics");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -53,6 +54,7 @@ public class StatisticsCourses extends AppCompatActivity {
 
             }
         });
+        //set click listener for each item of the list
         courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {
