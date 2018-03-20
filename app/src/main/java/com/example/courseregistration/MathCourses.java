@@ -27,8 +27,8 @@ public class MathCourses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics_courses);
-        courses = (ListView) findViewById(R.id.statistics);
+        setContentView(R.layout.activity_math_courses);
+        courses = (ListView) findViewById(R.id.math);
         back = (Button) findViewById(R.id.back);
         //retrieve math courses from firebase into a listview
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/math");
@@ -41,7 +41,7 @@ public class MathCourses extends AppCompatActivity {
                     course.add(courseName);
                 }
                 ListAdapter adapter = new ArrayAdapter<String>(MathCourses.this,android.R.layout.simple_list_item_1,course);
-                courses = (ListView) findViewById(R.id.statistics);
+                courses = (ListView) findViewById(R.id.math);
                 courses.setAdapter(adapter);
             }
 
