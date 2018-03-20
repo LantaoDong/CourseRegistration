@@ -236,6 +236,7 @@ public class Coursechoose extends AppCompatActivity {
                                     myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(num + 1);
                                     counter = 1;
                                 }
+                                   
                                 if (checkbox12.isChecked()) {
                                     message1 = checkbox12.getText().toString();
                                     checkbox11.setEnabled(false);
