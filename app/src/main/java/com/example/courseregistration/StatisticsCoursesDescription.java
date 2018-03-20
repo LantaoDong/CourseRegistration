@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StatisticsCoursesDescription extends AppCompatActivity {
     Button back;
-    String courseName = "";
+    String courseName = " ";
     TextView STATdescription;
 
     @Override
