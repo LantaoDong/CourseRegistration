@@ -51,8 +51,8 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentToD = new Intent(UserActivity.this, Departmentchoose.class);
-                startActivity(intentToD);
                 intentToD.putExtra("userID", userID);
+                startActivity(intentToD);
             }
         });
 
