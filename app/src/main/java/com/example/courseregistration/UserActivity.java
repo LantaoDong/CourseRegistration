@@ -33,13 +33,13 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        timeTable.setOnClickListener(new View.OnClickListener() {
+        /*timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentToTimeTable = new Intent(UserActivity.this,MajorListActivity.class);
                 startActivity(intentToTimeTable);
             }
-        });
+        });*/
         viewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
