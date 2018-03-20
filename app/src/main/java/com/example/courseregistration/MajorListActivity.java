@@ -119,4 +119,3 @@ public class MajorListActivity extends AppCompatActivity {
         });
     }
 }
-
