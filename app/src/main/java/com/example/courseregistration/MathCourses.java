@@ -27,6 +27,7 @@ public class MathCourses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //refactor
         setContentView(R.layout.activity_math_courses);
         courses = (ListView) findViewById(R.id.math);
         back = (Button) findViewById(R.id.back);
