@@ -47,13 +47,13 @@ public class Adddroptable extends AppCompatActivity {
         rcRef.addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(DataSnapshot dataSnapshot) {
-                                            String course1 = dataSnapshot.child("course1").getValue().toString();
+                                            String course1 = dataSnapshot.child("course 1").child("courseID").getValue().toString();
                                             textView1.setText(course1);
-                                            String course2 = dataSnapshot.child("course1").getValue().toString();
+                                            String course2 = dataSnapshot.child("course 2").child("courseID").getValue().toString();
                                             textView2.setText(course2);
-                                            String course3 = dataSnapshot.child("course1").getValue().toString();
+                                            String course3 = dataSnapshot.child("course 3").child("courseID").getValue().toString();
                                             textView3.setText(course3);
-                                            String course4 = dataSnapshot.child("course1").getValue().toString();
+                                            String course4 = dataSnapshot.child("course 4").child("courseID").getValue().toString();
                                             textView4.setText(course4);
                                         }
         @Override
@@ -61,28 +61,32 @@ public class Adddroptable extends AppCompatActivity {
 
         }
     });
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child(textView1.getText().toString()).removeValue();
-                textView1.setText("");
-            }
-        });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child(textView2.getText().toString()).removeValue();
-                textView2.setText("");
+                textView2.setText("null");
+                rcRef.child("course 2").child("courseID").setValue("null");
+                rcRef.child("course 2").child("subject").setValue("null");
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                textView1.setText("null");
+                rcRef.child("course 1").child("courseID").setValue("null");
+                rcRef.child("course 1").child("subject").setValue("null");
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child(textView3.getText().toString()).removeValue();
-                textView3.setText("");
+                textView3.setText("null");
+                rcRef.child("course 3").child("courseID").setValue("null");
+                rcRef.child("course 3").child("subject").setValue("null");
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child(textView4.getText().toString()).removeValue();
-                textView4.setText("");
+                textView4.setText("null");
+                rcRef.child("course 4").child("courseID").setValue("null");
+                rcRef.child("course 4").child("subject").setValue("null");
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {

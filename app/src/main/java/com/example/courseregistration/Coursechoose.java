@@ -230,9 +230,6 @@ public class Coursechoose extends AppCompatActivity {
 
                                 if (checkbox11.isChecked()) {
                                     message1 = checkbox11.getText().toString();
-                                    checkbox12.setEnabled(false);
-                                    checkbox13.setEnabled(false);
-                                    checkbox14.setEnabled(false);
                                     myRef.child("users").child(userID).child("registered courses").child("course 1").child("courseID").setValue(message1);
                                     myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue("computer science");
                                     String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
@@ -241,22 +238,19 @@ public class Coursechoose extends AppCompatActivity {
                                     int numint = Integer.parseInt(num);
                                     int numintcap = Integer.parseInt(numcap);
                                     int numintwaitnum = Integer.parseInt(numwaitnum);
-                                    if(numintcap > numint) {
-                                        numint = numint + 1;
-                                        myRef.child("subjects").child(message).child("course 2").child("numberOfStudents").setValue(numint);
+                                    if(numintcap == numint) {
+                                        numintwaitnum = numintwaitnum + 1;
+                                        myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum);
                                     }
                                     else{
-                                        numintwaitnum = numintwaitnum + 1;
-                                        myRef.child("subjects").child(message).child("course 2").child("waitlistnum").setValue(numintwaitnum);
+                                        numint = numint + 1;
+                                        myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint);
                                     }
                                     counter = 1;
                                 }
 
                                 if (checkbox12.isChecked()) {
                                     message1 = checkbox12.getText().toString();
-                                    checkbox11.setEnabled(false);
-                                    checkbox13.setEnabled(false);
-                                    checkbox14.setEnabled(false);
                                     myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
                                     myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue("computer science");
                                     String num = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
@@ -277,9 +271,6 @@ public class Coursechoose extends AppCompatActivity {
                                 }
                                 if (checkbox13.isChecked()) {
                                     message1 = checkbox13.getText().toString();
-                                    checkbox11.setEnabled(false);
-                                    checkbox12.setEnabled(false);
-                                    checkbox14.setEnabled(false);
                                     myRef.child("users").child(userID).child("registered courses").child("course 3").child("courseID").setValue(message1);
                                     myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue("computer science");
                                     String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
@@ -300,9 +291,6 @@ public class Coursechoose extends AppCompatActivity {
                                 }
                                 if (checkbox14.isChecked()) {
                                     message1 = checkbox14.getText().toString();
-                                    checkbox11.setEnabled(false);
-                                    checkbox12.setEnabled(false);
-                                    checkbox13.setEnabled(false);
                                     myRef.child("users").child(userID).child("registered courses").child("course 4").child("courseID").setValue(message1);
                                     myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue("computer science");
                                     String num = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
@@ -313,11 +301,11 @@ public class Coursechoose extends AppCompatActivity {
                                     int numintwaitnum = Integer.parseInt(numwaitnum);
                                     if(numintcap > numint) {
                                         numint = numint + 1;
-                                        myRef.child("subjects").child(message).child("course 3").child("numberOfStudents").setValue(numint);
+                                        myRef.child("subjects").child(message).child("course 4").child("numberOfStudents").setValue(numint);
                                     }
                                     else{
                                         numintwaitnum = numintwaitnum + 1;
-                                        myRef.child("subjects").child(message).child("course 3").child("waitlistnum").setValue(numintwaitnum);
+                                        myRef.child("subjects").child(message).child("course 4").child("waitlistnum").setValue(numintwaitnum);
                                     }
                                     String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
                                     if (check.contains("CSCI 1100")) {
