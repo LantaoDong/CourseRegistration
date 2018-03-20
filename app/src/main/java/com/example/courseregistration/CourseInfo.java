@@ -30,11 +30,11 @@ public class CourseInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_list);
         final String[] majors ={
-                "BIOL 1020 Introductory Biology Cr Hrs: 3, Max: 120, Cur: 75, Instructor: Staff",
-                "Commerce 2200 Macrco Economics Cr Hrs: 3, Max: 150, Cur 50, Instructor: Staff",
-                "Computer Science 330 Software Engineering Cr Hrs: 3, Max: 120, Cur 80, Instructor: Staff",
-                "Economics 2200 Macrco Economics Cr Hrs: 3, Max: 150, Cur 50, Instructor: Staff",
-                "Engineering ENGI 1103 Engineering Design Cr Hrs: 3, Max: 90, Cur 40, Instructor: Staff"
+                "BIOL 1020 Introductory Biology Cr Hrs: 3, Max: 120, Cur: 75, Instructor: Staff, Time: 8:25-9:35",
+                "Commerce 2200 Micro Economics Cr Hrs: 3, Max: 150, Cur 50, Instructor: Staff Time: 10:35-11:45",
+                "Computer Science 330 Software Engineering Cr Hrs: 3, Max: 120, Cur 80, Instructor: Staff, Time: 12:00-13:25",
+                "Economics 2200 Macrco Economics Cr Hrs: 3, Max: 150, Cur 50, Instructor: Staff, Time: 10:00-10:55",
+                "Engineering ENGI 1103 Engineering Design Cr Hrs: 3, Max: 90, Cur 40, Instructor: Staff, Time: 14:35-15:45"
         };
         mj.getIntent();
         ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,majors);

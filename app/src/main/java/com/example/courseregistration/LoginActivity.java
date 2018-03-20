@@ -61,8 +61,6 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     performLogin(iUsername, iPassword);
                 }
-
-
             }
 
 

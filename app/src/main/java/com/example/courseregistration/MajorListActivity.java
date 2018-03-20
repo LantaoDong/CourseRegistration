@@ -18,8 +18,11 @@ import android.widget.Toast;
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 import com.example.courseregistration.UI.MajorListAdapter;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -65,7 +68,6 @@ public class MajorListActivity extends AppCompatActivity {
             }
         }};
     }*/
-    private int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,21 +89,33 @@ public class MajorListActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         String courses = String.valueOf(adapterView.getItemAtPosition(i));
-                        Toast.makeText(MajorListActivity.this, courses, Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MajorListActivity.this, CourseInfo.class);
-                        startActivityForResult(intent, i);
-                        position = i;
+                        Toast.makeText(MajorListActivity.this,courses,Toast.LENGTH_LONG).show();;
+                        Intent intent = new Intent(MajorListActivity.this,CourseInfo.class);
+                        startActivityForResult(intent,i);
+
                     }
                 }
         );
     }
 
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, CourseInfo.class);
-        TextView editText = (TextView) findViewById(R.id.textView);
-        String message = editText.getText().toString();
-        String EXTRA_MESSAGE = "BIOL 1020 Introductory Biology Cr Hrs: 3, Max: 120, Cur: 75, Instructor: Staff";
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+
+    //check if the input username is in database
+    public void performLogin(String major){
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String majorKey = snapshot.getKey();
+                    String major = snapshot.child("computerscience").getValue(String.class);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
