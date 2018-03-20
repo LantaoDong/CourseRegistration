@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\andiro studo project\CourseRegistration\Course-Registration.iml" filepath="D:\andiro studo project\CourseRegistration\Course-Registration.iml" />
       <module fileurl="file://$PROJECT_DIR$/CourseRegistration.iml" filepath="$PROJECT_DIR$/CourseRegistration.iml" />
-      <module fileurl="file://C:\Users\71578\AndroidStudioProjects\Course-Registration\.idea\CourseRegistration.iml" filepath="C:\Users\71578\AndroidStudioProjects\Course-Registration\.idea\CourseRegistration.iml" />
+      <module fileurl="file://C:\Users\71578\AndroidStudioProjects\CourseRegistration\CourseRegistration.iml" filepath="C:\Users\71578\AndroidStudioProjects\CourseRegistration\CourseRegistration.iml" />
+      <module fileurl="file://C:\Users\Jaspering21\AndroidStudioProjects\CourseRegistration\.idea\CourseRegistration.iml" filepath="C:\Users\Jaspering21\AndroidStudioProjects\CourseRegistration\.idea\CourseRegistration.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Jaspering21\AndroidStudioProjects\CourseRegistration\iration2 adddrop.iml" filepath="C:\Users\Jaspering21\AndroidStudioProjects\CourseRegistration\iration2 adddrop.iml" />
+      <module fileurl="file://C:\Users\71578\AndroidStudioProjects\CourseRegistration\app\app.iml" filepath="C:\Users\71578\AndroidStudioProjects\CourseRegistration\app\app.iml" />
     </modules>
   </component>
 </project>
