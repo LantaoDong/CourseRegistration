@@ -40,7 +40,7 @@ public class UserActivity extends AppCompatActivity {
         viewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewSche = new Intent(UserActivity.this,ViewSchedule.class);
+                Intent viewSche = new Intent(UserActivity.this,SchduleActivity.class);
                 startActivity(viewSche);
             }
         });
