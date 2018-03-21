@@ -25,10 +25,7 @@
         <activity android:name=".Coursechoose" />
         <activity android:name=".Adddroptable" />
         <activity android:name=".MondaySchdule"/>
-        <activity
-            android:name=".MajorListActivity"
-            android:label="@string/title_activity_major_list"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".AddMajorsActivity" />
         <activity android:name=".CourseFilter" />
         <activity android:name=".StatisticsCourses" />
@@ -39,6 +36,10 @@
         <activity android:name=".StatisticsCoursesDescription" />
         <activity android:name=".HelpContact" />
         <activity android:name=".HelpContactDetail"></activity>
+
+        <activity android:name=".MajorListActivity"/>
+        <activity android:name=".CourseDetailActivity" />
+        <activity android:name=".AddCoursesActivity"/>
     </application>
 
 </manifest>
