@@ -23,6 +23,8 @@ public class CourseInfo {
     public int course_wl;
     public double course_per;
     public String course_instructor;
+    public String course_description;
+    public String course_prerequire;
     public String major_id;
 
     public CourseInfo() {
@@ -32,7 +34,8 @@ public class CourseInfo {
     public CourseInfo(String course_id, String course_name, int course_section, String course_type,
                       double course_crdhrs, String course_days, String course_times,
                       String course_location, int course_max, int course_cur, int course_available,
-                      int course_wl, double course_per, String course_instructor, String major_id) {
+                      int course_wl, double course_per, String course_instructor,
+                      String course_description, String course_prerequire, String major_id) {
         this.course_id = course_id;
         this.course_name = course_name;
         this.course_section = course_section;
@@ -47,7 +50,9 @@ public class CourseInfo {
         this.course_wl = course_wl;
         this.course_per = course_per;
         this.course_instructor = course_instructor;
+        this.course_description = course_description;
+        this.course_prerequire = course_prerequire;
         this.major_id = major_id;
     }
 
-}
+

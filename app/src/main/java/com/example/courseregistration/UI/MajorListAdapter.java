@@ -45,37 +45,28 @@ public class MajorListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
 
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+
         if(convertView==null)
         {
             convertView= LayoutInflater.from(context).inflate(R.layout.model,viewGroup,false);
         }
 
-        TextView tv_majorid= (TextView) convertView.findViewById(R.id.tx_majorid);
         TextView tv_majorname= (TextView) convertView.findViewById(R.id.tx_majorname);
 
         final Major major= (Major) this.getItem(position);
 
-        tv_majorid.setText(major.getMajor_id());
         tv_majorname.setText(major.getMajor_name());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //OPEN DETAIL
-//                openTimeTableActivity(major.getMajor_id(), major.getMajor_name());
+                //OPEN TIMETABLE
+               openTimeTableActivity(major.getMajor_id());
             }
         });
 
         return convertView;
     }
 
-//    //OPEN DETAIL ACTIVITY
-//    private void openTimeTableActivity(String major_id)
-//    {
-//        ///c????
-//        Intent intent=new Intent(context,TimeTableActivity.class);
-//        intent.putExtra("MAJOR_ID",major_id);
-//
-//        context.startActivity(intent);
-//    }
-}
