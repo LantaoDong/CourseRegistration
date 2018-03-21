@@ -97,6 +97,7 @@ public class Adddroptable extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(Adddroptable.this, Departmentchoose.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

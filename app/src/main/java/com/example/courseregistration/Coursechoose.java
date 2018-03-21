@@ -64,6 +64,22 @@ public class Coursechoose extends AppCompatActivity {
         System.out.println(userID);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
+        final DatabaseReference usRef = myRef.child("users").child(userID).child("registered courses");
+
+                usRef.addValueEventListener(new ValueEventListener() {
+           @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+               for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                   String Time = snapshot.child("time").getValue().toString();
+                   //String days = snapshot.child("days").getValue().toString();
+                   timeList.add(Time);
+               }
+            }
+           @Override
+           public void onCancelled(DatabaseError databaseError) {
+
+           }
+        });
 
             Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -278,7 +294,7 @@ public class Coursechoose extends AppCompatActivity {
                                     }
                                     if(checkcounter == 0) {
                                         myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
-                                        myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue("computer science");
+                                        myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue(message);
                                     }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
