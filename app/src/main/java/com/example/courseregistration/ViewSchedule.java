@@ -40,7 +40,7 @@ public class ViewSchedule extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Day that was clicked on by the user
-                String selectedDay = (String) daysadapter.getItem(position);
+                String selectedDay = String.valueOf(parent.getItemAtPosition(position));
 
                 Intent intent = new Intent(ViewSchedule.this, ViewScheduleSingleDay.class);
                 intent.putExtra("day", selectedDay);

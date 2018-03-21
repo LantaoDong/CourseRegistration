@@ -5,14 +5,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class ViewScheduleSingleDay extends AppCompatActivity {
 
     ListView classesListView;
+    ArrayList<String> classTime = new ArrayList<String>();
+    String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,33 +35,65 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         final String selectedDay = intent.getStringExtra("day");
         final String userID = intent.getStringExtra("userID");
 
+        // The code of the selected day. Mon = M, Tues = T, Wed = W, Thurs = R, Fri = F
+        final String selectedDayCode = getDayCode(selectedDay);
+
         TextView dayTextView = (TextView) findViewById(R.id.dayTextView);
         dayTextView.setText(selectedDay+"'s Classes");
 
         classesListView = (ListView) findViewById(R.id.classesListView);
-
-        /*
-        firebaseAdapter = new FirebaseListAdapter<Contact>(this, Contact.class,
-                android.R.layout.simple_list_item_1, appData.firebaseReference) {
+        String directory = "users/"+userID+"/registered courses";
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference(directory);
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            protected void populateView(View v, Contact model, int position) {
-                /*
-                TextView contactName = (TextView)v.findViewById(android.R.id.text1);
-                contactName.setText(model.buisnessname);
-                *//*
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    time = snapshot.child("courseID").getValue().toString();
+                    time+="\n"+snapshot.child("time").getValue().toString();
+                    if (time.contains(selectedDayCode)) {
+                        classTime.add(time);
+                    }
+                }
+
+
+
+                ListAdapter adapter = new ArrayAdapter<String>(ViewScheduleSingleDay.this,android.R.layout.simple_list_item_1,classTime);
+                classesListView.setAdapter(adapter);
             }
-        };
-        classesListView.setAdapter(firebaseAdapter);
-        classesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            // onItemClick method is called everytime a user clicks an item on the list
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent intent = new Intent(ViewScheduleSingleDay.this, ViewScheduleSingleDayDetail.class);
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        */
+    }
 
+    /**
+     * Takes in the day, returns the single character code for that day
+     *
+     * @param day
+     * @return
+     */
+    public String getDayCode(String day) {
+        String returncode = "";
+        switch(day.toLowerCase()){
+            case "monday":
+                returncode = "M";
+                break;
+            case "tuesday":
+                returncode = "T";
+                break;
+            case "wednesday":
+                returncode = "W";
+                break;
+            case "thursday":
+                returncode = "R";
+                break;
+            case "friday":
+                returncode = "F";
+                break;
+            default:
+        }
+    return returncode;
     }
 }

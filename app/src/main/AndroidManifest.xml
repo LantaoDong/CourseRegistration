@@ -40,6 +40,8 @@
         <activity android:name=".StatisticsCoursesDescription" />
         <activity android:name=".HelpContact" />
         <activity android:name=".HelpContactDetail"></activity>
+        <activity android:name=".ViewScheduleSingleDay"></activity>
+
     </application>
 
 </manifest>

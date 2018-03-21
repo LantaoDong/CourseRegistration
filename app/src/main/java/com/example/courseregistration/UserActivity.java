@@ -25,9 +25,10 @@ public class UserActivity extends AppCompatActivity {
         drop = (Button) findViewById(R.id.drop);
         search = (Button) findViewById(R.id.searchCourse);
         help = (Button) findViewById(R.id.help);
-
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
+
+
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,7 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent viewSche = new Intent(UserActivity.this,ViewSchedule.class);
+                viewSche.putExtra("userID",userID);
                 startActivity(viewSche);
             }
         });
