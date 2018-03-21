@@ -60,7 +60,7 @@ public class TimeTableActivity extends AppCompatActivity {
         //INITIALIZE FIREBASE DB
         db= FirebaseDatabase.getInstance().getReference();
 
-        db.child("CourseInfo").addListenerForSingleValueEvent(new ValueEventListener() {
+        db.child("CourseInfo").orderByChild("major_id").equalTo(majorID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
