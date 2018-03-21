@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class activity_viewscheduleday extends AppCompatActivity {
+public class ViewScheduleSingleDay extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,10 +13,13 @@ public class activity_viewscheduleday extends AppCompatActivity {
         setContentView(R.layout.activity_viewscheduleday);
 
         Intent intent = getIntent();
-        String selectedDay = intent.getStringExtra("day");
-        TextView dayTextView = (TextView) findViewById(R.id.dayTextView);
+        final String selectedDay = intent.getStringExtra("day");
+        final String userID = intent.getStringExtra("userID");
 
-        dayTextView.setText(selectedDay);
+        TextView dayTextView = (TextView) findViewById(R.id.dayTextView);
+        dayTextView.setText(selectedDay+"'s Classes");
+        
+
 
     }
 }

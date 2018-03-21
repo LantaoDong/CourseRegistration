@@ -1,6 +1,5 @@
 package com.example.courseregistration;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,13 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-import com.example.courseregistration.models.MyApplicationData;
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -29,6 +21,9 @@ public class ViewSchedule extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewschedule);
+
+        Intent intent = getIntent();
+        final String userID = intent.getStringExtra("userID");
 
         daysListView = (ListView) findViewById(R.id.lstView);
         ArrayList<String> days = new ArrayList<String>();
@@ -47,11 +42,11 @@ public class ViewSchedule extends AppCompatActivity{
                 // Day that was clicked on by the user
                 String selectedDay = (String) daysadapter.getItem(position);
 
-                Intent intent = new Intent(ViewSchedule.this, activity_viewscheduleday.class);
+                Intent intent = new Intent(ViewSchedule.this, ViewScheduleSingleDay.class);
                 intent.putExtra("day", selectedDay);
+                intent.putExtra("userID", userID);
+
                 startActivity(intent);
-
-
             }
         });
 
