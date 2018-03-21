@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".TimeTableActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".TimeTableActivity" />
         <activity android:name=".MajorListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddMajorsActivity"></activity>
-        <activity android:name=".CourseDetailActivity"></activity>
+        <activity android:name=".AddMajorsActivity">
+
+
+        </activity>
+
+        <activity android:name=".CourseDetailActivity" />
+        <activity android:name=".AddCoursesActivity">
+
+        </activity>
     </application>
 
 </manifest>

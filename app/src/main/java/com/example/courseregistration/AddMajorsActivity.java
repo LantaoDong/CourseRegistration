@@ -19,8 +19,6 @@ public class AddMajorsActivity extends AppCompatActivity {
 
     DatabaseReference db;
     FirebaseHelper firebasehelper;
-    MajorListAdapter adapter;
-    ListView lv_addMajors;
     EditText et_majorid, et_majorname;
     Button btn_addMajor;
 
@@ -35,7 +33,7 @@ public class AddMajorsActivity extends AppCompatActivity {
 
 
 
-        lv_addMajors = (ListView) findViewById(R.id.lv_MajorList);
+//        lv_addMajors = (ListView) findViewById(R.id.lv_MajorList);
 
         //ADAPTER
 //        adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
@@ -79,7 +77,7 @@ public class AddMajorsActivity extends AppCompatActivity {
                     }
                 }else
                 {
-                    Toast.makeText(AddMajorsActivity.this, "Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddMajorsActivity.this, "ID Must Not Be Empty", Toast.LENGTH_SHORT).show();
                 }
 
             }

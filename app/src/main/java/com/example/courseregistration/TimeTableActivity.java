@@ -47,7 +47,10 @@ public class TimeTableActivity extends AppCompatActivity {
         //GET INTENT
         Intent intent = this.getIntent();
         String majorID = intent.getStringExtra("MAJOR_ID");
-//
+
+        //////////////////////
+        System.out.println("MAJORID from intent: "+majorID);
+
         lv_CourseList = (ListView) findViewById(R.id.lv_CourseList);
 
         //INITIALIZE FIREBASE DB
@@ -59,21 +62,23 @@ public class TimeTableActivity extends AppCompatActivity {
                     @Override
                     public void onCourseCallback(ArrayList<CourseInfo> courseInfos) {
 
+                        ////////////
+                        courseInfos = firebasehelper.retrieveCourse("0001",this);
+                        System.out.println("*****firebasehelper.retrieveCourse():" + courseInfos);
+                        CourseInfo c = new CourseInfo();
+                        for (int i = 0; i < courseInfos.size(); i++) {
+                            c = (CourseInfo) courseInfos.get(i);
+                            System.out.println("course_id: " + c.getCourse_id());
+                            System.out.println("course_name: " + c.getCourse_name());
+                        }
+
                         lv_CourseList.setAdapter(adapter);
 
-                        ////////////
-//                        majors = firebasehelper.retrieveMajor(this);
-//                        System.out.println("/////////firebasehelper.retrieveMajor():" + majors);
-//                        Major m = new Major();
-//                        for (int i = 0; i < majors.size(); i++) {
-//                            m = (Major) majors.get(i);
-//                            System.out.println("id: " + m.getMajor_id());
-//                            System.out.println("name: " + m.getMajor_name());
-//                        }
+
 
                     }
                 }));
 
-        lv_CourseList.setAdapter(adapter);
+//        lv_CourseList.setAdapter(adapter);
     }
 }

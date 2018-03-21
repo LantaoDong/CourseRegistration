@@ -50,7 +50,7 @@ public class TimeTableAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
 
 
-        if(convertView==null)
+        if(convertView == null)
         {
             convertView= LayoutInflater.from(context).inflate(R.layout.model_timetable,viewGroup,false);
         }
