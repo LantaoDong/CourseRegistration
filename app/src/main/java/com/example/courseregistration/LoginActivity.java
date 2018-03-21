@@ -92,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                     String passWord = dataSnapshot.child(userID).child("password").getValue(String.class);
                     if (passWord.equals(password)) {
                         Intent intentUserActivity = new Intent(LoginActivity.this, UserActivity.class);
+                        intentUserActivity.putExtra("userID",userID);
                         startActivity(intentUserActivity);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid password!", Toast.LENGTH_SHORT).show();
