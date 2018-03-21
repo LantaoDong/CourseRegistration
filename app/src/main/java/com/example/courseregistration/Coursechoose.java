@@ -82,7 +82,7 @@ public class Coursechoose extends AppCompatActivity {
         });
 
             Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
-        myRef.addValueEventListener(new ValueEventListener() {
+            myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
 
