@@ -41,24 +41,35 @@ public class MajorListActivity extends AppCompatActivity {
         firebasehelper=new FirebaseHelper(db);
 
         //ADAPTER
-        adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(new MajorCallbacks() {
+//        adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(new MajorCallbacks() {
+//            @Override
+//            public void onMajorCallback(ArrayList<Major> majors) {
+////                adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(this));
+//                lv_MajorList.setAdapter(adapter);
+//
+//                ////////////
+//                majors = firebasehelper.retrieveMajor(this);
+//                System.out.println("/////////firebasehelper.retrieveMajor():" + majors);
+//                Major m = new Major();
+//                for (int i = 0; i < majors.size(); i++) {
+//                    m = (Major) majors.get(i);
+//                    System.out.println("id: " + m.getMajor_id());
+//                    System.out.println("name: " + m.getMajor_name());
+//                }
+//            }
+//        }));
+//        lv_MajorList.setAdapter(adapter);
+
+        //TEST
+        firebasehelper.retrieveMajor(new MajorCallbacks() {
             @Override
             public void onMajorCallback(ArrayList<Major> majors) {
-//                adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(this));
+                adapter = new MajorListAdapter(getApplicationContext(), majors);
                 lv_MajorList.setAdapter(adapter);
-
-                ////////////
-                majors = firebasehelper.retrieveMajor(this);
-                System.out.println("/////////firebasehelper.retrieveMajor():" + majors);
-                Major m = new Major();
-                for (int i = 0; i < majors.size(); i++) {
-                    m = (Major) majors.get(i);
-                    System.out.println("id: " + m.getMajor_id());
-                    System.out.println("name: " + m.getMajor_name());
-                }
             }
-        }));
-        lv_MajorList.setAdapter(adapter);
+        });
+
+
 
 
     }

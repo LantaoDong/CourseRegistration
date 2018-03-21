@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.courseregistration.CourseDetailActivity;
 import com.example.courseregistration.R;
 import com.example.courseregistration.TimeTableActivity;
 import com.example.courseregistration.models.CourseInfo;
@@ -65,26 +66,43 @@ public class TimeTableAdapter extends BaseAdapter {
         tv_courseid.setText(courseInfo.getCourse_id());
         tv_coursename.setText(courseInfo.getCourse_name());
         tv_courseinstructor.setText(courseInfo.getCourse_instructor());
-        tv_courseavailable.setText(courseInfo.getCourse_available());
+        tv_courseavailable.setText(String.valueOf(courseInfo.getCourse_available()));
 
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //OPEN TIMETABLE
-//                openTimeTableActivity(major.getMajor_id());
-//            }
-//        });
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //OPEN Coursedetail
+                openCourseDetailActivity(courseInfo);
+            }
+        });
 
         return convertView;
     }
 
-//    //OPEN DETAIL ACTIVITY
-//    private void openTimeTableActivity(String major_id)
-//    {
-//        Intent intent=new Intent(context,TimeTableActivity.class);
-//        intent.putExtra("MAJOR_ID",major_id);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//
-//        context.startActivity(intent);
-//    }
+    //OPEN CourseDetail ACTIVITY
+    private void openCourseDetailActivity(CourseInfo courseInfo)
+    {
+        Intent intent=new Intent(context,CourseDetailActivity.class);
+
+        intent.putExtra("course_id",courseInfo.getCourse_id());
+        intent.putExtra("course_name",courseInfo.getCourse_name());
+        intent.putExtra("course_section",courseInfo.getCourse_section());
+        intent.putExtra("course_type",courseInfo.getCourse_type());
+        intent.putExtra("course_crdhrs",courseInfo.getCourse_crdhrs());
+        intent.putExtra("course_days",courseInfo.getCourse_days());
+        intent.putExtra("course_times",courseInfo.getCourse_times());
+        intent.putExtra("course_location",courseInfo.getCourse_location());
+        intent.putExtra("course_max",courseInfo.getCourse_max());
+        intent.putExtra("course_cur",courseInfo.getCourse_cur());
+        intent.putExtra("course_available",courseInfo.getCourse_available());
+        intent.putExtra("course_wl",courseInfo.getCourse_wl());
+        intent.putExtra("course_per",courseInfo.getCourse_per());
+        intent.putExtra("course_instructor",courseInfo.getCourse_instructor());
+        intent.putExtra("course_description",courseInfo.getCourse_description());
+        intent.putExtra("course_prerequire",courseInfo.getCourse_prerequire());
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        context.startActivity(intent);
+    }
 }

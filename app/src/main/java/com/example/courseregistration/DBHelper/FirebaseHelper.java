@@ -23,6 +23,10 @@ public class FirebaseHelper{
     private ArrayList<Major> majors = new ArrayList<>();
     private ArrayList<CourseInfo> courseInfos = new ArrayList<>();
 
+    //////
+//    CourseInfo courseInfo = new CourseInfo();
+
+
     public FirebaseHelper(DatabaseReference db) {
         this.db = db;
     }
@@ -75,21 +79,14 @@ public class FirebaseHelper{
         return saved;
     }
 
+    //TEST
+    public void retrieveMajor(final MajorCallbacks majorCallbacks){
 
-    public ArrayList<Major> retrieveMajor(final MajorCallbacks majorCallbacks){
-
-        ChildEventListener childEventListener = new ChildEventListener() {
+        db.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-//                ////////////////
-//                System.out.println("------Major_datasnapshot: "+dataSnapshot.child("Major").child("-L7fwyCsWVMvJ4CK_aSF").child("major_id").getValue());
-
-                // majors.clear();
-
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Major major = ds.getValue(Major.class);
-//                    majors.add(major);
 
                     if (major != null && major.getMajor_id() != null) {
                         majors.add(major);
@@ -98,29 +95,10 @@ public class FirebaseHelper{
                 }
 
                 majorCallbacks.onMajorCallback(majors);
-
-//                if (!majors.isEmpty()){
-//                    db.removeEventListener(this);
-//                }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-//                majors.clear();
-
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Major major = ds.getValue(Major.class);
-
-                    if (major != null && major.getMajor_id() != null) {
-                        majors.add(major);
-                    }
-                }
-                majorCallbacks.onMajorCallback(majors);
-
-//                if (!majors.isEmpty()){
-//                    db.removeEventListener(this);
-//                }
 
             }
 
@@ -138,13 +116,94 @@ public class FirebaseHelper{
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        };
+        });
 
-        db.addChildEventListener(childEventListener);
+//        db.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    Major major = ds.getValue(Major.class);
+//
+//                    if (major != null && major.getMajor_id() != null) {
+//                        majors.add(major);
+//                    }
+//
+//                }
+//
+//                majorCallbacks.onMajorCallback(majors);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
-        if (!majors.isEmpty()){
-            db.removeEventListener(childEventListener);
-        }
+//        ChildEventListener childEventListener = new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//
+////                ////////////////
+////                System.out.println("------Major_datasnapshot: "+dataSnapshot.child("Major").child("-L7fwyCsWVMvJ4CK_aSF").child("major_id").getValue());
+//
+//                // majors.clear();
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    Major major = ds.getValue(Major.class);
+////                    majors.add(major);
+//
+//                    if (major != null && major.getMajor_id() != null) {
+//                        majors.add(major);
+//                    }
+//
+//                }
+//
+//                majorCallbacks.onMajorCallback(majors);
+//
+////                if (!majors.isEmpty()){
+////                    db.removeEventListener(this);
+////                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+////                majors.clear();
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    Major major = ds.getValue(Major.class);
+//
+//                    if (major != null && major.getMajor_id() != null) {
+//                        majors.add(major);
+//                    }
+//                }
+//                majorCallbacks.onMajorCallback(majors);
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        };
+//
+//        db.addChildEventListener(childEventListener);
+//
+//        if (!majors.isEmpty()){
+//            db.removeEventListener(childEventListener);
+//        }
 
 //        db.addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override
@@ -165,105 +224,323 @@ public class FirebaseHelper{
 //            }
 //        });
 
-        return majors;
-
     }
 
 
+      //Recover
+//    public ArrayList<Major> retrieveMajor(final MajorCallbacks majorCallbacks){
+//
+//        ChildEventListener childEventListener = new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//
+////                ////////////////
+////                System.out.println("------Major_datasnapshot: "+dataSnapshot.child("Major").child("-L7fwyCsWVMvJ4CK_aSF").child("major_id").getValue());
+//
+//                // majors.clear();
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    Major major = ds.getValue(Major.class);
+////                    majors.add(major);
+//
+//                    if (major != null && major.getMajor_id() != null) {
+//                        majors.add(major);
+//                    }
+//
+//                }
+//
+//                majorCallbacks.onMajorCallback(majors);
+//
+////                if (!majors.isEmpty()){
+////                    db.removeEventListener(this);
+////                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+////                majors.clear();
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    Major major = ds.getValue(Major.class);
+//
+//                    if (major != null && major.getMajor_id() != null) {
+//                        majors.add(major);
+//                    }
+//                }
+//                majorCallbacks.onMajorCallback(majors);
+//
+////                if (!majors.isEmpty()){
+////                    db.removeEventListener(this);
+////                }
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        };
+//
+//        db.addChildEventListener(childEventListener);
+//
+//        if (!majors.isEmpty()){
+//            db.removeEventListener(childEventListener);
+//        }
+//
+////        db.addListenerForSingleValueEvent(new ValueEventListener() {
+////            @Override
+////            public void onDataChange(DataSnapshot dataSnapshot) {
+////                majors.clear();
+////
+////                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+////                    Major major = ds.getValue(Major.class);
+////                    majors.add(major);
+////                }
+////
+////                majorCallbacks.onMajorCallback(majors);
+////            }
+////
+////            @Override
+////            public void onCancelled(DatabaseError databaseError) {
+////
+////            }
+////        });
+//
+//        return majors;
+//
+//    }
 
-    public ArrayList<CourseInfo> retrieveCourse(String majorID, final CourseCallbacks courseCallbacks){
-
-        ///////////
-//        System.out.println("()()(/(KEY  "+ db.child("CourseInfo").child("-L80BFa-cRcoHo_cuM7W").child("course_id"));
-
-        ChildEventListener childEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                //                majors.clear();
-
-                ///////////////
-                System.out.println("+++++datasnapshot: "+dataSnapshot.getValue());
-
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+    //////////TSET
+//    public void retrieveCourse(String majorID, final CourseCallbacks courseCallbacks){
+//
+//        ChildEventListener childEventListener = new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+//                //                majors.clear();
+//
+//                ///////////////
+//                System.out.println("+++++datasnapshot: "+dataSnapshot.getValue());
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
 //                    CourseInfo courseInfo = ds.getValue(CourseInfo.class);
-
-                    CourseInfo courseInfo = new CourseInfo();
-                    courseInfo.setCourse_id(ds.getValue(String.class));
-                    courseInfo.setCourse_name(ds.getValue(String.class));
-
-                    //////////
-                    System.out.println("$$$$$CourseInfo_ID: "+courseInfo.getCourse_id());
-
-                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
-                        courseInfos.add(courseInfo);
-                    }
-
-//                    courseInfos.add(courseInfo);
-
-                    ////////////
-                    System.out.println("######COURSES_IN_HELPER(): " + courseInfos);
-                    CourseInfo c = new CourseInfo();
-                    for (int i = 0; i < courseInfos.size(); i++) {
-                        c = (CourseInfo) courseInfos.get(i);
-                        System.out.println("course_id: " + c.getCourse_id());
-                        System.out.println("course_name: " + c.getCourse_name());
-                    }
-                }
-
-                ////////
-//                if (!courseInfos.isEmpty()){
-//                    courseCallbacks.onCourseCallback(courseInfos);
+//
+////                    courseInfo.setCourse_id(ds.getValue(CourseInfo.class).getCourse_id());
+////                    courseInfo.setCourse_name(ds.getValue(CourseInfo.class).getCourse_name());
+//
+//
+//
+////                    CourseInfo courseInfo = new CourseInfo();
+//
+////                    courseInfo.setCourse_id(ds.child("-L80BFa-cRcoHo_cuM7W").child("course_id").getValue(String.class));
+////                    courseInfo.setCourse_name(ds.child("-L80BFa-cRcoHo_cuM7W").child("course_name").getValue(String.class));
+//
+//                    //////////
+//                    System.out.println("$$$$$CourseInfo_ID: "+courseInfo.getCourse_id());
+//
+//                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
+//                        courseInfos.add(courseInfo);
+//                    }
+//
+////                    courseInfos.add(courseInfo);
+//
+//                    ////////////
+//                    System.out.println("######COURSES_IN_HELPER(): " + courseInfos);
+//                    CourseInfo c = new CourseInfo();
+//                    for (int i = 0; i < courseInfos.size(); i++) {
+//                        c = (CourseInfo) courseInfos.get(i);
+//                        System.out.println("course_id: " + c.getCourse_id());
+//                        System.out.println("course_name: " + c.getCourse_name());
+//                    }
+//                }
+//
+//                ////////
+////                if (!courseInfos.isEmpty()){
+////                    courseCallbacks.onCourseCallback(courseInfos);
+////
+////                }
+//                courseCallbacks.onCourseCallback(courseInfos);
+////
+////                if (!courseInfos.isEmpty()){
+////                    db.removeEventListener(this);
+////                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {
+//
+////                majors.clear();
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    CourseInfo courseInfo = ds.getValue(CourseInfo.class);
+//
+//                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
+//                        courseInfos.add(courseInfo);
+//                    }
+////                    courseInfos.add(courseInfo);
 //
 //                }
-                courseCallbacks.onCourseCallback(courseInfos);
 //
-//                if (!courseInfos.isEmpty()){
-//                    db.removeEventListener(this);
+//                courseCallbacks.onCourseCallback(courseInfos);
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        };
+//
+////        db.addChildEventListener(childEventListener);
+//        db.child("CourseInfo").orderByChild("major_id").equalTo(majorID).addChildEventListener(childEventListener);
+//        db.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    CourseInfo courseInfo = ds.getValue(CourseInfo.class);
 //                }
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {
-
-//                majors.clear();
-
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    CourseInfo courseInfo = ds.getValue(CourseInfo.class);
-
-                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
-                        courseInfos.add(courseInfo);
-                    }
+//
+//                //////////
+//                System.out.println("$$$$$CourseInfo_ID: "+courseInfo.getCourse_id());
+//
+//                if (courseInfo != null && courseInfo.getCourse_id() != null) {
 //                    courseInfos.add(courseInfo);
-
-                }
-
-                courseCallbacks.onCourseCallback(courseInfos);
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-
-        db.addChildEventListener(childEventListener);
-               db.child("CourseInfo").orderByChild("major_id").equalTo(majorID).addChildEventListener(childEventListener);
+//                }
+//
+//                courseCallbacks.onCourseCallback(courseInfos);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
 
-        return courseInfos;
 
-    }
+
+
+//    public ArrayList<CourseInfo> retrieveCourse(String majorID, final CourseCallbacks courseCallbacks){
+//
+//        ///////////
+////        System.out.println("()()(/(KEY  "+ db.child("CourseInfo").child("-L80BFa-cRcoHo_cuM7W").child("course_id"));
+//
+//        ChildEventListener childEventListener = new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+//                //                majors.clear();
+//
+//                ///////////////
+//                System.out.println("+++++datasnapshot: "+dataSnapshot.getValue());
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    CourseInfo courseInfo = ds.getValue(CourseInfo.class);
+//
+////                    courseInfo.setCourse_id(ds.getValue(CourseInfo.class).getCourse_id());
+////                    courseInfo.setCourse_name(ds.getValue(CourseInfo.class).getCourse_name());
+//
+//
+//
+////                    CourseInfo courseInfo = new CourseInfo();
+//
+////                    courseInfo.setCourse_id(ds.child("-L80BFa-cRcoHo_cuM7W").child("course_id").getValue(String.class));
+////                    courseInfo.setCourse_name(ds.child("-L80BFa-cRcoHo_cuM7W").child("course_name").getValue(String.class));
+//
+//                    //////////
+//                    System.out.println("$$$$$CourseInfo_ID: "+courseInfo.getCourse_id());
+//
+//                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
+//                        courseInfos.add(courseInfo);
+//                    }
+//
+////                    courseInfos.add(courseInfo);
+//
+//                    ////////////
+//                    System.out.println("######COURSES_IN_HELPER(): " + courseInfos);
+//                    CourseInfo c = new CourseInfo();
+//                    for (int i = 0; i < courseInfos.size(); i++) {
+//                        c = (CourseInfo) courseInfos.get(i);
+//                        System.out.println("course_id: " + c.getCourse_id());
+//                        System.out.println("course_name: " + c.getCourse_name());
+//                    }
+//                }
+//
+//                ////////
+////                if (!courseInfos.isEmpty()){
+////                    courseCallbacks.onCourseCallback(courseInfos);
+////
+////                }
+//                courseCallbacks.onCourseCallback(courseInfos);
+////
+////                if (!courseInfos.isEmpty()){
+////                    db.removeEventListener(this);
+////                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {
+//
+////                majors.clear();
+//
+//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    CourseInfo courseInfo = ds.getValue(CourseInfo.class);
+//
+//                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
+//                        courseInfos.add(courseInfo);
+//                    }
+////                    courseInfos.add(courseInfo);
+//
+//                }
+//
+//                courseCallbacks.onCourseCallback(courseInfos);
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        };
+//
+//        db.addChildEventListener(childEventListener);
+////        db.child("CourseInfo").orderByChild("major_id").equalTo(majorID).addChildEventListener(childEventListener);
+//
+//
+//        return courseInfos;
+//
+//    }
 
 
 }

@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <include layout="@layout/content_major_list" />
+    <include layout="@layout/content_timetable" />
 
 </LinearLayout>
 
