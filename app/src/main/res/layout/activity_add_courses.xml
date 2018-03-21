@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/et_courseid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="14dp"
+            android:hint="Course ID"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_courseid"
+            android:layout_marginTop="29dp"
+            android:hint="Course Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursesection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursename"
+            android:layout_marginTop="29dp"
+            android:hint="Course Section"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursetype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursesection"
+            android:layout_marginTop="29dp"
+            android:hint="Course Type"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursecrdhrs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursetype"
+            android:layout_marginTop="29dp"
+            android:hint="Course Credit Hours"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursedays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursecrdhrs"
+            android:layout_marginTop="29dp"
+            android:hint="Course Days"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursetimes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursedays"
+            android:layout_marginTop="29dp"
+            android:hint="Course Times"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_courselocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursetimes"
+            android:layout_marginTop="29dp"
+            android:hint="Course Location"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursemax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_courselocation"
+            android:layout_marginTop="29dp"
+            android:hint="Course Max"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursecur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursemax"
+            android:layout_marginTop="29dp"
+            android:hint="Course Current"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/et_coursewl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursecur"
+            android:layout_marginTop="29dp"
+            android:hint="Course Waiting List"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_courseinstructor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursewl"
+            android:layout_marginTop="29dp"
+            android:hint="Course Instructor"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_coursedescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_courseinstructor"
+            android:layout_marginTop="29dp"
+            android:hint="Course Description"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_courseprerequire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_coursedescription"
+            android:layout_marginTop="29dp"
+            android:hint="Course Pre-requirements"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_majorid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_courseprerequire"
+            android:layout_marginTop="29dp"
+            android:hint="Major ID"
+            android:inputType="textPersonName" />
+
+
+        <Button
+            android:id="@+id/btn_addCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_majorid"
+            android:layout_marginEnd="153dp"
+            android:layout_marginTop="25dp"
+            android:text="add course" />
+
+
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>
