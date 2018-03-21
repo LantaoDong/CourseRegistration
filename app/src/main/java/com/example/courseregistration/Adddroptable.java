@@ -78,26 +78,24 @@ public class Adddroptable extends AppCompatActivity {
                         rcRef.child("course 1").child("subject").setValue("null");
                         rcRef.child("course 1").child("time").setValue("null");
                         String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
-                        String numcap = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
 
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
                             myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
-
-                        } else if(numint > 0) {
+                        } else if (numint > 0) {
                             int numint1 = numint - 1;
-
                             myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
                         }
                     }
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
+
                 });
             }
             });
@@ -112,11 +110,9 @@ public class Adddroptable extends AppCompatActivity {
                 rcRef.child("course 2").child("subject").setValue("null");
                 rcRef.child("course 2").child("time").setValue("null");
                         String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
-                        String numcap = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
 
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
@@ -146,11 +142,9 @@ public class Adddroptable extends AppCompatActivity {
                         rcRef.child("course 3").child("subject").setValue("null");
                         rcRef.child("course 3").child("time").setValue("null");
                         String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
-                        String numcap = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
 
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
@@ -186,7 +180,6 @@ public class Adddroptable extends AppCompatActivity {
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
 
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;

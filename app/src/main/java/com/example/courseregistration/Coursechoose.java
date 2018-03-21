@@ -284,7 +284,7 @@ public class Coursechoose extends AppCompatActivity {
                                     }
                                     if(checkcounter == 0) {*/
                             myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue("computer science");
+                            myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue(message);
                                    /* }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
@@ -320,7 +320,7 @@ public class Coursechoose extends AppCompatActivity {
                                     }
                                     if(checkcounter == 0) {*/
                             myRef.child("users").child(userID).child("registered courses").child("course 3").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue("computer science");
+                            myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue(message);
                                    /* }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
@@ -359,7 +359,7 @@ public class Coursechoose extends AppCompatActivity {
                                     }
                                     if(checkcounter == 0) {*/
                             myRef.child("users").child(userID).child("registered courses").child("course 4").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue("computer science");
+                            myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue(message);
                                     /*}
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();

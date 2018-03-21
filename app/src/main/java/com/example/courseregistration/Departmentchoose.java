@@ -40,6 +40,7 @@ public class Departmentchoose extends AppCompatActivity {
                     checkbox8.setEnabled(false);
                     checkbox9.setEnabled(false);
                     checkbox10.setEnabled(false);
+                    checkbox6.setChecked(false);
                 }
                 //checkbox6.setChecked(false);
                 if (checkbox7.isChecked()) {
@@ -48,6 +49,7 @@ public class Departmentchoose extends AppCompatActivity {
                     checkbox8.setEnabled(false);
                     checkbox9.setEnabled(false);
                     checkbox10.setEnabled(false);
+                    checkbox7.setChecked(false);
                 }
                 //checkbox7.setChecked(false);
                 if (checkbox8.isChecked()) {
@@ -56,6 +58,7 @@ public class Departmentchoose extends AppCompatActivity {
                     checkbox6.setEnabled(false);
                     checkbox9.setEnabled(false);
                     checkbox10.setEnabled(false);
+                    checkbox8.setChecked(false);
 
                 }
                 //checkbox8.setChecked(false);
@@ -65,6 +68,7 @@ public class Departmentchoose extends AppCompatActivity {
                     checkbox8.setEnabled(false);
                     checkbox6.setEnabled(false);
                     checkbox10.setEnabled(false);
+                    checkbox9.setChecked(false);
                 }
                 //checkbox9.setChecked(false);
                 if (checkbox10.isChecked()) {
@@ -73,6 +77,7 @@ public class Departmentchoose extends AppCompatActivity {
                     checkbox8.setEnabled(false);
                     checkbox9.setEnabled(false);
                     checkbox10.setEnabled(false);
+                    checkbox10.setChecked(false);
                 }
                 Intent intent = new Intent();
                 intent.setClass(Departmentchoose.this, Coursechoose.class);
