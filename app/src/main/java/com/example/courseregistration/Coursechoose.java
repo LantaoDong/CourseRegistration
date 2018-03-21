@@ -379,7 +379,9 @@ public class Coursechoose extends AppCompatActivity {
                                 myRef.child("subjects").child(message).child("course 4").child("waitlistnum").setValue(numintwaitnum1);
                                 checkbox11.setChecked(false);
                             }
+                            Log.d("test1","It is a special courses.");
                         }
+
                         // String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
                         //if (check.contains("CSCI 1100")) {
 

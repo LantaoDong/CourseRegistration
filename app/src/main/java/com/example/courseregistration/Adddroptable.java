@@ -33,6 +33,11 @@ public class Adddroptable extends AppCompatActivity {
         final Button button5 = (Button) findViewById(R.id.button7);
         final Button button6 = (Button) findViewById(R.id.button8);
 
+        button2.setEnabled(true);
+        button3.setEnabled(true);
+        button4.setEnabled(true);
+        button5.setEnabled(true);
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
         Intent intent = getIntent();
@@ -62,6 +67,7 @@ public class Adddroptable extends AppCompatActivity {
 
         }
     });
+
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 myRef.addValueEventListener(new ValueEventListener() {
@@ -78,16 +84,15 @@ public class Adddroptable extends AppCompatActivity {
                         int numint = Integer.parseInt(num);
                         int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintcap > numint) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numint1);
-
-                        } else {
+                        if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numintwaitnum1);
+                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
 
+                        } else if(numint > 0) {
+                            int numint1 = numint - 1;
+
+                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
                         }
-
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -113,16 +118,15 @@ public class Adddroptable extends AppCompatActivity {
                         int numint = Integer.parseInt(num);
                         int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintcap > numint) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numint1);
-
-                        } else {
+                        if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numintwaitnum1);
+                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
 
+                        } else if(numint > 0) {
+                            int numint1 = numint - 1;
+
+                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
                         }
-
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -131,15 +135,16 @@ public class Adddroptable extends AppCompatActivity {
                 });
             }
         });
+
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(final DataSnapshot dataSnapshot) {
-                textView3.setText("null");
-                rcRef.child("course 3").child("courseID").setValue("null");
-                rcRef.child("course 3").child("subject").setValue("null");
-                rcRef.child("course 3").child("time").setValue("null");
+                        textView3.setText("null");
+                        rcRef.child("course 3").child("courseID").setValue("null");
+                        rcRef.child("course 3").child("subject").setValue("null");
+                        rcRef.child("course 3").child("time").setValue("null");
                         String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
                         String numcap = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
@@ -147,17 +152,18 @@ public class Adddroptable extends AppCompatActivity {
                         int numint = Integer.parseInt(num);
                         int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintcap > numint) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numint1);
-
-                        } else {
+                        if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numintwaitnum1);
+                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
 
+                        } else if (numint > 0) {
+                            int numint1 = numint - 1;
+
+                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
                         }
 
                     }
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
@@ -165,6 +171,7 @@ public class Adddroptable extends AppCompatActivity {
                 });
             }
         });
+
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 myRef.addValueEventListener(new ValueEventListener() {
@@ -181,14 +188,14 @@ public class Adddroptable extends AppCompatActivity {
                         int numint = Integer.parseInt(num);
                         int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintcap > numint) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numint1);
-
-                        } else {
+                        if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numintwaitnum1);
+                            myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
 
+                        } else if(numint > 0) {
+                            int numint1 = numint - 1;
+
+                            myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
                         }
 
                     }
@@ -199,12 +206,14 @@ public class Adddroptable extends AppCompatActivity {
                 });
             }
         });
+
         button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(Adddroptable.this, Departmentchoose.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
+                finish();
             }
         });
 
