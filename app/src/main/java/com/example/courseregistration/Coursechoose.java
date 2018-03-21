@@ -13,7 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+  
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -57,7 +57,7 @@ public class Coursechoose extends AppCompatActivity {
         final TextView c4maxtextView = (TextView) findViewById(R.id.c4maxtextView);
         final TextView c4curtextView = (TextView) findViewById(R.id.c4curtextView);
 
-        //final ArrayList<String> timeList = new ArrayList<String>();
+        final ArrayList<String> timeList = new ArrayList<String>();
         Intent intent = getIntent();
         final String message = intent.getStringExtra("data");
         final String userID = intent.getStringExtra("userID");
@@ -65,7 +65,7 @@ public class Coursechoose extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
 
-            //Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
+            Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -212,10 +212,6 @@ public class Coursechoose extends AppCompatActivity {
 
                 }
             });
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
 
@@ -237,19 +233,19 @@ public class Coursechoose extends AppCompatActivity {
                                     String days = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("days").getValue().toString();
                                     myRef.child("users").child(userID).child("registered courses").child("course 1").child("time").setValue(starttime + days);
                                     String checktime = starttime + days;
-                                    /*int checkcounter = 0;        //for the confilict user story but buged.
+                                    int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
                                             checkcounter = 1;
                                         }
                                     }
-                                    if(checkcounter == 0) {*/
+                                    if(checkcounter == 0) {
                                         myRef.child("users").child(userID).child("registered courses").child("course 1").child("courseID").setValue(message1);
                                         myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue(message);
-                                    /*}
+                                    }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
-                                    }*/
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
@@ -274,19 +270,19 @@ public class Coursechoose extends AppCompatActivity {
                                     String days = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("days").getValue().toString();
                                     myRef.child("users").child(userID).child("registered courses").child("course 2").child("time").setValue(starttime + days);
                                     String checktime = starttime + days;
-                                    /*int checkcounter = 0;     //for the confilict user story but buged.
+                                    int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
                                             checkcounter = 1;
                                         }
                                     }
-                                    if(checkcounter == 0) {*/
+                                    if(checkcounter == 0) {
                                         myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
                                         myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue("computer science");
-                                    /*}
+                                    }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
-                                    }*/
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 2").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 2").child("waitlistnum").getValue().toString();
@@ -310,19 +306,19 @@ public class Coursechoose extends AppCompatActivity {
                                     String days = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("days").getValue().toString();
                                     myRef.child("users").child(userID).child("registered courses").child("course 3").child("time").setValue(starttime + days);
                                     String checktime = starttime + days;
-                                    /*int checkcounter = 0;     //for the confilict user story but buged.
+                                    int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
                                             checkcounter = 1;
                                         }
                                     }
-                                    if(checkcounter == 0) {*/
+                                    if(checkcounter == 0) {
                                         myRef.child("users").child(userID).child("registered courses").child("course 3").child("courseID").setValue(message1);
                                         myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue("computer science");
-                                    /*}
+                                    }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
-                                    }*/
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 3").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 3").child("waitlistnum").getValue().toString();
@@ -346,7 +342,7 @@ public class Coursechoose extends AppCompatActivity {
                                     String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
                                     myRef.child("users").child(userID).child("registered courses").child("course 4").child("time").setValue(starttime + days);
                                     String checktime = starttime + days;
-                                    /*int checkcounter = 0;   //for the confilict user story but buged.
+                                    int checkcounter = 0;
                                     Log.d("test","test debug !!!!!!!!!!!!!!!!!");
                                     for(int i = 0; i<timeList.size(); i++){
                                         Log.d("test1","test debug++++++++++++++++++");
@@ -355,13 +351,13 @@ public class Coursechoose extends AppCompatActivity {
                                             checkcounter = 1;
                                         }
                                     }
-                                    if(checkcounter == 0) {*/
+                                    if(checkcounter == 0) {
                                         myRef.child("users").child(userID).child("registered courses").child("course 4").child("courseID").setValue(message1);
                                         myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue("computer science");
-                                    /*}
+                                    }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
-                                    }*/
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 4").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 4").child("waitlistnum").getValue().toString();
@@ -390,6 +386,10 @@ public class Coursechoose extends AppCompatActivity {
 
                         }
             });
+
+            button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
                 Intent intent = new Intent();
                 intent.setClass(Coursechoose.this, Adddroptable.class);
