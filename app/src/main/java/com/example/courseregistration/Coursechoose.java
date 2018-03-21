@@ -62,7 +62,7 @@ public class Coursechoose extends AppCompatActivity {
         Intent intent = getIntent();
         final String message = intent.getStringExtra("data");
         final String userID = intent.getStringExtra("userID");
-        System.out.println(userID);
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
 
@@ -384,6 +384,10 @@ public class Coursechoose extends AppCompatActivity {
                         //if (check.contains("CSCI 1100")) {
 
                         //}
+                        checkbox11.setChecked(false);
+                        checkbox12.setChecked(false);
+                        checkbox13.setChecked(false);
+                        checkbox14.setChecked(false);
                     }
 
 
@@ -395,6 +399,7 @@ public class Coursechoose extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(Coursechoose.this, Adddroptable.class);
                 intent.putExtra("userID", userID);
+                intent.putExtra("message", message);
                 startActivity(intent);
             }
         });
