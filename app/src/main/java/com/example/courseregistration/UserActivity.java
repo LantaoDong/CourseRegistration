@@ -37,14 +37,14 @@ public class UserActivity extends AppCompatActivity {
         timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToTimeTable = new Intent(UserActivity.this,MajorListActivity.class);
+                Intent intentToTimeTable = new Intent(UserActivity.this,CourseList.MajorListActivity.class);
                 startActivity(intentToTimeTable);
             }
         });
         viewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewSche = new Intent(UserActivity.this,SchduleActivity.class);
+                Intent viewSche = new Intent(UserActivity.this,ViewSchedule.class);
                 startActivity(viewSche);
             }
         });
@@ -71,8 +71,5 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intentToHelp);
             }
         });
-
-
-
     }
 }

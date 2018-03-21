@@ -24,7 +24,7 @@ public class ViewSchedule extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.viewschedule);
+        /*setContentView(R.layout.viewschedule);
         setContentView(R.layout.activity_monday);
         DatabaseReference cs = FirebaseDatabase.getInstance().getReference("users");
         cs.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -45,7 +45,7 @@ public class ViewSchedule extends AppCompatActivity{
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
 
 
