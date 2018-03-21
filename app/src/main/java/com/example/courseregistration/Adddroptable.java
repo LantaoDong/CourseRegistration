@@ -22,15 +22,15 @@ public class Adddroptable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddroptable);
 
-        final TextView textView1=(TextView) findViewById(R.id.textView4);
-        final TextView textView2=(TextView) findViewById(R.id.textView5);
-        final TextView textView3=(TextView) findViewById(R.id.textView6);
-        final TextView textView4=(TextView) findViewById(R.id.textView7);
+        final TextView textView1 = (TextView) findViewById(R.id.textView4);
+        final TextView textView2 = (TextView) findViewById(R.id.textView5);
+        final TextView textView3 = (TextView) findViewById(R.id.textView6);
+        final TextView textView4 = (TextView) findViewById(R.id.textView7);
 
-        final Button button2=(Button) findViewById(R.id.button4);
-        final Button button3=(Button) findViewById(R.id.button5);
-        final Button button4=(Button) findViewById(R.id.button6);
-        final Button button5=(Button) findViewById(R.id.button7);
+        final Button button2 = (Button) findViewById(R.id.button4);
+        final Button button3 = (Button) findViewById(R.id.button5);
+        final Button button4 = (Button) findViewById(R.id.button6);
+        final Button button5 = (Button) findViewById(R.id.button7);
         final Button button6 = (Button) findViewById(R.id.button8);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,7 +41,6 @@ public class Adddroptable extends AppCompatActivity {
         final DatabaseReference usRef = myRef.child("users");
         final DatabaseReference usidRef = usRef.child(userID);
         final DatabaseReference rcRef = usidRef.child("registered courses");
-
 
 
         rcRef.addValueEventListener(new ValueEventListener() {
@@ -97,6 +96,7 @@ public class Adddroptable extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(Adddroptable.this, Departmentchoose.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
