@@ -1,0 +1,22 @@
+package com.example.courseregistration;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class activity_viewscheduleday extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_viewscheduleday);
+
+        Intent intent = getIntent();
+        String selectedDay = intent.getStringExtra("day");
+        TextView dayTextView = (TextView) findViewById(R.id.dayTextView);
+
+        dayTextView.setText(selectedDay);
+
+    }
+}

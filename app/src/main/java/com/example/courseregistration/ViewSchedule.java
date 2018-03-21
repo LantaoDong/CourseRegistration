@@ -46,11 +46,11 @@ public class ViewSchedule extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Day that was clicked on by the user
                 String selectedDay = (String) daysadapter.getItem(position);
-                /*
-                Intent intent = new Intent(this, DetailViewActivity.class);
-                intent.putExtra("Contact", person);
+
+                Intent intent = new Intent(ViewSchedule.this, activity_viewscheduleday.class);
+                intent.putExtra("day", selectedDay);
                 startActivity(intent);
-                */
+
 
             }
         });
