@@ -49,8 +49,11 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     time = snapshot.child("courseID").getValue().toString();
-                    time+="\n"+snapshot.child("time").getValue().toString();
-                    if (time.contains(selectedDayCode)) {
+
+                    time += "\n" + snapshot.child("startTime").getValue().toString();
+                    time += " - "+snapshot.child("endTime").getValue().toString();
+
+                    if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
                         classTime.add(time);
                     }
                 }
@@ -96,4 +99,5 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         }
     return returncode;
     }
+
 }
