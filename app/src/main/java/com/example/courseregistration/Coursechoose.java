@@ -18,15 +18,19 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import com.example.courseregistration.models.CourseInfo;
+import com.example.courseregistration.models.Courses;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class Coursechoose extends AppCompatActivity {
 
     public ArrayList<CourseInfo> courseList = new ArrayList<CourseInfo>();
+
+
 
     //FirebaseHelper firebasehelper;
     @Override
@@ -58,7 +62,7 @@ public class Coursechoose extends AppCompatActivity {
         final TextView c4maxtextView = (TextView) findViewById(R.id.c4maxtextView);
         final TextView c4curtextView = (TextView) findViewById(R.id.c4curtextView);
 
-        final ArrayList<String> timeList = new ArrayList<String>();
+
         Intent intent = getIntent();
         final String message = intent.getStringExtra("data");
         final String userID = intent.getStringExtra("userID");
@@ -66,7 +70,7 @@ public class Coursechoose extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
 
-        Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -235,10 +239,15 @@ public class Coursechoose extends AppCompatActivity {
                         if (checkbox11.isChecked()) {
                             message1 = checkbox11.getText().toString();
 
+                            String id = myRef.child(userID).push().getKey();
+                            String courseID=dataSnapshot.child("subjects").child(message).child("course 1").child("courseID").getValue().toString();
+                            String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("start").getValue().toString();
+                            String endtime=dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("days").getValue().toString();
-                            myRef.child("users").child(userID).child("registered courses").child("course 1").child("time").setValue(starttime + days);
-                            String checktime = starttime + days;
+
+                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
                                     /*int checkcounter = 0; //confilict buged
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
@@ -246,8 +255,6 @@ public class Coursechoose extends AppCompatActivity {
                                         }
                                     }
                                     if(checkcounter == 0) {*/
-                            myRef.child("users").child(userID).child("registered courses").child("course 1").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue(message);
                                    /* }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
@@ -272,10 +279,15 @@ public class Coursechoose extends AppCompatActivity {
 
                         if (checkbox12.isChecked()) {
                             message1 = checkbox12.getText().toString();
+                            String id = myRef.child(userID).push().getKey();
+                            String courseID=dataSnapshot.child("subjects").child(message).child("course 2").child("courseID").getValue().toString();
+                            String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("start").getValue().toString();
+                            String endtime=dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("days").getValue().toString();
-                            myRef.child("users").child(userID).child("registered courses").child("course 2").child("time").setValue(starttime + days);
-                            String checktime = starttime + days;
+
+                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
                                     /*int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){  //confilict buged
                                         if(timeList.get(i).equals(checktime)) {
@@ -283,8 +295,7 @@ public class Coursechoose extends AppCompatActivity {
                                         }
                                     }
                                     if(checkcounter == 0) {*/
-                            myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue(message);
+
                                    /* }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
@@ -308,10 +319,15 @@ public class Coursechoose extends AppCompatActivity {
                         }
                         if (checkbox13.isChecked()) {
                             message1 = checkbox13.getText().toString();
+                            String id = myRef.child(userID).push().getKey();
+                            String courseID=dataSnapshot.child("subjects").child(message).child("course 3").child("courseID").getValue().toString();
+                            String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("start").getValue().toString();
+                            String endtime=dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("days").getValue().toString();
-                            myRef.child("users").child(userID).child("registered courses").child("course 3").child("time").setValue(starttime + days);
-                            String checktime = starttime + days;
+
+                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
                                     /*int checkcounter = 0;   //confilict buged
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
@@ -319,8 +335,6 @@ public class Coursechoose extends AppCompatActivity {
                                         }
                                     }
                                     if(checkcounter == 0) {*/
-                            myRef.child("users").child(userID).child("registered courses").child("course 3").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue(message);
                                    /* }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
@@ -344,10 +358,15 @@ public class Coursechoose extends AppCompatActivity {
 
                         if (checkbox14.isChecked()) {
                             message1 = checkbox14.getText().toString();
+                            String id = myRef.child(userID).push().getKey();
+                            String courseID=dataSnapshot.child("subjects").child(message).child("course 4").child("courseID").getValue().toString();
+                            String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("start").getValue().toString();
+                            String endtime=dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
-                            myRef.child("users").child(userID).child("registered courses").child("course 4").child("time").setValue(starttime + days);
-                            String checktime = starttime + days;
+
+                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
                                    /* int checkcounter = 0; //confilict buged
                                     Log.d("test","test debug !!!!!!!!!!!!!!!!!");
                                     for(int i = 0; i<timeList.size(); i++){
@@ -358,8 +377,6 @@ public class Coursechoose extends AppCompatActivity {
                                         }
                                     }
                                     if(checkcounter == 0) {*/
-                            myRef.child("users").child(userID).child("registered courses").child("course 4").child("courseID").setValue(message1);
-                            myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue(message);
                                     /*}
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
