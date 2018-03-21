@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.widget.Toast;
+  
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -55,17 +57,34 @@ public class Coursechoose extends AppCompatActivity {
         final TextView c4maxtextView = (TextView) findViewById(R.id.c4maxtextView);
         final TextView c4curtextView = (TextView) findViewById(R.id.c4curtextView);
 
-
+        final ArrayList<String> timeList = new ArrayList<String>();
         Intent intent = getIntent();
         final String message = intent.getStringExtra("data");
         final String userID = intent.getStringExtra("userID");
         System.out.println(userID);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
+        final DatabaseReference usRef = myRef.child("users").child(userID).child("registered courses");
 
+        usRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String Time = snapshot.child("time").getValue().toString();
+                    //String days = snapshot.child("days").getValue().toString();
+                    timeList.add(Time);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+            Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
+
                 String course1 = dataSnapshot.child("subjects").child(message).child("course 1").child("courseID").getValue(String.class);
                 String course2 = dataSnapshot.child("subjects").child(message).child("course 2").child("courseID").getValue(String.class);
                 String course3 = dataSnapshot.child("subjects").child(message).child("course 3").child("courseID").getValue(String.class);
@@ -208,18 +227,13 @@ public class Coursechoose extends AppCompatActivity {
 
                 }
             });
-
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
 
 
-                           public void onDataChange(final DataSnapshot dataSnapshot) {
+                            public void onDataChange(final DataSnapshot dataSnapshot) {
                                 String message1 = "";
                                 //DatabaseReference checktime=myRef.child("user").child(userID).child("registered courses");
-                                int counter = 0;
 
                                 /*for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                                     String userKey = snapshot.getKey();
@@ -227,108 +241,178 @@ public class Coursechoose extends AppCompatActivity {
                                     CourseInfo course = snapshot.getValue(CourseInfo.class);
                                     courseList.add(course);
                                 }*/
-
                                 if (checkbox11.isChecked()) {
                                     message1 = checkbox11.getText().toString();
-                                    myRef.child("users").child(userID).child("registered courses").child("course 1").child("courseID").setValue(message1);
-                                    myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue("computer science");
+
+                                    String starttime = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("start").getValue().toString();
+                                    String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
+                                    myRef.child("users").child(userID).child("registered courses").child("course 4").child("time").setValue(starttime + days);
+                                    String checktime = starttime + days;
+                                    int checkcounter = 0;
+                                    for(int i = 0; i<timeList.size(); i++){
+                                        if(timeList.get(i).equals(checktime)) {
+                                            checkcounter = 1;
+                                        }
+                                    }
+                                    if(checkcounter == 0) {
+                                        myRef.child("users").child(userID).child("registered courses").child("course 1").child("courseID").setValue(message1);
+                                        myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue("computer science");
+                                    }
+                                    else{
+                                        Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
+
                                     int numint = Integer.parseInt(num);
                                     int numintcap = Integer.parseInt(numcap);
                                     int numintwaitnum = Integer.parseInt(numwaitnum);
-                                    if(numintcap == numint) {
-                                        numintwaitnum = numintwaitnum + 1;
-                                        myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum);
+                                    if (numintcap == numint) {
+                                        int numintwaitnum1 = numintwaitnum + 1;
+                                        myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
+                                        checkbox11.setChecked(false);
+                                    } else {
+                                        int numint1 = numint + 1;
+                                        myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
+                                        checkbox11.setChecked(false);
                                     }
-                                    else{
-                                        numint = numint + 1;
-                                        myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint);
-                                    }
-                                    counter = 1;
                                 }
 
                                 if (checkbox12.isChecked()) {
                                     message1 = checkbox12.getText().toString();
-                                    myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
-                                    myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue("computer science");
+                                    String starttime = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("start").getValue().toString();
+                                    String days = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("days").getValue().toString();
+                                    myRef.child("users").child(userID).child("registered courses").child("course 2").child("time").setValue(starttime + days);
+                                    String checktime = starttime + days;
+                                    int checkcounter = 0;
+                                    for(int i = 0; i<timeList.size(); i++){
+                                        if(timeList.get(i).equals(checktime)) {
+                                            checkcounter = 1;
+                                        }
+                                    }
+                                    if(checkcounter == 0) {
+                                        myRef.child("users").child(userID).child("registered courses").child("course 2").child("courseID").setValue(message1);
+                                        myRef.child("users").child(userID).child("registered courses").child("course 2").child("subject").setValue("computer science");
+                                    }
+                                    else{
+                                        Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 2").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 2").child("waitlistnum").getValue().toString();
                                     int numint = Integer.parseInt(num);
                                     int numintcap = Integer.parseInt(numcap);
                                     int numintwaitnum = Integer.parseInt(numwaitnum);
-                                    if(numintcap > numint) {
-                                        numint = numint + 1;
-                                        myRef.child("subjects").child(message).child("course 2").child("numberOfStudents").setValue(numint);
+
+                                    if (numintcap > numint) {
+                                        int numint1 = numint + 1;
+                                        myRef.child("subjects").child(message).child("course 2").child("numberOfStudents").setValue(numint1);
+                                        checkbox11.setChecked(false);
+                                    } else {
+                                        int numintwaitnum1 = numintwaitnum + 1;
+                                        myRef.child("subjects").child(message).child("course 2").child("waitlistnum").setValue(numintwaitnum1);
+                                        checkbox11.setChecked(false);
                                     }
-                                    else{
-                                        numintwaitnum = numintwaitnum + 1;
-                                        myRef.child("subjects").child(message).child("course 2").child("waitlistnum").setValue(numintwaitnum);
-                                    }
-                                    counter = 1;
                                 }
                                 if (checkbox13.isChecked()) {
                                     message1 = checkbox13.getText().toString();
-                                    myRef.child("users").child(userID).child("registered courses").child("course 3").child("courseID").setValue(message1);
-                                    myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue("computer science");
+                                    String starttime = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("start").getValue().toString();
+                                    String days = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("days").getValue().toString();
+                                    myRef.child("users").child(userID).child("registered courses").child("course 3").child("time").setValue(starttime + days);
+                                    String checktime = starttime + days;
+                                    int checkcounter = 0;
+                                    for(int i = 0; i<timeList.size(); i++){
+                                        if(timeList.get(i).equals(checktime)) {
+                                            checkcounter = 1;
+                                        }
+                                    }
+                                    if(checkcounter == 0) {
+                                        myRef.child("users").child(userID).child("registered courses").child("course 3").child("courseID").setValue(message1);
+                                        myRef.child("users").child(userID).child("registered courses").child("course 3").child("subject").setValue("computer science");
+                                    }
+                                    else{
+                                        Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 3").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 3").child("waitlistnum").getValue().toString();
                                     int numint = Integer.parseInt(num);
                                     int numintcap = Integer.parseInt(numcap);
                                     int numintwaitnum = Integer.parseInt(numwaitnum);
-                                    if(numintcap > numint) {
-                                        numint = numint + 1;
-                                        myRef.child("subjects").child(message).child("course 3").child("numberOfStudents").setValue(numint);
+                                    if (numintcap > numint) {
+                                        int numint1 = numint + 1;
+                                        myRef.child("subjects").child(message).child("course 3").child("numberOfStudents").setValue(numint1);
+                                        checkbox11.setChecked(false);
+                                    } else {
+                                        int numintwaitnum1 = numintwaitnum + 1;
+                                        myRef.child("subjects").child(message).child("course 3").child("waitlistnum").setValue(numintwaitnum1);
+                                        checkbox11.setChecked(false);
                                     }
-                                    else{
-                                        numintwaitnum = numintwaitnum + 1;
-                                        myRef.child("subjects").child(message).child("course 3").child("waitlistnum").setValue(numintwaitnum);
-                                    }
-                                    counter = 1;
                                 }
+
                                 if (checkbox14.isChecked()) {
                                     message1 = checkbox14.getText().toString();
-                                    myRef.child("users").child(userID).child("registered courses").child("course 4").child("courseID").setValue(message1);
-                                    myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue("computer science");
+                                    String starttime = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("start").getValue().toString();
+                                    String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
+                                    myRef.child("users").child(userID).child("registered courses").child("course 4").child("time").setValue(starttime + days);
+                                    String checktime = starttime + days;
+                                    int checkcounter = 0;
+                                    Log.d("test","test debug !!!!!!!!!!!!!!!!!");
+                                    for(int i = 0; i<timeList.size(); i++){
+                                        Log.d("test1","test debug++++++++++++++++++");
+                                        if(timeList.get(i).equals(checktime)) {
+                                            Log.d("test2","test debug______________________" + timeList.get(i) + checktime);
+                                            checkcounter = 1;
+                                        }
+                                    }
+                                    if(checkcounter == 0) {
+                                        myRef.child("users").child(userID).child("registered courses").child("course 4").child("courseID").setValue(message1);
+                                        myRef.child("users").child(userID).child("registered courses").child("course 4").child("subject").setValue("computer science");
+                                    }
+                                    else{
+                                        Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
+                                    }
                                     String num = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
                                     String numcap = dataSnapshot.child("subjects").child(message).child("course 4").child("capacity").getValue().toString();
                                     String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 4").child("waitlistnum").getValue().toString();
                                     int numint = Integer.parseInt(num);
                                     int numintcap = Integer.parseInt(numcap);
                                     int numintwaitnum = Integer.parseInt(numwaitnum);
-                                    if(numintcap > numint) {
-                                        numint = numint + 1;
-                                        myRef.child("subjects").child(message).child("course 4").child("numberOfStudents").setValue(numint);
-                                    }
-                                    else{
-                                        numintwaitnum = numintwaitnum + 1;
-                                        myRef.child("subjects").child(message).child("course 4").child("waitlistnum").setValue(numintwaitnum);
-                                    }
-                                    String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
-                                    if (check.contains("CSCI 1100")) {
-                                        counter = 1;
+                                    if (numintcap > numint) {
+                                        int numint1 = numint + 1;
+                                        myRef.child("subjects").child(message).child("course 4").child("numberOfStudents").setValue(numint1);
+                                        checkbox11.setChecked(false);
+                                    } else {
+                                        int numintwaitnum1 = numintwaitnum + 1;
+                                        myRef.child("subjects").child(message).child("course 4").child("waitlistnum").setValue(numintwaitnum1);
+                                        checkbox11.setChecked(false);
                                     }
                                 }
-                                if (counter == 1) {
-                                    Intent intent = new Intent();
-                                    intent.setClass(Coursechoose.this, Adddroptable.class);
-                                    intent.putExtra("userID", userID);
-                                    startActivity(intent);
-                                } else {
-                                    System.out.print("You need a pre courses.");
-                                }
+                                // String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
+                                //if (check.contains("CSCI 1100")) {
+
+                                //}
                             }
+
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
 
                         }
-                    });
-                }
             });
 
+            button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setClass(Coursechoose.this, Adddroptable.class);
+                intent.putExtra("userID", userID);
+                startActivity(intent);
+            }
+            });
+        }
+
     }
-}
+
