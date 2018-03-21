@@ -61,18 +61,20 @@ public class Adddroptable extends AppCompatActivity {
 
         }
     });
-        button3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textView2.setText("null");
-                rcRef.child("course 2").child("courseID").setValue("null");
-                rcRef.child("course 2").child("subject").setValue("null");
-            }
-        });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 textView1.setText("null");
                 rcRef.child("course 1").child("courseID").setValue("null");
                 rcRef.child("course 1").child("subject").setValue("null");
+                rcRef.child("course 1").child("time").setValue("null");
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                textView2.setText("null");
+                rcRef.child("course 2").child("courseID").setValue("null");
+                rcRef.child("course 2").child("subject").setValue("null");
+                rcRef.child("course 2").child("time").setValue("null");
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +82,7 @@ public class Adddroptable extends AppCompatActivity {
                 textView3.setText("null");
                 rcRef.child("course 3").child("courseID").setValue("null");
                 rcRef.child("course 3").child("subject").setValue("null");
+                rcRef.child("course 3").child("time").setValue("null");
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +90,7 @@ public class Adddroptable extends AppCompatActivity {
                 textView4.setText("null");
                 rcRef.child("course 4").child("courseID").setValue("null");
                 rcRef.child("course 4").child("subject").setValue("null");
+                rcRef.child("course 4").child("time").setValue("null");
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {

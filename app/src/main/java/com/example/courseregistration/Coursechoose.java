@@ -64,22 +64,7 @@ public class Coursechoose extends AppCompatActivity {
         System.out.println(userID);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
-        final DatabaseReference usRef = myRef.child("users").child(userID).child("registered courses");
 
-        usRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String Time = snapshot.child("time").getValue().toString();
-                    //String days = snapshot.child("days").getValue().toString();
-                    timeList.add(Time);
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
             Log.d("test111111111", "test debug++++++++++++++++++" + timeList);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -245,8 +230,8 @@ public class Coursechoose extends AppCompatActivity {
                                     message1 = checkbox11.getText().toString();
 
                                     String starttime = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("start").getValue().toString();
-                                    String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
-                                    myRef.child("users").child(userID).child("registered courses").child("course 4").child("time").setValue(starttime + days);
+                                    String days = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("days").getValue().toString();
+                                    myRef.child("users").child(userID).child("registered courses").child("course 1").child("time").setValue(starttime + days);
                                     String checktime = starttime + days;
                                     int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){
@@ -256,7 +241,7 @@ public class Coursechoose extends AppCompatActivity {
                                     }
                                     if(checkcounter == 0) {
                                         myRef.child("users").child(userID).child("registered courses").child("course 1").child("courseID").setValue(message1);
-                                        myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue("computer science");
+                                        myRef.child("users").child(userID).child("registered courses").child("course 1").child("subject").setValue(message);
                                     }
                                     else{
                                         Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_SHORT).show();
