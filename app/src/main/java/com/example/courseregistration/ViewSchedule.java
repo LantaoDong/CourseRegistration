@@ -24,8 +24,8 @@ public class ViewSchedule extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*setContentView(R.layout.viewschedule);
-        setContentView(R.layout.activity_monday);
+        setContentView(R.layout.viewschedule);
+        /*setContentView(R.layout.activity_monday);
         DatabaseReference cs = FirebaseDatabase.getInstance().getReference("users");
         cs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
