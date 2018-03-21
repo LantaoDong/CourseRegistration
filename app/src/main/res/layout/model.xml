@@ -5,21 +5,6 @@
     android:layout_margin="10dp"
     android:layout_height="50dp">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="MajorName"
-                android:lines="3"
-                android:id="@+id/tx_majorname"
-                android:padding="10dp"
-                android:layout_alignParentLeft="true"
-                />
 
     </LinearLayout>
 

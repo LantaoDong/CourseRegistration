@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+// Initial commit
 public class TimeTableActivity extends AppCompatActivity {
 
     DatabaseReference db;
@@ -42,7 +43,7 @@ public class TimeTableActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_table);
+        // setContentView(R.layout.activity_time_table);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -237,4 +238,4 @@ public class TimeTableActivity extends AppCompatActivity {
 //
 //    }
 //
-}
+
