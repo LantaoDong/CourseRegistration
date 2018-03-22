@@ -52,41 +52,41 @@ public class Adddroptable extends AppCompatActivity {
 
         final String message = intentget.getStringExtra("message");
 
-        final ArrayList<String> rcourses = new ArrayList<String>();
+        /*final ArrayList<String> rcourses = new ArrayList<String>();
 
         rcRef.addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(DataSnapshot dataSnapshot) {
                                             for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                                                String courseKey = snapshot.getKey();
+                                                String courseKey = snapshot.child("course 1").getKey();
                                                 rcourses.add(courseKey);
                                             }
                                             if(rcourses.size()==4) {
-                                                String course1 = dataSnapshot.child(rcourses.get(0)).child("courseID").getValue().toString();
+                                                String course1 = dataSnapshot.child("course 1").child(rcourses.get(0)).child("courseID").getValue().toString();
                                                 textView1.setText(course1);
-                                                String course2 = dataSnapshot.child(rcourses.get(1)).child("courseID").getValue().toString();
+                                                String course2 = dataSnapshot.child("course 2").child(rcourses.get(1)).child("courseID").getValue().toString();
                                                 textView2.setText(course2);
-                                                String course3 = dataSnapshot.child(rcourses.get(2)).child("courseID").getValue().toString();
+                                                String course3 = dataSnapshot.child("course 3").child(rcourses.get(2)).child("courseID").getValue().toString();
                                                 textView3.setText(course3);
-                                                String course4 = dataSnapshot.child(rcourses.get(3)).child("courseID").getValue().toString();
+                                                String course4 = dataSnapshot.child("course 4").child(rcourses.get(3)).child("courseID").getValue().toString();
                                                 textView4.setText(course4);
                                             }
                                             if(rcourses.size()==3) {
-                                                String course1 = dataSnapshot.child(rcourses.get(0)).child("courseID").getValue().toString();
+                                                String course1 = dataSnapshot.child("course 1").child(rcourses.get(0)).child("courseID").getValue().toString();
                                                 textView1.setText(course1);
-                                                String course2 = dataSnapshot.child(rcourses.get(1)).child("courseID").getValue().toString();
+                                                String course2 = dataSnapshot.child("course 2").child(rcourses.get(1)).child("courseID").getValue().toString();
                                                 textView2.setText(course2);
-                                                String course3 = dataSnapshot.child(rcourses.get(2)).child("courseID").getValue().toString();
+                                                String course3 = dataSnapshot.child("course 3").child(rcourses.get(2)).child("courseID").getValue().toString();
                                                 textView3.setText(course3);
                                             }
                                             if(rcourses.size()==2) {
-                                                String course1 = dataSnapshot.child(rcourses.get(0)).child("courseID").getValue().toString();
+                                                String course1 = dataSnapshot.child("course 1").child(rcourses.get(0)).child("courseID").getValue().toString();
                                                 textView1.setText(course1);
-                                                String course2 = dataSnapshot.child(rcourses.get(1)).child("courseID").getValue().toString();
+                                                String course2 = dataSnapshot.child("course 2").child(rcourses.get(1)).child("courseID").getValue().toString();
                                                 textView2.setText(course2);
                                             }
                                             if(rcourses.size()==1) {
-                                                String course1 = dataSnapshot.child(rcourses.get(0)).child("courseID").getValue().toString();
+                                                String course1 =dataSnapshot.child("course 1").child(rcourses.get(0)).getValue().toString();
                                                 textView1.setText(course1);
                                             }
                                             if(rcourses.size()==0) {
@@ -101,10 +101,53 @@ public class Adddroptable extends AppCompatActivity {
         public void onCancelled(DatabaseError databaseError) {
 
         }
-    });
+    });*/
+        rcRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("course 1").child("courseID").getValue()!=null){
+                    String course1 = dataSnapshot.child("course 1").child("courseID").getValue().toString();
+                    textView1.setText(course1);
+                }
+                else{
+                    textView1.setText(" ");
+                }
+                if(dataSnapshot.child("course 2").child("courseID").getValue()!=null){
+                    String course2 = dataSnapshot.child("course 2").child("courseID").getValue().toString();
+                    textView1.setText(course2);
+                }
+                else{
+                    textView1.setText(" ");
+                }
+                if(dataSnapshot.child("course 3").child("courseID").getValue()!=null){
+                    String course3 = dataSnapshot.child("course 3").child("courseID").getValue().toString();
+                    textView1.setText(course3);
+                }
+                else{
+                    textView1.setText(" ");
+                }
+                if(dataSnapshot.child("course 4").child("courseID").getValue()!=null){
+                    String course4 = dataSnapshot.child("course 4").child("courseID").getValue().toString();
+                    textView1.setText(course4);
+                }
+                else{
+                    textView1.setText(" ");
+                }
+
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child("registered courses").child(rcourses.get(0)).removeValue();
+                myRef.child("users").child("registered courses").child("course 1").removeValue();
+                textView1.setText(" ");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -133,7 +176,8 @@ public class Adddroptable extends AppCompatActivity {
 
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child("registered courses").child(rcourses.get(1)).removeValue();
+                myRef.child("users").child("registered courses").child("course 2").removeValue();
+                textView2.setText(" ");
 
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -166,7 +210,8 @@ public class Adddroptable extends AppCompatActivity {
 
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child("registered courses").child(rcourses.get(2)).setValue(null);
+                myRef.child("users").child("registered courses").child("course 3").removeValue();
+                textView3.setText(" ");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -200,7 +245,8 @@ public class Adddroptable extends AppCompatActivity {
 
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                myRef.child("users").child("registered courses").child(rcourses.get(3)).setValue(null);
+                myRef.child("users").child("registered courses").child("course 4").removeValue();
+                textView4.setText(" ");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(final DataSnapshot dataSnapshot) {
