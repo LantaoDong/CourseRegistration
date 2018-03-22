@@ -15,12 +15,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 public class Departmentchoose extends AppCompatActivity {
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departmentchoose);
         final Button button = (Button) findViewById(R.id.button);
+        back = (Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToUser = new Intent(Departmentchoose.this, UserActivity.class);
+                startActivity(backToUser);
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +40,7 @@ public class Departmentchoose extends AppCompatActivity {
                 String message = "";
                 final CheckBox checkbox6 = (CheckBox) findViewById(R.id.checkBox6);
                 final CheckBox checkbox7 = (CheckBox) findViewById(R.id.checkBox7);
+                final CheckBox stat = (CheckBox) findViewById(R.id.checkBox);
 
                 if (checkbox6.isChecked()) {
                     message = checkbox6.getText().toString();
@@ -44,12 +54,18 @@ public class Departmentchoose extends AppCompatActivity {
 
                 }
                 //checkbox7.setChecked(false);
+                if (stat.isChecked()) {
+                    message = stat.getText().toString();
+                    checkbox6.setEnabled(false);
+
+                }
 
                 Intent intent = new Intent();
                 intent.setClass(Departmentchoose.this, Coursechoose.class);
                 intent.putExtra("data", message);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
+
             }
         });
     }

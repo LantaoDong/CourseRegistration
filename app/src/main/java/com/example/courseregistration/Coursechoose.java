@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class Coursechoose extends AppCompatActivity {
+    Button back;
 
     public ArrayList<CourseInfo> courseList = new ArrayList<CourseInfo>();
 
@@ -37,7 +38,14 @@ public class Coursechoose extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursechoose);
-
+        Button back = (Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToDepartment = new Intent(Coursechoose.this,Departmentchoose.class);
+                startActivity(backToDepartment);
+            }
+        });
         final Button button = (Button) findViewById(R.id.button3);
 
         final CheckBox checkbox11 = (CheckBox) findViewById(R.id.checkBox11);
