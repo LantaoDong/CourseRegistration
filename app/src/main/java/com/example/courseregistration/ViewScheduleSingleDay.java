@@ -50,8 +50,8 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     time = snapshot.child("courseID").getValue().toString();
 
-                    time += "\n" + snapshot.child("startTime").getValue().toString();
-                    time += " - "+snapshot.child("endTime").getValue().toString();
+                    time += "\n" + snapshot.child("starttime").getValue().toString();
+                    time += " - "+snapshot.child("endtime").getValue().toString();
 
                     if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
                         classTime.add(time);

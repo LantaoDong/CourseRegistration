@@ -23,16 +23,14 @@ public class UserActivity extends AppCompatActivity {
         timeTable = (Button) findViewById(R.id.timeTable);
         viewSchedule = (Button) findViewById(R.id.schedule);
         drop = (Button) findViewById(R.id.drop);
-<<<<<<< HEAD
+
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
 
-=======
+
         search = (Button) findViewById(R.id.searchCourse);
         help = (Button) findViewById(R.id.help);
-        Intent intent = getIntent();
-        final String userID = intent.getStringExtra("userID");
->>>>>>> master
+
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
