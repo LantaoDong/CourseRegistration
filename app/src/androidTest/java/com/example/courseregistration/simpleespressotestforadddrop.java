@@ -22,7 +22,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * Created by dengyiran on 18/2/28.
  */
 
-public class simpleespressotest {
+public class simpleespressotestforadddrop {
         @Rule
         public ActivityTestRule<Departmentchoose> mActivityRule1 = new ActivityTestRule<>(
                 Departmentchoose.class);
