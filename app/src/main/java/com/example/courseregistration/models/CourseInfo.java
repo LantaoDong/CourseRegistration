@@ -34,8 +34,13 @@ public class CourseInfo {
     public CourseInfo(String course_id, String course_name, int course_section, String course_type,
                       double course_crdhrs, String course_days, String course_times,
                       String course_location, int course_max, int course_cur, int course_available,
+<<<<<<< HEAD
                       int course_wl, double course_per, String course_instructor, String course_description,
                       String course_prerequire, String major_id) {
+=======
+                      int course_wl, double course_per, String course_instructor,
+                      String course_description, String course_prerequire, String major_id) {
+>>>>>>> master
         this.course_id = course_id;
         this.course_name = course_name;
         this.course_section = course_section;
@@ -55,6 +60,33 @@ public class CourseInfo {
         this.major_id = major_id;
     }
 
+<<<<<<< HEAD
+=======
+    //    public CourseInfo(String course_id, String course_name, int course_section, String course_type,
+//                      double course_crdhrs, String course_days, String course_times,
+//                      String course_location, int course_max, int course_cur,
+//                      int course_available, int course_wl, double course_per, String course_instructor, String course_description,
+//                      String course_prerequire, String major_id) {
+//        this.course_id = course_id;
+//        this.course_name = course_name;
+//        this.course_section = course_section;
+//        this.course_type = course_type;
+//        this.course_crdhrs = course_crdhrs;
+//        this.course_days = course_days;
+//        this.course_times = course_times;
+//        this.course_location = course_location;
+//        this.course_max = course_max;
+//        this.course_cur = course_cur;
+//        this.course_available = course_max - course_cur;
+//        this.course_wl = course_wl;
+//        this.course_per = course_cur/course_max;
+//        this.course_instructor = course_instructor;
+//        this.course_description = course_description;
+//        this.course_prerequire = course_prerequire;
+//        this.major_id = major_id;
+//    }
+
+>>>>>>> master
     public String getCourse_id() {
         return course_id;
     }
@@ -122,4 +154,78 @@ public class CourseInfo {
     public String getMajor_id() {
         return major_id;
     }
+<<<<<<< HEAD
+=======
+
+
+    //setters
+
+    public void setCourse_id(String course_id) {
+        this.course_id = course_id;
+    }
+
+    public void setCourse_name(String course_name) {
+        this.course_name = course_name;
+    }
+
+    public void setCourse_section(int course_section) {
+        this.course_section = course_section;
+    }
+
+    public void setCourse_type(String course_type) {
+        this.course_type = course_type;
+    }
+
+    public void setCourse_crdhrs(double course_crdhrs) {
+        this.course_crdhrs = course_crdhrs;
+    }
+
+    public void setCourse_days(String course_days) {
+        this.course_days = course_days;
+    }
+
+    public void setCourse_times(String course_times) {
+        this.course_times = course_times;
+    }
+
+    public void setCourse_location(String course_location) {
+        this.course_location = course_location;
+    }
+
+    public void setCourse_max(int course_max) {
+        this.course_max = course_max;
+    }
+
+    public void setCourse_cur(int course_cur) {
+        this.course_cur = course_cur;
+    }
+
+    public void setCourse_available(int course_available) {
+        this.course_available = course_available;
+    }
+
+    public void setCourse_wl(int course_wl) {
+        this.course_wl = course_wl;
+    }
+
+    public void setCourse_per(double course_per) {
+        this.course_per = course_per;
+    }
+
+    public void setCourse_instructor(String course_instructor) {
+        this.course_instructor = course_instructor;
+    }
+
+    public void setCourse_description(String course_description) {
+        this.course_description = course_description;
+    }
+
+    public void setCourse_prerequire(String course_prerequire) {
+        this.course_prerequire = course_prerequire;
+    }
+
+    public void setMajor_id(String major_id) {
+        this.major_id = major_id;
+    }
+>>>>>>> master
 }

@@ -20,8 +20,7 @@ public class AddMajorsActivity extends AppCompatActivity {
 
     /*DatabaseReference db;
     FirebaseHelper firebasehelper;
-    //MajorListAdapter adapter;
-    ListView lv_addMajors;
+
     EditText et_majorid, et_majorname;
     Button btn_addMajor;
     @Override
@@ -29,9 +28,7 @@ public class AddMajorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_majors);
         //INITIALIZE FIREBASE DB
-       // db= FirebaseDatabase.getInstance().getReference();
-       // firebasehelper = new FirebaseHelper(db);
-        lv_addMajors = (ListView) findViewById(R.id.lv_MajorList);
+
         //ADAPTER
         //adapter=new MajorListAdapter(this, firebasehelper.retrieveMajor());
         //lv_addMajors.setAdapter(adapter);
@@ -46,9 +43,7 @@ public class AddMajorsActivity extends AppCompatActivity {
                 //GET DATA
                 String majorid=et_majorid.getText().toString();
                 String majorname=et_majorname.getText().toString();
-                //////////
-                System.out.println("majorID:" + majorid);
-                System.out.println("majorName:" + majorname);
+
                 //SET DATA
                 Major major=new Major(majorid, majorname);
                 //SIMPLE VALIDATION
@@ -60,12 +55,13 @@ public class AddMajorsActivity extends AppCompatActivity {
                         //IF SAVED CLEAR EDITXT
                         et_majorid.setText("");
                         et_majorname.setText("");
+
 //                        adapter=new MajorListAdapter(AddMajorsActivity.this, firebasehelper.retrieveMajor());
 //                        lv_addMajors.setAdapter(adapter);
                     }
                 }else
                 {
-                    Toast.makeText(AddMajorsActivity.this, "Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddMajorsActivity.this, "ID Must Not Be Empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });

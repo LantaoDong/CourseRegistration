@@ -44,13 +44,6 @@
             android:layout_marginTop="25dp"
             android:text="add" />
 
-        <ListView
-            android:id="@+id/lv_addMajors"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/btn_addMajor"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="44dp" />
 
 
     </RelativeLayout>
