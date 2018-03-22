@@ -45,20 +45,24 @@ public class Departmentchoose extends AppCompatActivity {
                 if (checkbox6.isChecked()) {
                     message = checkbox6.getText().toString();
                     checkbox7.setEnabled(false);
+                    stat.setEnabled(false);
 
                 }
                 //checkbox6.setChecked(false);
                 if (checkbox7.isChecked()) {
                     message = checkbox7.getText().toString();
                     checkbox6.setEnabled(false);
+                    stat.setEnabled(false);
 
                 }
                 //checkbox7.setChecked(false);
                 if (stat.isChecked()) {
                     message = stat.getText().toString();
                     checkbox6.setEnabled(false);
+                    checkbox7.setEnabled(false);
 
                 }
+                //stat.setChecked(false);
 
                 Intent intent = new Intent();
                 intent.setClass(Departmentchoose.this, Coursechoose.class);
