@@ -23,10 +23,16 @@ public class UserActivity extends AppCompatActivity {
         timeTable = (Button) findViewById(R.id.timeTable);
         viewSchedule = (Button) findViewById(R.id.schedule);
         drop = (Button) findViewById(R.id.drop);
+<<<<<<< HEAD
+        Intent intent = getIntent();
+        final String userID = intent.getStringExtra("userID");
+
+=======
         search = (Button) findViewById(R.id.searchCourse);
         help = (Button) findViewById(R.id.help);
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
+>>>>>>> master
         //.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,13 +42,13 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        timeTable.setOnClickListener(new View.OnClickListener() {
+        /*timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentToTimeTable = new Intent(UserActivity.this,MajorListActivity.class);
                 startActivity(intentToTimeTable);
             }
-        });
+        });*/
         viewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +61,7 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentToD = new Intent(UserActivity.this, Departmentchoose.class);
+                intentToD.putExtra("userID", userID);
                 startActivity(intentToD);
             }
         });

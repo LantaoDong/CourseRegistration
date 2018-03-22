@@ -59,8 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
                             if(user.equals(iUsername)){
                                 usernameNotFound = false;
                             }
-
-
                         }
                         //if the input username is not in database, user information is pushed into database
                         if(!iPassword.equals("")&&!name.equals("")&&!iUsername.equals("")&&usernameNotFound){
@@ -72,7 +70,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this,"Congratulations! You successfully created a new account!",Toast.LENGTH_SHORT).show();
                             Intent intentLoginActivity = new Intent(RegisterActivity.this,LoginActivity.class);
                             startActivity(intentLoginActivity);
-
                         }
                         //if the input username is already in database, pop out a message showing the username is taken.
                         else if(!iPassword.equals("")&&!name.equals("")&&!iUsername.equals("")&&!usernameNotFound)
@@ -81,7 +78,6 @@ public class RegisterActivity extends AppCompatActivity {
                         else
                             Toast.makeText(RegisterActivity.this,"Missing input!",Toast.LENGTH_SHORT).show();
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
@@ -94,7 +90,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-
     }
     class User{
         String name;
@@ -116,5 +111,4 @@ public class RegisterActivity extends AppCompatActivity {
             return result;
         }
     }
-
 }

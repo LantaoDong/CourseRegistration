@@ -34,8 +34,13 @@ public class CourseInfo {
     public CourseInfo(String course_id, String course_name, int course_section, String course_type,
                       double course_crdhrs, String course_days, String course_times,
                       String course_location, int course_max, int course_cur, int course_available,
+<<<<<<< HEAD
+                      int course_wl, double course_per, String course_instructor, String course_description,
+                      String course_prerequire, String major_id) {
+=======
                       int course_wl, double course_per, String course_instructor,
                       String course_description, String course_prerequire, String major_id) {
+>>>>>>> master
         this.course_id = course_id;
         this.course_name = course_name;
         this.course_section = course_section;
@@ -55,6 +60,8 @@ public class CourseInfo {
         this.major_id = major_id;
     }
 
+<<<<<<< HEAD
+=======
     //    public CourseInfo(String course_id, String course_name, int course_section, String course_type,
 //                      double course_crdhrs, String course_days, String course_times,
 //                      String course_location, int course_max, int course_cur,
@@ -79,6 +86,7 @@ public class CourseInfo {
 //        this.major_id = major_id;
 //    }
 
+>>>>>>> master
     public String getCourse_id() {
         return course_id;
     }
@@ -146,6 +154,8 @@ public class CourseInfo {
     public String getMajor_id() {
         return major_id;
     }
+<<<<<<< HEAD
+=======
 
 
     //setters
@@ -217,4 +227,5 @@ public class CourseInfo {
     public void setMajor_id(String major_id) {
         this.major_id = major_id;
     }
+>>>>>>> master
 }
