@@ -13,7 +13,6 @@ import java.util.Map;
 
 
 public class Courses implements Serializable {
-    public String id;
     public String courseID;
     public String subject;
     public String starttime;
@@ -21,8 +20,7 @@ public class Courses implements Serializable {
     public String days;
     public Courses(){}
 
-    public Courses(String uid, String cid, String sj, String st, String et, String d){
-        id=uid;
+    public Courses(String cid, String sj, String st, String et, String d){
         courseID=cid;
         subject=sj;
         starttime=st;
@@ -32,7 +30,6 @@ public class Courses implements Serializable {
     }
     public Map<String, Object> toMap(){
         HashMap<String, Object> result = new HashMap<>();
-        result.put("uid", id);
         result.put("courseID", courseID);
         result.put("subject", subject);
         result.put("starttime", starttime);

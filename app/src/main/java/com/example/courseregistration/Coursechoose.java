@@ -185,15 +185,14 @@ public class Coursechoose extends AppCompatActivity {
                         if (checkbox11.isChecked()) {
                             message1 = checkbox11.getText().toString();
 
-                            String id = myRef.child(userID).push().getKey();
                             String courseID=dataSnapshot.child("subjects").child(message).child("course 1").child("courseID").getValue().toString();
                             String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("start").getValue().toString();
                             String endtime=dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("days").getValue().toString();
 
-                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
+                            Courses r=new Courses(courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                                     /*int checkcounter = 0; //confilict buged
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
@@ -225,15 +224,14 @@ public class Coursechoose extends AppCompatActivity {
 
                         if (checkbox12.isChecked()) {
                             message1 = checkbox12.getText().toString();
-                            String id = myRef.child(userID).push().getKey();
                             String courseID=dataSnapshot.child("subjects").child(message).child("course 2").child("courseID").getValue().toString();
                             String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("start").getValue().toString();
                             String endtime=dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("days").getValue().toString();
 
-                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
+                            Courses r=new Courses(courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                                     /*int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){  //confilict buged
                                         if(timeList.get(i).equals(checktime)) {
@@ -265,15 +263,14 @@ public class Coursechoose extends AppCompatActivity {
                         }
                         if (checkbox13.isChecked()) {
                             message1 = checkbox13.getText().toString();
-                            String id = myRef.child(userID).push().getKey();
                             String courseID=dataSnapshot.child("subjects").child(message).child("course 3").child("courseID").getValue().toString();
                             String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("start").getValue().toString();
                             String endtime=dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("days").getValue().toString();
 
-                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
+                            Courses r=new Courses(courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                                     /*int checkcounter = 0;   //confilict buged
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
@@ -304,15 +301,14 @@ public class Coursechoose extends AppCompatActivity {
 
                         if (checkbox14.isChecked()) {
                             message1 = checkbox14.getText().toString();
-                            String id = myRef.child(userID).push().getKey();
                             String courseID=dataSnapshot.child("subjects").child(message).child("course 4").child("courseID").getValue().toString();
                             String subject=message;
                             String starttime = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("start").getValue().toString();
                             String endtime=dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
 
-                            Courses r=new Courses(id,courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(id).setValue(r);
+                            Courses r=new Courses(courseID,subject,starttime,endtime,days);
+                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                                    /* int checkcounter = 0; //confilict buged
                                     Log.d("test","test debug !!!!!!!!!!!!!!!!!");
                                     for(int i = 0; i<timeList.size(); i++){
