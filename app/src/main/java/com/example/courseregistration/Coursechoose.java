@@ -157,60 +157,6 @@ public class Coursechoose extends AppCompatActivity {
                     c4maxtextView.setText(maxnum4);
                     c4curtextView.setText(curnum4);
                 }
-                if (message.equals("Statistics")) {
-                    checkbox11.setText(course1);
-                    String wcnum1 = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistcapacity").getValue().toString();
-
-                    String wnnum1 = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
-
-                    String maxnum1 = dataSnapshot.child("subjects").child(message).child("course 1").child("capacity").getValue().toString();
-
-                    String curnum1 = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
-
-                    c1wctextView.setText(wcnum1);
-                    c1wntextView.setText(wnnum1);
-                    c1maxtextView.setText(maxnum1);
-                    c1curtextView.setText(curnum1);
-                    checkbox12.setText(course2);
-                    String wcnum2 = dataSnapshot.child("subjects").child(message).child("course 2").child("waitlistcapacity").getValue().toString();
-
-                    String wnnum2 = dataSnapshot.child("subjects").child(message).child("course 2").child("waitlistnum").getValue().toString();
-
-                    String maxnum2 = dataSnapshot.child("subjects").child(message).child("course 2").child("capacity").getValue().toString();
-
-                    String curnum2 = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
-
-                    c2wctextView.setText(wcnum2);
-                    c2wntextView.setText(wnnum2);
-                    c2maxtextView.setText(maxnum2);
-                    c2curtextView.setText(curnum2);
-                    checkbox13.setText(course3);
-                    String wcnum3 = dataSnapshot.child("subjects").child(message).child("course 3").child("waitlistcapacity").getValue().toString();
-
-                    String wnnum3 = dataSnapshot.child("subjects").child(message).child("course 3").child("waitlistnum").getValue().toString();
-
-                    String maxnum3 = dataSnapshot.child("subjects").child(message).child("course 3").child("capacity").getValue().toString();
-
-                    String curnum3 = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
-
-                    c3wctextView.setText(wcnum3);
-                    c3wntextView.setText(wnnum3);
-                    c3maxtextView.setText(maxnum3);
-                    c3curtextView.setText(curnum3);
-                    checkbox14.setText(course4);
-                    String wcnum4 = dataSnapshot.child("subjects").child(message).child("course 4").child("waitlistcapacity").getValue().toString();
-
-                    String wnnum4 = dataSnapshot.child("subjects").child(message).child("course 4").child("waitlistnum").getValue().toString();
-
-                    String maxnum4 = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
-
-                    String curnum4 = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
-
-                    c4wctextView.setText(wcnum4);
-                    c4wntextView.setText(wnnum4);
-                    c4maxtextView.setText(maxnum4);
-                    c4curtextView.setText(curnum4);
-                }
             }
 
             @Override
@@ -396,7 +342,8 @@ public class Coursechoose extends AppCompatActivity {
                                 myRef.child("subjects").child(message).child("course 4").child("waitlistnum").setValue(numintwaitnum1);
                                 checkbox11.setChecked(false);
                             }
-                            Log.d("test1","It is a special courses.");
+
+                                Toast.makeText(Coursechoose.this, "This courses need a special pre courses", Toast.LENGTH_SHORT).show();
                         }
 
                         // String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();

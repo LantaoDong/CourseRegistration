@@ -31,54 +31,20 @@ public class Departmentchoose extends AppCompatActivity {
                 String message = "";
                 final CheckBox checkbox6 = (CheckBox) findViewById(R.id.checkBox6);
                 final CheckBox checkbox7 = (CheckBox) findViewById(R.id.checkBox7);
-                final CheckBox checkbox8 = (CheckBox) findViewById(R.id.checkBox8);
-                final CheckBox checkbox9 = (CheckBox) findViewById(R.id.checkBox9);
-                final CheckBox checkbox10 = (CheckBox) findViewById(R.id.checkBox10);
+
                 if (checkbox6.isChecked()) {
                     message = checkbox6.getText().toString();
                     checkbox7.setEnabled(false);
-                    checkbox8.setEnabled(false);
-                    checkbox9.setEnabled(false);
-                    checkbox10.setEnabled(false);
-                    checkbox6.setChecked(false);
+
                 }
                 //checkbox6.setChecked(false);
                 if (checkbox7.isChecked()) {
                     message = checkbox7.getText().toString();
                     checkbox6.setEnabled(false);
-                    checkbox8.setEnabled(false);
-                    checkbox9.setEnabled(false);
-                    checkbox10.setEnabled(false);
-                    checkbox7.setChecked(false);
-                }
-                //checkbox7.setChecked(false);
-                if (checkbox8.isChecked()) {
-                    message = checkbox8.getText().toString();
-                    checkbox7.setEnabled(false);
-                    checkbox6.setEnabled(false);
-                    checkbox9.setEnabled(false);
-                    checkbox10.setEnabled(false);
-                    checkbox8.setChecked(false);
 
                 }
-                //checkbox8.setChecked(false);
-                if (checkbox9.isChecked()) {
-                    message = checkbox9.getText().toString();
-                    checkbox7.setEnabled(false);
-                    checkbox8.setEnabled(false);
-                    checkbox6.setEnabled(false);
-                    checkbox10.setEnabled(false);
-                    checkbox9.setChecked(false);
-                }
-                //checkbox9.setChecked(false);
-                if (checkbox10.isChecked()) {
-                    message = checkbox10.getText().toString();
-                    checkbox7.setEnabled(false);
-                    checkbox8.setEnabled(false);
-                    checkbox9.setEnabled(false);
-                    checkbox10.setEnabled(false);
-                    checkbox10.setChecked(false);
-                }
+                //checkbox7.setChecked(false);
+
                 Intent intent = new Intent();
                 intent.setClass(Departmentchoose.this, Coursechoose.class);
                 intent.putExtra("data", message);
