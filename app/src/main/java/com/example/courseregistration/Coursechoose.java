@@ -192,7 +192,7 @@ public class Coursechoose extends AppCompatActivity {
                             String days = dataSnapshot.child("subjects").child(message).child("course 1").child("time").child("days").getValue().toString();
 
                             Courses r=new Courses(courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
+                            myRef.child("users").child(userID).child("registered courses").child("course 1").setValue(r);
                                     /*int checkcounter = 0; //confilict buged
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
@@ -231,7 +231,7 @@ public class Coursechoose extends AppCompatActivity {
                             String days = dataSnapshot.child("subjects").child(message).child("course 2").child("time").child("days").getValue().toString();
 
                             Courses r=new Courses(courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
+                            myRef.child("users").child(userID).child("registered courses").child("course 2").setValue(r);
                                     /*int checkcounter = 0;
                                     for(int i = 0; i<timeList.size(); i++){  //confilict buged
                                         if(timeList.get(i).equals(checktime)) {
@@ -270,7 +270,7 @@ public class Coursechoose extends AppCompatActivity {
                             String days = dataSnapshot.child("subjects").child(message).child("course 3").child("time").child("days").getValue().toString();
 
                             Courses r=new Courses(courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
+                            myRef.child("users").child(userID).child("registered courses").child("course 3").setValue(r);
                                     /*int checkcounter = 0;   //confilict buged
                                     for(int i = 0; i<timeList.size(); i++){
                                         if(timeList.get(i).equals(checktime)) {
@@ -308,7 +308,7 @@ public class Coursechoose extends AppCompatActivity {
                             String days = dataSnapshot.child("subjects").child(message).child("course 4").child("time").child("days").getValue().toString();
 
                             Courses r=new Courses(courseID,subject,starttime,endtime,days);
-                            myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
+                            myRef.child("users").child(userID).child("registered courses").child("course 4").setValue(r);
                                    /* int checkcounter = 0; //confilict buged
                                     Log.d("test","test debug !!!!!!!!!!!!!!!!!");
                                     for(int i = 0; i<timeList.size(); i++){

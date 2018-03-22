@@ -24,15 +24,32 @@
         <activity android:name=".Departmentchoose" />
         <activity android:name=".Coursechoose" />
         <activity android:name=".Adddroptable" />
-        <activity
-            android:name=".MajorListActivity"
-            android:label="@string/title_activity_major_list"
-            android:theme="@style/AppTheme.NoActionBar" />
+<<<<<<< HEAD
         <activity android:name=".AddMajorsActivity" />
         <activity
             android:name=".UI.ClassInfo"
             android:label="@string/title_activity_class_info"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CourseInfo" />
+=======
+        <activity android:name=".MondaySchdule"/>
+
+        <activity android:name=".AddMajorsActivity" />
+        <activity android:name=".CourseFilter" />
+        <activity android:name=".StatisticsCourses" />
+        <activity android:name=".ComputerScienceCourses" />
+        <activity android:name=".MathCourses" />
+        <activity android:name=".MathCoursesDescription" />
+        <activity android:name=".ComputerScienceCoursesDescription" />
+        <activity android:name=".StatisticsCoursesDescription" />
+        <activity android:name=".HelpContact" />
+        <activity android:name=".HelpContactDetail"/>
+        <activity android:name=".ViewScheduleSingleDay">
+        </activity>
+
+        <activity android:name=".MajorListActivity"/>
+        <activity android:name=".CourseDetailActivity" />
+        <activity android:name=".AddCoursesActivity"/>
+>>>>>>> master
     </application>
+
 </manifest>
