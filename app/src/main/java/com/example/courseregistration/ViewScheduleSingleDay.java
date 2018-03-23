@@ -21,7 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ViewScheduleSingleDay extends AppCompatActivity {
-
+    /**Refactoring Comment**/
+    /**Displaying user's course schedule after registration. Retrieved courses start and end time from database
+     * Using listview for display Study schedule instead of using TableRow **/
     ListView classesListView;
     ArrayList<String> classTime = new ArrayList<String>();
     String time;
