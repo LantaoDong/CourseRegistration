@@ -110,28 +110,28 @@ public class Adddroptable extends AppCompatActivity {
                     textView1.setText(course1);
                 }
                 else{
-                    textView1.setText(" ");
+                    textView1.setText("no class");
                 }
                 if(dataSnapshot.child("course 2").child("courseID").getValue()!=null){
                     String course2 = dataSnapshot.child("course 2").child("courseID").getValue().toString();
                     textView2.setText(course2);
                 }
                 else{
-                    textView2.setText(" ");
+                    textView2.setText("no class");
                 }
                 if(dataSnapshot.child("course 3").child("courseID").getValue()!=null){
                     String course3 = dataSnapshot.child("course 3").child("courseID").getValue().toString();
                     textView3.setText(course3);
                 }
                 else{
-                    textView3.setText(" ");
+                    textView3.setText("no class");
                 }
                 if(dataSnapshot.child("course 4").child("courseID").getValue()!=null){
                     String course4 = dataSnapshot.child("course 4").child("courseID").getValue().toString();
                     textView4.setText(course4);
                 }
                 else{
-                    textView4.setText(" ");
+                    textView4.setText("no class");
                 }
 
 
@@ -143,14 +143,15 @@ public class Adddroptable extends AppCompatActivity {
         });
 
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                button2.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        myRef.child("users").child(userID).child("registered courses").child("course 1").removeValue();
+                        textView1.setText(" ");
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child("course 1").removeValue();
-                textView1.setText(" ");
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(final DataSnapshot dataSnapshot) {
+
                         String num = dataSnapshot.child("subjects").child(message).child("course 1").child("numberOfStudents").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 1").child("waitlistnum").getValue().toString();
                         int numint = Integer.parseInt(num);
@@ -159,67 +160,63 @@ public class Adddroptable extends AppCompatActivity {
                             int numintwaitnum1 = numintwaitnum - 1;
                             myRef.child("subjects").child(message).child("course 1").child("waitlistnum").setValue(numintwaitnum1);
 
-                        } else if(numint > 0) {
+                        } else if (numint > 0) {
                             int numint1 = numint - 1;
                             myRef.child("subjects").child(message).child("course 1").child("numberOfStudents").setValue(numint1);
                         }
                     }
+                });
+            }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });
-            }
+
             });
 
-        button3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child("course 2").removeValue();
-                textView2.setText(" ");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                button3.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        myRef.child("users").child(userID).child("registered courses").child("course 2").removeValue();
+                        textView1.setText(" ");
 
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(final DataSnapshot dataSnapshot) {
 
                         String num = dataSnapshot.child("subjects").child(message).child("course 2").child("numberOfStudents").getValue().toString();
-                        String numcap = dataSnapshot.child("subjects").child(message).child("course 2").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 2").child("waitlistnum").getValue().toString();
-
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
                             myRef.child("subjects").child(message).child("course 2").child("waitlistnum").setValue(numintwaitnum1);
 
-                        } else if(numint > 0) {
+                        } else if (numint > 0) {
                             int numint1 = numint - 1;
-
                             myRef.child("subjects").child(message).child("course 2").child("numberOfStudents").setValue(numint1);
                         }
                     }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
                 });
             }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
         });
 
-        button4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child("course 3").removeValue();
-                textView3.setText(" ");
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(final DataSnapshot dataSnapshot) {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                button4.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        myRef.child("users").child(userID).child("registered courses").child("course 3").removeValue();
+                        textView1.setText(" ");
+
 
                         String num = dataSnapshot.child("subjects").child(message).child("course 3").child("numberOfStudents").getValue().toString();
-                        String numcap = dataSnapshot.child("subjects").child(message).child("course 3").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 3").child("waitlistnum").getValue().toString();
-
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
@@ -227,49 +224,47 @@ public class Adddroptable extends AppCompatActivity {
 
                         } else if (numint > 0) {
                             int numint1 = numint - 1;
-
                             myRef.child("subjects").child(message).child("course 3").child("numberOfStudents").setValue(numint1);
                         }
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
                     }
                 });
             }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
         });
 
-        button5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                myRef.child("users").child(userID).child("registered courses").child("course 4").removeValue();
-                textView4.setText(" ");
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(final DataSnapshot dataSnapshot) {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                button5.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        myRef.child("users").child(userID).child("registered courses").child("course 4").removeValue();
+                        textView1.setText(" ");
+
+
                         String num = dataSnapshot.child("subjects").child(message).child("course 4").child("numberOfStudents").getValue().toString();
-                        String numcap = dataSnapshot.child("subjects").child(message).child("course 4").child("capacity").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(message).child("course 4").child("waitlistnum").getValue().toString();
                         int numint = Integer.parseInt(num);
-                        int numintcap = Integer.parseInt(numcap);
                         int numintwaitnum = Integer.parseInt(numwaitnum);
                         if (numintwaitnum > 0) {
                             int numintwaitnum1 = numintwaitnum - 1;
                             myRef.child("subjects").child(message).child("course 4").child("waitlistnum").setValue(numintwaitnum1);
 
-                        } else if(numint > 0) {
+                        } else if (numint > 0) {
                             int numint1 = numint - 1;
-
                             myRef.child("subjects").child(message).child("course 4").child("numberOfStudents").setValue(numint1);
                         }
                     }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
                 });
             }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
         });
 
         button6.setOnClickListener(new View.OnClickListener() {
