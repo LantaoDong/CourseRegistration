@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Coursechoose extends AppCompatActivity {
     Button back;
+    Button next;
 
     public ArrayList<CourseInfo> courseList = new ArrayList<CourseInfo>();
 
@@ -46,7 +47,7 @@ public class Coursechoose extends AppCompatActivity {
                 startActivity(backToDepartment);
             }
         });
-        final Button button = (Button) findViewById(R.id.button3);
+        next = (Button) findViewById(R.id.button3);
 
         final CheckBox checkbox11 = (CheckBox) findViewById(R.id.checkBox11);
         final CheckBox checkbox12 = (CheckBox) findViewById(R.id.checkBox12);
@@ -212,7 +213,7 @@ public class Coursechoose extends AppCompatActivity {
 
             }
         });
-        button.setOnClickListener(new View.OnClickListener() {
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -388,6 +389,10 @@ public class Coursechoose extends AppCompatActivity {
                             }
 
                                 Toast.makeText(Coursechoose.this, "This courses need a special pre courses", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Intent intent = new Intent();
+                            intent.setClass(Coursechoose.this, Adddroptable.class);
                         }
 
                         // String check = dataSnapshot.child("users").child(userID).child("learned courses").getValue().toString();
