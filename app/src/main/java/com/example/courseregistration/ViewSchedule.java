@@ -24,6 +24,8 @@ public class ViewSchedule extends AppCompatActivity{
 
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
+        final String selectedSemester = intent.getStringExtra("semester");
+
 
         daysListView = (ListView) findViewById(R.id.lstView);
         ArrayList<String> days = new ArrayList<String>();
@@ -45,6 +47,7 @@ public class ViewSchedule extends AppCompatActivity{
                 Intent intent = new Intent(ViewSchedule.this, ViewScheduleSingleDay.class);
                 intent.putExtra("day", selectedDay);
                 intent.putExtra("userID", userID);
+                intent.putExtra("semester", selectedSemester);
 
                 startActivity(intent);
             }
