@@ -20,7 +20,7 @@ public class ViewScheduleSemester extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewschedulesemesterule);
+        setContentView(R.layout.activity_viewschedulesemester);
 
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
