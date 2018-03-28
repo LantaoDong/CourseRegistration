@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class ViewSchedule extends AppCompatActivity{
 
 
     private ListView daysListView;
+    private Button returnToUser;
     ArrayAdapter daysadapter;
 
     @Override
@@ -25,6 +27,8 @@ public class ViewSchedule extends AppCompatActivity{
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
         final String selectedSemester = intent.getStringExtra("semester");
+
+        returnToUser = (Button) findViewById(R.id.ReturnToUser);
 
 
         daysListView = (ListView) findViewById(R.id.lstView);
@@ -51,6 +55,17 @@ public class ViewSchedule extends AppCompatActivity{
 
                 startActivity(intent);
             }
+        });
+
+        returnToUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToD = new Intent(ViewSchedule.this, UserActivity.class);
+                intentToD.putExtra("userID", userID);
+                startActivity(intentToD);
+            }
+
+
         });
 
     }

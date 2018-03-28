@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class ViewScheduleSemester extends AppCompatActivity{
 
 
     private ListView semestersListView;
+    private Button returnToUser;
     ArrayAdapter semesteradapter;
 
     @Override
@@ -24,6 +26,9 @@ public class ViewScheduleSemester extends AppCompatActivity{
 
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
+
+        returnToUser = (Button) findViewById(R.id.ReturnToUser);
+
 
         semestersListView = (ListView) findViewById(R.id.semesterListView);
         ArrayList<String> semesters = new ArrayList<String>();
@@ -48,5 +53,15 @@ public class ViewScheduleSemester extends AppCompatActivity{
             }
         });
 
+        returnToUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToD = new Intent(ViewScheduleSemester.this, UserActivity.class);
+                intentToD.putExtra("userID", userID);
+                startActivity(intentToD);
+            }
+
+
+        });
     }
 }

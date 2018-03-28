@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -27,6 +28,7 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
     ListView classesListView;
     ArrayList<String> classTime = new ArrayList<String>();
     String time;
+    private Button returnToUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,13 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         final String userID = intent.getStringExtra("userID");
         final String selectedSemester = intent.getStringExtra("semester");
 
-
         // The code of the selected day. Mon = M, Tues = T, Wed = W, Thurs = R, Fri = F
         final String selectedDayCode = getDayCode(selectedDay);
 
+        returnToUser = (Button) findViewById(R.id.ReturnToUser);
+
         TextView dayTextView = (TextView) findViewById(R.id.dayTextView);
-        dayTextView.setText(selectedDay+"'s Classes");
+        dayTextView.setText(selectedSemester+" - "+selectedDay+"'s Classes");
 
         classesListView = (ListView) findViewById(R.id.classesListView);
         String directory = "users/"+userID+"/registered courses";
@@ -72,6 +75,17 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
+        });
+
+        returnToUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToD = new Intent(ViewScheduleSingleDay.this, UserActivity.class);
+                intentToD.putExtra("userID", userID);
+                startActivity(intentToD);
+            }
+
+
         });
     }
 
