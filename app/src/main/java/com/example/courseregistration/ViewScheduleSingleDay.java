@@ -55,14 +55,16 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    time = snapshot.child("courseID").getValue().toString();
-
-                    time += "\n" + snapshot.child("starttime").getValue().toString();
-                    time += " - "+snapshot.child("endtime").getValue().toString();
-
+                  // makes sure class is on selected day
                     if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
+                        time = snapshot.child("courseID").getValue().toString();
+                        time += "\n" + snapshot.child("starttime").getValue().toString();
+                        time += " - "+snapshot.child("endtime").getValue().toString();
+
                         classTime.add(time);
+
                     }
+
                 }
 
 
@@ -97,7 +99,7 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
      */
     public String getDayCode(String day) {
         String returncode = "";
-        switch(day.toLowerCase()){
+        switch(day.toLowerCase()) {
             case "monday":
                 returncode = "M";
                 break;
@@ -118,4 +120,20 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         return returncode;
     }
 
+    public int getTermCode(String term) {
+        int returncode = -1;
+        switch (term.toLowerCase()) {
+            case "fall":
+                returncode = 1;
+                break;
+            case "winter":
+                returncode = 2;
+                break;
+            case "summer":
+                returncode = 3;
+                break;
+            default:
+        }
+        return returncode;
+    }
 }
