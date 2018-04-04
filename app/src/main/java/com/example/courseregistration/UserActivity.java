@@ -13,6 +13,7 @@ public class UserActivity extends AppCompatActivity {
     private Button viewSchedule;
     private Button search;
     private Button help;
+    private Button changePassword;
 
 
     @Override
@@ -23,6 +24,7 @@ public class UserActivity extends AppCompatActivity {
         timeTable = (Button) findViewById(R.id.timeTable);
         viewSchedule = (Button) findViewById(R.id.schedule);
         drop = (Button) findViewById(R.id.drop);
+        changePassword = (Button) findViewById(R.id.changePassword);
 
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
@@ -78,6 +80,14 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentToHelp = new Intent (UserActivity.this,HelpContact.class);
                 startActivity(intentToHelp);
+            }
+        });
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent changeP = new Intent(UserActivity.this, ChangePassword.class);
+               changeP.putExtra("userID", userID);
+               startActivity(changeP);
             }
         });
     }
