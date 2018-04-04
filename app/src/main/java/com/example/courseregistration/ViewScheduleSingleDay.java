@@ -56,6 +56,7 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     // makes sure class is in selected term
+                    // 1 = fall, 2 = winter, 3 = summer
                     if (Integer.parseInt(snapshot.child("term").getValue().toString()) == getTermCode(selectedSemester)) {
                         // makes sure class is on selected day
                         if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
