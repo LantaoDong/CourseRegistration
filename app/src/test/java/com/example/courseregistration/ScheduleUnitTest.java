@@ -18,13 +18,14 @@ public class ScheduleUnitTest {
     //public boolean checkIfInsideTime(int startHr, int startMin, int endHr, int endMin, int newHr, int newMin) {
 
     @Test
-    public void timeTest_isCorrect() throws Exception {
-        assertEquals(ViewSchedule.checkIfInsideTime(8,30,10,30,8,30), true);
-    }
+    public void codeGetters_areCorrect() throws Exception {
+        assertEquals(ViewScheduleSingleDay.getDayCode("Monday"), "M");
+        assertEquals(ViewScheduleSingleDay.getDayCode("Smarch"), "Z");
 
-    @Test
-    public void timeTest_isCorrect2() throws Exception {
-        assertEquals(ViewSchedule.checkIfInsideTime(8,30,10,30,11,00), false);
+        assertEquals(ViewScheduleSingleDay.getTermCode("Fall"), 1);
+        assertEquals(ViewScheduleSingleDay.getTermCode("Smarch"), -1);
+
+
     }
 }
 
