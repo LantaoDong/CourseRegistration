@@ -55,16 +55,17 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                  // makes sure class is on selected day
-                    if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
-                        time = snapshot.child("courseID").getValue().toString();
-                        time += "\n" + snapshot.child("starttime").getValue().toString();
-                        time += " - "+snapshot.child("endtime").getValue().toString();
+                    // makes sure class is in selected term
+                    if (Integer.parseInt(snapshot.child("term").getValue().toString()) == getTermCode(selectedSemester)) {
+                        // makes sure class is on selected day
+                        if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
+                            time = snapshot.child("courseID").getValue().toString();
+                            time += "\n" + snapshot.child("starttime").getValue().toString();
+                            time += " - " + snapshot.child("endtime").getValue().toString();
 
-                        classTime.add(time);
-
+                            classTime.add(time);
+                        }
                     }
-
                 }
 
 
@@ -97,8 +98,8 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
      * @param day
      * @return
      */
-    public String getDayCode(String day) {
-        String returncode = "";
+    public static String getDayCode(String day) {
+        String returncode = "Z";
         switch(day.toLowerCase()) {
             case "monday":
                 returncode = "M";
@@ -120,7 +121,7 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         return returncode;
     }
 
-    public int getTermCode(String term) {
+    public static int getTermCode(String term) {
         int returncode = -1;
         switch (term.toLowerCase()) {
             case "fall":
