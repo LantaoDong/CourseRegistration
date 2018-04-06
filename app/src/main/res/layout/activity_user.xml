@@ -11,105 +11,89 @@
         android:id="@+id/textView"
         android:layout_width="278dp"
         android:layout_height="66dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-condensed"
         android:text="Activities"
         android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/drop"
-        android:layout_width="119dp"
-        android:layout_height="53dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
         android:text="add/drop"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:text="add/drop" />
 
     <Button
         android:id="@+id/backToLogin"
-        android:layout_width="115dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
         android:text="Logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/schedule" />
 
+
     <Button
         android:id="@+id/timeTable"
-        android:layout_width="117dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
         android:text="time table"
-        app:layout_constraintEnd_toStartOf="@+id/help"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drop" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help" />
 
     <Button
         android:id="@+id/schedule"
-        android:layout_width="116dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
         android:text="view schedule"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeTable" />
 
     <Button
         android:id="@+id/searchCourse"
-        android:layout_width="119dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
         android:layout_marginTop="8dp"
         android:text="Search Course"
-        app:layout_constraintBottom_toTopOf="@+id/help"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toEndOf="@+id/drop"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drop" />
 
     <Button
         android:id="@+id/help"
-        android:layout_width="120dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="64dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="132dp"
         android:text="help"
-        app:layout_constraintBottom_toTopOf="@+id/schedule"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchCourse" />
 
     <Button
         android:id="@+id/changePassword"
-        android:layout_width="119dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="278dp"
+        android:layout_height="66dp"
         android:layout_marginTop="8dp"
         android:text="Change Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/schedule"
-        app:layout_constraintTop_toBottomOf="@+id/help"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule" />
 </android.support.constraint.ConstraintLayout>
