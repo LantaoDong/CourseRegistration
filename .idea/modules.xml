@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\langile\StudioProjects\Iteration3\CourseRegistration.iml" filepath="C:\Users\langile\StudioProjects\Iteration3\CourseRegistration.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Iteration3.iml" filepath="$PROJECT_DIR$/.idea/Iteration3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CourseRegistration.iml" filepath="$PROJECT_DIR$/CourseRegistration.iml" /> 
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\71578\AndroidStudioProjects\a1\CourseRegistration\iration2 adddrop.iml" filepath="C:\Users\71578\AndroidStudioProjects\a1\CourseRegistration\iration2 adddrop.iml" />
     </modules>
