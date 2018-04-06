@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -27,6 +28,7 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
     ListView classesListView;
     ArrayList<String> classTime = new ArrayList<String>();
     String time;
+    private Button returnToUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,15 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         Intent intent = getIntent();
         final String selectedDay = intent.getStringExtra("day");
         final String userID = intent.getStringExtra("userID");
+        final String selectedSemester = intent.getStringExtra("semester");
 
         // The code of the selected day. Mon = M, Tues = T, Wed = W, Thurs = R, Fri = F
         final String selectedDayCode = getDayCode(selectedDay);
 
+        returnToUser = (Button) findViewById(R.id.ReturnToUser);
+
         TextView dayTextView = (TextView) findViewById(R.id.dayTextView);
-        dayTextView.setText(selectedDay+"'s Classes");
+        dayTextView.setText(selectedSemester+" - "+selectedDay+"'s Classes");
 
         classesListView = (ListView) findViewById(R.id.classesListView);
         String directory = "users/"+userID+"/registered courses";
@@ -50,13 +55,17 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    time = snapshot.child("courseID").getValue().toString();
+                    // makes sure class is in selected term
+                    // 1 = fall, 2 = winter, 3 = summer
+                    if (Integer.parseInt(snapshot.child("term").getValue().toString()) == getTermCode(selectedSemester)) {
+                        // makes sure class is on selected day
+                        if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
+                            time = snapshot.child("courseID").getValue().toString();
+                            time += "\n" + snapshot.child("starttime").getValue().toString();
+                            time += " - " + snapshot.child("endtime").getValue().toString();
 
-                    time += "\n" + snapshot.child("starttime").getValue().toString();
-                    time += " - "+snapshot.child("endtime").getValue().toString();
-
-                    if (snapshot.child("days").getValue().toString().contains(selectedDayCode)) {
-                        classTime.add(time);
+                            classTime.add(time);
+                        }
                     }
                 }
 
@@ -71,6 +80,17 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
 
             }
         });
+
+        returnToUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToD = new Intent(ViewScheduleSingleDay.this, UserActivity.class);
+                intentToD.putExtra("userID", userID);
+                startActivity(intentToD);
+            }
+
+
+        });
     }
 
     /**
@@ -79,9 +99,9 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
      * @param day
      * @return
      */
-    public String getDayCode(String day) {
-        String returncode = "";
-        switch(day.toLowerCase()){
+    public static String getDayCode(String day) {
+        String returncode = "Z";
+        switch(day.toLowerCase()) {
             case "monday":
                 returncode = "M";
                 break;
@@ -102,4 +122,20 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         return returncode;
     }
 
+    public static int getTermCode(String term) {
+        int returncode = -1;
+        switch (term.toLowerCase()) {
+            case "fall":
+                returncode = 1;
+                break;
+            case "winter":
+                returncode = 2;
+                break;
+            case "summer":
+                returncode = 3;
+                break;
+            default:
+        }
+        return returncode;
+    }
 }
