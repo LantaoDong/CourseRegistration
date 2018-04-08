@@ -9,46 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".TimeTableActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".ViewSchedule" />
         <activity android:name=".Departmentchoose" />
         <activity android:name=".Coursechoose" />
         <activity android:name=".Adddroptable" />
 
-        <activity android:name=".AddMajorsActivity" />
         <activity
             android:name=".UI.ClassInfo"
             android:label="@string/title_activity_class_info"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".MondaySchdule"/>
-
         <activity android:name=".AddMajorsActivity" />
-        <activity android:name=".CourseFilter" />
-        <activity android:name=".StatisticsCourses" />
-        <activity android:name=".ComputerScienceCourses" />
-        <activity android:name=".MathCourses" />
-        <activity android:name=".MathCoursesDescription" />
-        <activity android:name=".ComputerScienceCoursesDescription" />
-        <activity android:name=".StatisticsCoursesDescription" />
-        <activity android:name=".HelpContact" />
-        <activity android:name=".HelpContactDetail"/>
-        <activity android:name=".ViewScheduleSingleDay">
-        </activity>
-
-        <activity android:name=".MajorListActivity"/>
-        <activity android:name=".CourseDetailActivity" />
-        <activity android:name=".AddCoursesActivity"/>
 
     </application>
 
