@@ -29,10 +29,8 @@
             android:name=".UI.ClassInfo"
             android:label="@string/title_activity_class_info"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".MondaySchdule" />
         <activity android:name=".AddMajorsActivity" />
-
         <activity android:name=".CourseFilter" />
         <activity android:name=".StatisticsCourses" />
         <activity android:name=".ComputerScienceCourses" />
@@ -41,17 +39,15 @@
         <activity android:name=".ComputerScienceCoursesDescription" />
         <activity android:name=".StatisticsCoursesDescription" />
         <activity android:name=".HelpContact" />
-
-        <activity android:name=".HelpContactDetail"/>
-        <activity android:name=".ViewScheduleSingleDay"/>
-        <activity android:name=".ViewScheduleSemester">
-        </activity>
-
-        <activity android:name=".MajorListActivity"/>
-
+        <activity android:name=".HelpContactDetail" />
+        <activity android:name=".ViewScheduleSingleDay" />
+        <activity android:name=".ViewScheduleSemester"></activity>
+        <activity android:name=".MajorListActivity" />
         <activity android:name=".CourseDetailActivity" />
         <activity android:name=".AddCoursesActivity" />
-        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".TermListActivity">
+        </activity>
     </application>
 
 </manifest>

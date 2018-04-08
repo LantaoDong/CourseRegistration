@@ -21,7 +21,7 @@ public class AddCoursesActivity extends AppCompatActivity {
     FirebaseHelper firebasehelper;
     EditText et_courseid, et_coursename, et_coursesection, et_coursetype, et_coursecrdhrs,
             et_coursedays, et_coursetimes, et_courselocation, et_coursemax, et_coursecur,
-            et_coursewl, et_courseinstructor, et_coursedescription, et_courseprerequire, et_majorid;
+            et_coursewl, et_courseinstructor, et_coursedescription, et_courseprerequire, et_majorid, et_courseterm;
     Button btn_addCourse;
 
     @Override
@@ -48,6 +48,8 @@ public class AddCoursesActivity extends AppCompatActivity {
         et_coursedescription= (EditText) findViewById(R.id.et_coursedescription);
         et_courseprerequire= (EditText) findViewById(R.id.et_courseprerequire);
         et_majorid= (EditText) findViewById(R.id.et_majorid);
+        et_courseterm = (EditText) findViewById(R.id.et_courseterm);
+
 
         btn_addCourse = (Button) findViewById(R.id.btn_addCourse);
 
@@ -74,14 +76,13 @@ public class AddCoursesActivity extends AppCompatActivity {
                 String course_description=et_coursedescription.getText().toString();
                 String course_prerequire=et_courseprerequire.getText().toString();
                 String major_id=et_majorid.getText().toString();
-
-
+                int course_term = Integer.parseInt(et_courseterm.getText().toString());
 
                 //SET DATA
                 CourseInfo course = new CourseInfo(course_id, course_name, course_section, course_type,
                         course_crdhrs, course_days, course_times, course_location, course_max,
                         course_cur, 1, course_wl, 1, course_instructor, course_description,
-                        course_prerequire, major_id);
+                        course_prerequire, course_term, major_id);
 
 
                 //SIMPLE VALIDATION
@@ -107,6 +108,7 @@ public class AddCoursesActivity extends AppCompatActivity {
                         et_coursedescription.setText("");
                         et_courseprerequire.setText("");
                         et_majorid.setText("");
+                        et_courseterm.setText("");
 
                         Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
 

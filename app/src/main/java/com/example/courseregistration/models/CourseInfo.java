@@ -29,8 +29,8 @@ public class CourseInfo {
     public String major_id;
 
     public CourseInfo() {
-
     }
+
 
     public CourseInfo(String course_id, String course_name, int course_section, String course_type,
                       double course_crdhrs, String course_days, String course_times,
@@ -57,7 +57,7 @@ public class CourseInfo {
         this.major_id = major_id;
     }
 
-    
+
     public CourseInfo(String course_id, String course_name, int course_section, String course_type,
                       double course_crdhrs, String course_days, String course_times, String course_location,
                       int course_max, int course_cur, int course_available, int course_wl, double course_per,

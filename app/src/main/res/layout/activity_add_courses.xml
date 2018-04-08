@@ -165,13 +165,23 @@
             android:hint="Major ID"
             android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/et_courseterm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/et_majorid"
+            android:layout_marginTop="29dp"
+            android:hint="Major Term"
+            android:inputType="textPersonName" />
+
 
         <Button
             android:id="@+id/btn_addCourse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/et_majorid"
+            android:layout_below="@+id/et_courseterm"
             android:layout_marginEnd="153dp"
             android:layout_marginTop="25dp"
             android:text="add course" />

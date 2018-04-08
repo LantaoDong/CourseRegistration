@@ -35,6 +35,7 @@ public class TimeTableActivity extends AppCompatActivity {
     TimeTableAdapter adapter;
     ListView lv_CourseList;
     String majorID;
+    int courseterm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class TimeTableActivity extends AppCompatActivity {
         //GET INTENT
         Intent intent = this.getIntent();
         majorID = intent.getStringExtra("MAJOR_ID");
+        courseterm = intent.getIntExtra("courseterm", 0);
 
         lv_CourseList = (ListView) findViewById(R.id.lv_CourseList);
 
@@ -59,7 +61,7 @@ public class TimeTableActivity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     CourseInfo courseInfo = ds.getValue(CourseInfo.class);
 
-                    if (courseInfo != null && courseInfo.getCourse_id() != null) {
+                    if (courseInfo != null && courseInfo.getCourse_id() != null && courseInfo.getCourse_major()==courseterm) {
                         courseInfos.add(courseInfo);
                     }
 
@@ -81,7 +83,7 @@ public class TimeTableActivity extends AppCompatActivity {
                 }
 
                 if (!courseInfos.isEmpty()){
-                    adapter= new TimeTableAdapter(getApplicationContext(), courseInfos);
+                    adapter= new TimeTableAdapter(TimeTableActivity.this, courseInfos);
                     lv_CourseList.setAdapter(adapter);
                 }
 

@@ -21,10 +21,12 @@ import java.util.ArrayList;
 public class MajorListAdapter extends BaseAdapter {
     Context context;
     ArrayList<Major> majors;
+    int courseterm;
 
-    public MajorListAdapter(Context context, ArrayList<Major> majors) {
+    public MajorListAdapter(Context context, ArrayList<Major> majors, int courseterm) {
         this.context = context;
         this.majors = majors;
+        this.courseterm = courseterm;
     }
 
     @Override
@@ -75,6 +77,7 @@ public class MajorListAdapter extends BaseAdapter {
     {
         Intent intent=new Intent(context,TimeTableActivity.class);
         intent.putExtra("MAJOR_ID",major_id);
+        intent.putExtra("courseterm", courseterm);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         context.startActivity(intent);
