@@ -31,36 +31,13 @@ public class MajorListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major_list);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
         lv_MajorList = (ListView) findViewById(R.id.lv_MajorList);
 
         //INITIALIZE FIREBASE DB
         db= FirebaseDatabase.getInstance().getReference();
         firebasehelper=new FirebaseHelper(db);
 
-        //ADAPTER
-//        adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(new MajorCallbacks() {
-//            @Override
-//            public void onMajorCallback(ArrayList<Major> majors) {
-////                adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(this));
-//                lv_MajorList.setAdapter(adapter);
-//
-//                ////////////
-//                majors = firebasehelper.retrieveMajor(this);
-//                System.out.println("/////////firebasehelper.retrieveMajor():" + majors);
-//                Major m = new Major();
-//                for (int i = 0; i < majors.size(); i++) {
-//                    m = (Major) majors.get(i);
-//                    System.out.println("id: " + m.getMajor_id());
-//                    System.out.println("name: " + m.getMajor_name());
-//                }
-//            }
-//        }));
-//        lv_MajorList.setAdapter(adapter);
-
-        //TEST
+        //retrieve data
         firebasehelper.retrieveMajor(new MajorCallbacks() {
             @Override
             public void onMajorCallback(ArrayList<Major> majors) {
@@ -69,25 +46,5 @@ public class MajorListActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
-
-//    @Override
-//    public void onMajorCallback(ArrayList<Major> majors) {
-//
-//        adapter = new MajorListAdapter(getApplicationContext(),firebasehelper.retrieveMajor(this));
-//        lv_MajorList.setAdapter(adapter);
-//
-//        ////////////
-//        majors = firebasehelper.retrieveMajor(this);
-//        System.out.println("/////////firebasehelper.retrieveMajor():" + majors);
-//        Major m = new Major();
-//        for (int i = 0; i < majors.size(); i++) {
-//            m = (Major) majors.get(i);
-//            System.out.println("id: " + m.getMajor_id());
-//            System.out.println("name: " + m.getMajor_name());
-//        }
-//    }
 }

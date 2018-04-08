@@ -25,6 +25,7 @@ public class CourseInfo {
     public String course_instructor;
     public String course_description;
     public String course_prerequire;
+    public int course_major;
     public String major_id;
 
     public CourseInfo() {
@@ -34,8 +35,6 @@ public class CourseInfo {
     public CourseInfo(String course_id, String course_name, int course_section, String course_type,
                       double course_crdhrs, String course_days, String course_times,
                       String course_location, int course_max, int course_cur, int course_available,
-
-
                       int course_wl, double course_per, String course_instructor,
                       String course_description, String course_prerequire, String major_id) {
 
@@ -55,6 +54,32 @@ public class CourseInfo {
         this.course_instructor = course_instructor;
         this.course_description = course_description;
         this.course_prerequire = course_prerequire;
+        this.major_id = major_id;
+    }
+
+    
+    public CourseInfo(String course_id, String course_name, int course_section, String course_type,
+                      double course_crdhrs, String course_days, String course_times, String course_location,
+                      int course_max, int course_cur, int course_available, int course_wl, double course_per,
+                      String course_instructor, String course_description, String course_prerequire,
+                      int course_major, String major_id) {
+        this.course_id = course_id;
+        this.course_name = course_name;
+        this.course_section = course_section;
+        this.course_type = course_type;
+        this.course_crdhrs = course_crdhrs;
+        this.course_days = course_days;
+        this.course_times = course_times;
+        this.course_location = course_location;
+        this.course_max = course_max;
+        this.course_cur = course_cur;
+        this.course_available = course_available;
+        this.course_wl = course_wl;
+        this.course_per = course_per;
+        this.course_instructor = course_instructor;
+        this.course_description = course_description;
+        this.course_prerequire = course_prerequire;
+        this.course_major = course_major;
         this.major_id = major_id;
     }
 
@@ -199,4 +224,11 @@ public class CourseInfo {
         this.major_id = major_id;
     }
 
+    public int getCourse_major() {
+        return course_major;
+    }
+
+    public void setCourse_major(int course_major) {
+        this.course_major = course_major;
+    }
 }
