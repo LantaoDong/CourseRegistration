@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * The Activity is to list terms.
+ */
 public class TermListActivity extends AppCompatActivity {
 
     TextView tv_fall, tv_winter, tv_summer;

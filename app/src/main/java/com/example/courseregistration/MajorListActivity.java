@@ -20,6 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+/**
+ * The Activity is to list majors.
+ */
 public class MajorListActivity extends AppCompatActivity {
 
     DatabaseReference db;

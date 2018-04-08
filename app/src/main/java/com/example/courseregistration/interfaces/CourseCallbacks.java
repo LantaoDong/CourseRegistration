@@ -5,10 +5,10 @@ import com.example.courseregistration.models.Major;
 
 import java.util.ArrayList;
 
-/**
- * Created by Haofan on 2018-03-15.
- */
 
+/**
+ * An interface callbacks the results returned by Firebase db
+ */
 public interface CourseCallbacks {
     void onCourseCallback(ArrayList<CourseInfo> courseInfos);
 }

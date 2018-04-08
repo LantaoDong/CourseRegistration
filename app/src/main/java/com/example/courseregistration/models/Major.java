@@ -4,6 +4,9 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * A model of major information
+ */
 
 @IgnoreExtraProperties
 public class Major {

@@ -16,10 +16,10 @@ import com.example.courseregistration.models.Major;
 
 import java.util.ArrayList;
 
-/**
- * Created by Haofan on 2018-03-15.
- */
 
+/**
+ * An adapter of the listview showing the courses
+ */
 public class TimeTableAdapter extends BaseAdapter {
 
     Context context;
@@ -79,7 +79,11 @@ public class TimeTableAdapter extends BaseAdapter {
         return convertView;
     }
 
-    //OPEN CourseDetail ACTIVITY
+
+    /**
+     * A direct to CourseDetailActivity
+     * @param courseInfo
+     */
     private void openCourseDetailActivity(CourseInfo courseInfo)
     {
         Intent intent=new Intent(context,CourseDetailActivity.class);

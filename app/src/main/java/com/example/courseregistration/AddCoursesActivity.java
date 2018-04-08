@@ -15,6 +15,9 @@ import com.example.courseregistration.models.Major;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * This Activity is to create a new course
+ */
 public class AddCoursesActivity extends AppCompatActivity {
 
     DatabaseReference db;
@@ -52,8 +55,6 @@ public class AddCoursesActivity extends AppCompatActivity {
 
 
         btn_addCourse = (Button) findViewById(R.id.btn_addCourse);
-
-
 
         //SAVE
         btn_addCourse.setOnClickListener(new View.OnClickListener() {

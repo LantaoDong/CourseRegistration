@@ -15,9 +15,8 @@ import com.example.courseregistration.models.Major;
 import java.util.ArrayList;
 
 /**
- * Created by Haofan on 2018-02-24.
+ * An adapter of the listview showing the majors
  */
-
 public class MajorListAdapter extends BaseAdapter {
     Context context;
     ArrayList<Major> majors;
@@ -72,7 +71,10 @@ public class MajorListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    //OPEN DETAIL ACTIVITY
+    /**
+     * A direct to TimeTableActivity
+     * @param major_id
+     */
     private void openTimeTableActivity(String major_id)
     {
         Intent intent=new Intent(context,TimeTableActivity.class);

@@ -14,17 +14,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 /**
- * Created by Haofan on 2018-02-24.
+ * A controller to process the operations with Firebase db
  */
-
 public class FirebaseHelper{
 
     private DatabaseReference db;
     private ArrayList<Major> majors = new ArrayList<>();
     private ArrayList<CourseInfo> courseInfos = new ArrayList<>();
-
-    //////
-//    CourseInfo courseInfo = new CourseInfo();
 
 
     public FirebaseHelper(DatabaseReference db) {
@@ -79,7 +75,7 @@ public class FirebaseHelper{
         return saved;
     }
 
-    //TEST
+    //Retrieve Major info. from db
     public void retrieveMajor(final MajorCallbacks majorCallbacks){
 
         db.addChildEventListener(new ChildEventListener() {

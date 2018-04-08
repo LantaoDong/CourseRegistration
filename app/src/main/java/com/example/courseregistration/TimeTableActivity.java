@@ -28,6 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * The Activity is to list the courses.
+ */
 public class TimeTableActivity extends AppCompatActivity {
 
     DatabaseReference db;

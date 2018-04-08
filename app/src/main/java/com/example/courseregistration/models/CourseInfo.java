@@ -3,7 +3,7 @@ package com.example.courseregistration.models;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 /**
- * Created by Haofan on 2018-02-24.
+ * A model of course information
  */
 
 @IgnoreExtraProperties
