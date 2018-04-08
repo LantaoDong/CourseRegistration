@@ -18,14 +18,16 @@ public class Courses implements Serializable {
     public String starttime;
     public String endtime;
     public String days;
+    public String term;
     public Courses(){}
 
-    public Courses(String cid, String sj, String st, String et, String d){
+    public Courses(String cid, String sj, String st, String et, String d,String term){
         courseID=cid;
         subject=sj;
         starttime=st;
         endtime=et;
         days=d;
+        this.term = term;
 
     }
     public Map<String, Object> toMap(){
@@ -35,6 +37,7 @@ public class Courses implements Serializable {
         result.put("starttime", starttime);
         result.put("endtime", endtime);
         result.put("days", days);
+        result.put("term", term);
 
         return result;
     }

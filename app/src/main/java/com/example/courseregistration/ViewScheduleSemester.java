@@ -33,7 +33,7 @@ public class ViewScheduleSemester extends AppCompatActivity{
         semestersListView = (ListView) findViewById(R.id.semesterListView);
         ArrayList<String> semesters = new ArrayList<String>();
         semesters.add("Fall");
-        semesters.add("Winter");
+        //semesters.add("Winter");
         semesters.add("Summer");
         semesteradapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, semesters);
         semestersListView.setAdapter(semesteradapter);
