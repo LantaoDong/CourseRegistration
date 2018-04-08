@@ -17,7 +17,11 @@ import com.google.firebase.database.ValueEventListener;
 public class Departmentchoose extends AppCompatActivity {
     Button back;
 
+    /**
+     * Created by dengyiran on 2018-04-08.
+     */
     @Override
+    //choose departments
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departmentchoose);
