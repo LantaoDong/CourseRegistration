@@ -45,6 +45,10 @@ public class ChangePassword extends AppCompatActivity {
                         if(OldPassword.equals(NewPassword)){
                             Toast.makeText(ChangePassword.this, "same password!", Toast.LENGTH_SHORT).show();
                         }
+                        //validate if old password is correct
+                        else if(!OldPassword.equals(dataSnapshot.child("password").getValue().toString())){
+                            Toast.makeText(ChangePassword.this, "wrong old password!", Toast.LENGTH_SHORT).show();
+                        }
                         else {
                             if (dataSnapshot.child("password").getValue().equals(OldPassword)) {
                                 dataSnapshot.getRef().child("password").setValue(NewPassword);
