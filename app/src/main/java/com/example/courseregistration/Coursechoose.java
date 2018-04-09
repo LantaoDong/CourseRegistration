@@ -243,8 +243,9 @@ public class Coursechoose extends AppCompatActivity {
                             String starttime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString();
                             String endtime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("days").getValue().toString();
+                            String term = dataSnapshot.child("subjects").child(message).child(message1).child("term").getValue().toString();
 
-                            Courses r = new Courses(courseID, subject, starttime, endtime, days);
+                            Courses r = new Courses(courseID, subject, starttime, endtime, days,term);
                             myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                             int check = 1 ;
                             for (int i = 0; i < rcourses.size(); i++) {
@@ -293,8 +294,8 @@ public class Coursechoose extends AppCompatActivity {
                             String starttime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString();
                             String endtime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("days").getValue().toString();
-
-                            Courses r = new Courses(courseID, subject, starttime, endtime, days);
+                            String term = dataSnapshot.child("subjects").child(message).child(message1).child("term").getValue().toString();
+                            Courses r = new Courses(courseID, subject, starttime, endtime, days, term);
                             myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                             int check = 1;
                             for (int i = 0; i < rcourses.size(); i++) {
@@ -342,8 +343,8 @@ public class Coursechoose extends AppCompatActivity {
                             String starttime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString();
                             String endtime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("days").getValue().toString();
-
-                            Courses r = new Courses(courseID, subject, starttime, endtime, days);
+                            String term = dataSnapshot.child("subjects").child(message).child(message1).child("term").getValue().toString();
+                            Courses r = new Courses(courseID, subject, starttime, endtime, days, term);
                             myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                             int check = 1;
                             for (int i = 0; i < rcourses.size(); i++) {
@@ -391,8 +392,8 @@ public class Coursechoose extends AppCompatActivity {
                             String starttime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString();
                             String endtime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString();
                             String days = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("days").getValue().toString();
-
-                            Courses r = new Courses(courseID, subject, starttime, endtime, days);
+                            String term = dataSnapshot.child("subjects").child(message).child(message1).child("term").getValue().toString();
+                            Courses r = new Courses(courseID, subject, starttime, endtime, days, term);
                             myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
                             int check = 1;
                             for (int i = 0; i < rcourses.size(); i++) {
