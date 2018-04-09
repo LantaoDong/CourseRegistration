@@ -80,6 +80,13 @@ public class Coursechoose extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
         final DatabaseReference courseRef = myRef.child("subjects").child(message);
+        final DatabaseReference usRef = myRef.child("users");
+        final DatabaseReference usidRef = usRef.child(userID);
+        final DatabaseReference rcRef = usidRef.child("registered courses");
+
+
+
+
 
         // add term function well
         courseRef.addValueEventListener(new ValueEventListener() {
@@ -449,6 +456,36 @@ public class Coursechoose extends AppCompatActivity {
 
             }
         });
+
+        /*final ArrayList<String>rcourses=new ArrayList<String>();
+        rcRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                rcourses.clear();
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String courseKey = snapshot.getKey().toString();
+                    rcourses.add(courseKey);
+                }
+                for(int i=0;i<rcourses.size();i++){
+                    if(checkbox11.getText().equals(rcourses.get(i))){
+                        checkbox11.setEnabled(false);
+                    }
+                    if(checkbox12.getText().equals(rcourses.get(i))){
+                        checkbox12.setEnabled(false);
+                    }
+                    if(checkbox13.getText().equals(rcourses.get(i))){
+                        checkbox13.setEnabled(false);
+                    }
+                    if(checkbox14.getText().equals(rcourses.get(i))){
+                        checkbox14.setEnabled(false);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });*/
     }
 }
 

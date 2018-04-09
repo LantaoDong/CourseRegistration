@@ -68,13 +68,11 @@ public class Adddroptable extends AppCompatActivity {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 rcourses.clear();
-                System.out.println(rcourses.size());
 
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     String courseKey = snapshot.getKey().toString();
                     rcourses.add(courseKey);
                 }
-                System.out.println(rcourses.size());
 
 
                 if(rcourses.size()==5) {
@@ -186,7 +184,6 @@ public class Adddroptable extends AppCompatActivity {
                             myRef.child("subjects").child(depart).child(textView1.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
                         myRef.child("users").child(userID).child("registered courses").child(textView1.getText().toString()).removeValue();
-                        textView1.setText(" ");
                         rcourses.remove(0);
 
 
@@ -231,7 +228,6 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         myRef.child("users").child(userID).child("registered courses").child(textView2.getText().toString()).removeValue();
 
-                        textView2.setText(" ");
                         rcourses.remove(1);
 
                     }
@@ -273,7 +269,6 @@ public class Adddroptable extends AppCompatActivity {
                             myRef.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
                         myRef.child("users").child(userID).child("registered courses").child(textView3.getText().toString()).removeValue();
-                        textView3.setText("No course");
                         rcourses.remove(2);
 
                     }
@@ -315,7 +310,6 @@ public class Adddroptable extends AppCompatActivity {
                             myRef.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
                         myRef.child("users").child(userID).child("registered courses").child(textView4.getText().toString()).removeValue();
-                        textView4.setText("No course");
                         rcourses.remove(3);
 
                     }
@@ -357,7 +351,6 @@ public class Adddroptable extends AppCompatActivity {
                             myRef.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
                         myRef.child("users").child(userID).child("registered courses").child(textView5.getText().toString()).removeValue();
-                        textView5.setText("No course");
                         rcourses.remove(4);
 
                     }

@@ -30,7 +30,6 @@
             android:label="@string/title_activity_class_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MondaySchdule" />
-        <activity android:name=".AddMajorsActivity" />
         <activity android:name=".CourseFilter" />
         <activity android:name=".StatisticsCourses" />
         <activity android:name=".ComputerScienceCourses" />
