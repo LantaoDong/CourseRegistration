@@ -45,7 +45,7 @@ public class UserActivity extends AppCompatActivity {
         timeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToTimeTable = new Intent(UserActivity.this,MajorListActivity.class);
+                Intent intentToTimeTable = new Intent(UserActivity.this,TermListActivity.class);
                 startActivity(intentToTimeTable);
             }
         });
