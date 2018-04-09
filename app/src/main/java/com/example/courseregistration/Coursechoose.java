@@ -80,9 +80,37 @@ public class Coursechoose extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
         final DatabaseReference courseRef = myRef.child("subjects").child(message);
-        final DatabaseReference usRef = myRef.child("users");
-        final DatabaseReference usidRef = usRef.child(userID);
-        final DatabaseReference rcRef = usidRef.child("registered courses");
+        final DatabaseReference rcRef = myRef.child("users").child(userID).child("registered courses");
+
+        /*final ArrayList<String>rcourses=new ArrayList<String>();
+        rcRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                rcourses.clear();
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String courseKey = snapshot.getKey().toString();
+                    rcourses.add(courseKey);
+                }
+                for(int i=0;i<rcourses.size();i++){
+                    if(checkbox11.getText().equals(rcourses.get(i))){
+                        checkbox11.setEnabled(false);
+                    }
+                    if(checkbox12.getText().equals(rcourses.get(i))){
+                        checkbox12.setEnabled(false);
+                    }
+                    if(checkbox13.getText().equals(rcourses.get(i))){
+                        checkbox13.setEnabled(false);
+                    }
+                    if(checkbox14.getText().equals(rcourses.get(i))){
+                        checkbox14.setEnabled(false);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });*/
 
 
 
@@ -261,8 +289,11 @@ public class Coursechoose extends AppCompatActivity {
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
                                     System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1) {
+                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
+                                    }
+                                    else {
+                                        check = 2;
                                     }
                                 }
                             }
@@ -270,6 +301,9 @@ public class Coursechoose extends AppCompatActivity {
                             if(check == 0) {
                                 Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                            }
+                            if(check == 2) {
+                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -311,8 +345,11 @@ public class Coursechoose extends AppCompatActivity {
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
                                     System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1) {
+                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
+                                    }
+                                    else {
+                                        check = 2;
                                     }
                                 }
                             }
@@ -320,6 +357,9 @@ public class Coursechoose extends AppCompatActivity {
                             if(check == 0) {
                                 Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                            }
+                            if(check == 2) {
+                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -360,8 +400,11 @@ public class Coursechoose extends AppCompatActivity {
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
                                     System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1) {
+                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
+                                    }
+                                    else {
+                                        check = 2;
                                     }
                                 }
                             }
@@ -369,6 +412,9 @@ public class Coursechoose extends AppCompatActivity {
                             if(check == 0) {
                                 Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                            }
+                            if(check == 2) {
+                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -409,8 +455,11 @@ public class Coursechoose extends AppCompatActivity {
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
                                     System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1) {
+                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
+                                    }
+                                    else {
+                                        check = 2;
                                     }
                                 }
                             }
@@ -418,6 +467,9 @@ public class Coursechoose extends AppCompatActivity {
                             if(check == 0) {
                                 Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                            }
+                            if(check == 2) {
+                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -457,35 +509,7 @@ public class Coursechoose extends AppCompatActivity {
             }
         });
 
-        /*final ArrayList<String>rcourses=new ArrayList<String>();
-        rcRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
-                rcourses.clear();
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    String courseKey = snapshot.getKey().toString();
-                    rcourses.add(courseKey);
-                }
-                for(int i=0;i<rcourses.size();i++){
-                    if(checkbox11.getText().equals(rcourses.get(i))){
-                        checkbox11.setEnabled(false);
-                    }
-                    if(checkbox12.getText().equals(rcourses.get(i))){
-                        checkbox12.setEnabled(false);
-                    }
-                    if(checkbox13.getText().equals(rcourses.get(i))){
-                        checkbox13.setEnabled(false);
-                    }
-                    if(checkbox14.getText().equals(rcourses.get(i))){
-                        checkbox14.setEnabled(false);
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });*/
     }
 }
 
