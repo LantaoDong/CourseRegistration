@@ -27,19 +27,14 @@ public class Departmentchoose extends AppCompatActivity {
         setContentView(R.layout.activity_departmentchoose);
         final Button button = (Button) findViewById(R.id.button);
         back = (Button) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent backToUser = new Intent(Departmentchoose.this, UserActivity.class);
-                startActivity(backToUser);
-            }
-        });
+        Intent intent1 = getIntent();
+        final String userID = intent1.getStringExtra("userID");
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = getIntent();
-                String userID = intent1.getStringExtra("userID");
+
 
                 String message = "";
                 final CheckBox checkbox6 = (CheckBox) findViewById(R.id.checkBox6);
@@ -74,6 +69,15 @@ public class Departmentchoose extends AppCompatActivity {
                 intent.putExtra("userID", userID);
                 startActivity(intent);
 
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToUser = new Intent(Departmentchoose.this, UserActivity.class);
+                backToUser.putExtra("userID", userID);
+                startActivity(backToUser);
+                finish();
             }
         });
     }
