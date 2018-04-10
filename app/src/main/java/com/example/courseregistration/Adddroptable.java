@@ -136,7 +136,7 @@ public class Adddroptable extends AppCompatActivity {
                 }
                 if(rcourses.size()==0) {
 
-                    textView1.setText("You have no courses registered.");
+                    textView1.setText("No registered courses");
                     textView2.setText("No registered courses");
                     textView3.setText("No registered courses");
                     textView4.setText("No registered courses");
@@ -144,8 +144,9 @@ public class Adddroptable extends AppCompatActivity {
 
                 }
                 if(rcourses.size()>5) {
-                    Toast.makeText(Adddroptable.this, "You have already have 5 courses.", Toast.LENGTH_LONG).show();
-                    //rcourses.remove(5);
+                    Toast.makeText(Adddroptable.this, "You already have 5 courses.", Toast.LENGTH_LONG).show();
+                    rcRef.child(rcourses.get(5).toString()).removeValue();
+                    rcourses.remove(5);
                 }
             }
             @Override
