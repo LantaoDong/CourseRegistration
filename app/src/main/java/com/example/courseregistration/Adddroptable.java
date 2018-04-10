@@ -217,6 +217,7 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         if(textView2.getText().toString().equals("No registered courses")){
                             Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
                         }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("numberOfStudents").getValue().toString();
@@ -262,6 +263,7 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         if(textView3.getText().toString().equals("No registered courses")){
                             Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
                         }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").getValue().toString();
@@ -306,6 +308,7 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         if(textView4.getText().toString().equals("No registered courses")){
                             Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
                         }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").getValue().toString();
@@ -347,6 +350,10 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         if(textView5.getText().toString().contains("STAT")) {
                             depart = "Statistics";
+                        }
+                        if(textView5.getText().toString().equals("No registered courses")){
+                            Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
                         }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").getValue().toString();

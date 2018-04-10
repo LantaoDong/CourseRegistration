@@ -44,13 +44,7 @@ public class Coursechoose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursechoose);
         Button back = (Button) findViewById(R.id.back);
-        /*back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent backToDepartment = new Intent(Coursechoose.this, Departmentchoose.class);
-                startActivity(backToDepartment);
-            }
-        });*/
+
         next = (Button) findViewById(R.id.button3);
         final Button summer = (Button) findViewById(R.id.button10);
         final Button fall = (Button) findViewById(R.id.button11);
@@ -85,8 +79,6 @@ public class Coursechoose extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
         final DatabaseReference courseRef = myRef.child("subjects").child(message);
-
-
 
         final NotificationManager notificationManager = (NotificationManager) getSystemService
                 (NOTIFICATION_SERVICE);
