@@ -40,13 +40,14 @@
         <activity android:name=".HelpContact" />
         <activity android:name=".HelpContactDetail" />
         <activity android:name=".ViewScheduleSingleDay" />
-        <activity android:name=".ViewScheduleSemester"></activity>
+        <activity android:name=".ViewScheduleSemester" />
         <activity android:name=".MajorListActivity" />
         <activity android:name=".CourseDetailActivity" />
         <activity android:name=".AddCoursesActivity" />
         <activity android:name=".ChangePassword" />
-        <activity android:name=".TermListActivity">
-        </activity>
+        <activity android:name=".TermListActivity" />
+        <activity android:name=".Semesters" />
+        <activity android:name=".ViewCourses"></activity>
     </application>
 
 </manifest>
