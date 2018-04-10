@@ -71,6 +71,14 @@ public class Coursechoose extends AppCompatActivity {
         final TextView c4wntextView = (TextView) findViewById(R.id.c4wntextView);
         final TextView c4maxtextView = (TextView) findViewById(R.id.c4maxtextView);
         final TextView c4curtextView = (TextView) findViewById(R.id.c4curtextView);
+        checkbox11.setText("No course");
+        checkbox12.setText("No course");
+        checkbox13.setText("No course");
+        checkbox14.setText("No course");
+        checkbox11.setEnabled(false);
+        checkbox12.setEnabled(false);
+        checkbox13.setEnabled(false);
+        checkbox14.setEnabled(false);
 
 
         Intent intent = getIntent();
@@ -104,10 +112,10 @@ public class Coursechoose extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         ArrayList<String> courses = new ArrayList<String>();
-                        checkbox11.setText("No course");
-                        checkbox12.setText("No course");
-                        checkbox13.setText("No course");
-                        checkbox14.setText("No course");
+                        checkbox11.setEnabled(true);
+                        checkbox12.setEnabled(true);
+                        checkbox13.setEnabled(true);
+                        checkbox14.setEnabled(true);
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             if(snapshot.child("term").getValue().toString().equals("1")) {
                                 String courseKey = snapshot.getKey().toString();
@@ -163,16 +171,28 @@ public class Coursechoose extends AppCompatActivity {
                             c4maxtextView.setText(maxnum4);
                             c4curtextView.setText(curnum4);
                         }
+                        if(checkbox11.getText().toString().equals("No course")){
+                            checkbox11.setEnabled(false);
+                        }
+                        if(checkbox12.getText().toString().equals("No course")){
+                            checkbox12.setEnabled(false);
+                        }
+                        if(checkbox13.getText().toString().equals("No course")){
+                            checkbox13.setEnabled(false);
+                        }
+                        if(checkbox14.getText().toString().equals("No course")){
+                            checkbox14.setEnabled(false);
+                        }
                     }
                 });
                 fall.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ArrayList<String> courses = new ArrayList<String>();
-                        checkbox11.setText("No course");
-                        checkbox12.setText("No course");
-                        checkbox13.setText("No course");
-                        checkbox14.setText("No course");
+                        checkbox11.setEnabled(true);
+                        checkbox12.setEnabled(true);
+                        checkbox13.setEnabled(true);
+                        checkbox14.setEnabled(true);
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             if(snapshot.child("term").getValue().toString().equals("2")) {
                                 String courseKey = snapshot.getKey().toString();
