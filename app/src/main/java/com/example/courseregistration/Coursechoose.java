@@ -80,7 +80,7 @@ public class Coursechoose extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
         final DatabaseReference courseRef = myRef.child("subjects").child(message);
-        final DatabaseReference rcRef = myRef.child("users").child(userID).child("registered courses");
+        //final DatabaseReference rcRef = myRef.child("users").child(userID).child("registered courses");
 
         /*final ArrayList<String>rcourses=new ArrayList<String>();
         rcRef.addValueEventListener(new ValueEventListener() {
@@ -183,6 +183,18 @@ public class Coursechoose extends AppCompatActivity {
                             c4maxtextView.setText(maxnum4);
                             c4curtextView.setText(curnum4);
                         }
+                        if(checkbox11.getText().toString().equals("No course")){
+                            checkbox11.setEnabled(false);
+                        }
+                        if(checkbox12.getText().toString().equals("No course")){
+                            checkbox12.setEnabled(false);
+                        }
+                        if(checkbox13.getText().toString().equals("No course")){
+                            checkbox13.setEnabled(false);
+                        }
+                        if(checkbox14.getText().toString().equals("No course")){
+                            checkbox14.setEnabled(false);
+                        }
                     }
                 });
                 fall.setOnClickListener(new View.OnClickListener() {
@@ -247,6 +259,18 @@ public class Coursechoose extends AppCompatActivity {
                             c4maxtextView.setText(maxnum4);
                             c4curtextView.setText(curnum4);
                         }
+                        if(checkbox11.getText().toString().equals("No course")){
+                            checkbox11.setEnabled(false);
+                        }
+                        if(checkbox12.getText().toString().equals("No course")){
+                            checkbox12.setEnabled(false);
+                        }
+                        if(checkbox13.getText().toString().equals("No course")){
+                            checkbox13.setEnabled(false);
+                        }
+                        if(checkbox14.getText().toString().equals("No course")){
+                            checkbox14.setEnabled(false);
+                        }
                     }
                 });
             }
@@ -268,6 +292,7 @@ public class Coursechoose extends AppCompatActivity {
                         String message1 = "";
                         if (checkbox11.isChecked()) {
                             message1 = checkbox11.getText().toString();
+
                             ArrayList<String> rcourses = new ArrayList<String>();
                             for (DataSnapshot snapshot : dataSnapshot.child("users").child(userID).child("registered courses").getChildren()) {
                                 String courseKey = snapshot.getKey().toString();
@@ -282,6 +307,7 @@ public class Coursechoose extends AppCompatActivity {
 
                             Courses r = new Courses(courseID, subject, starttime, endtime, days,term);
                             myRef.child("users").child(userID).child("registered courses").child(courseID).setValue(r);
+
                             int check = 1 ;
                             for (int i = 0; i < rcourses.size(); i++) {
                                 if (dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("days").getValue().toString().equals(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("days").getValue().toString())) {
@@ -291,15 +317,15 @@ public class Coursechoose extends AppCompatActivity {
                                     System.out.println(start1 + " " + end1 + " " + start);
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
-                                    }
-                                    else {
+                                        }
+                                    if(rcourses.get(i).toString().equals(message1)){
                                         check = 2;
                                     }
                                 }
                             }
 
                             if(check == 0) {
-                                Toast.makeText(Coursechoose.this, "You have a confilict courses.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have a confilict or same courses.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
                             }
                             if(check == 2) {
@@ -321,10 +347,12 @@ public class Coursechoose extends AppCompatActivity {
                                 myRef.child("subjects").child(message).child(message1).child("numberOfStudents").setValue(numint1);
                                 checkbox11.setChecked(false);
                             }
+
                         }
 
                         if (checkbox12.isChecked()) {
                             message1 = checkbox12.getText().toString();
+
                             ArrayList<String> rcourses = new ArrayList<String>();
                             for (DataSnapshot snapshot : dataSnapshot.child("users").child(userID).child("registered courses").getChildren()) {
                                 String courseKey = snapshot.getKey().toString();
@@ -376,6 +404,9 @@ public class Coursechoose extends AppCompatActivity {
                                 int numintwaitnum1 = numintwaitnum + 1;
                                 myRef.child("subjects").child(message).child(message1).child("waitlistnum").setValue(numintwaitnum1);
                                 checkbox11.setChecked(false);
+                            }
+                            if(message1 .equals("No course")){
+                                Toast.makeText(Coursechoose.this, "You have no course to drop.", Toast.LENGTH_LONG).show();
                             }
                         }
                         if (checkbox13.isChecked()) {

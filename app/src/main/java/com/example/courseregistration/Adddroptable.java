@@ -170,23 +170,27 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView1.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
+                        if(textView1.getText().toString().equals("No registered courses")) {
+                            Toast.makeText(Adddroptable.this, "You have no course to drop.", Toast.LENGTH_LONG).show();
 
-                        String num = dataSnapshot.child("subjects").child(depart).child(textView1.getText().toString()).child("numberOfStudents").getValue().toString();
-                        String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView1.getText().toString()).child("waitlistnum").getValue().toString();
-                        int numint = Integer.parseInt(num);
-                        int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintwaitnum > 0) {
-                            int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(depart).child(textView1.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
-
-                        } else if (numint > 0) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(depart).child(textView1.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
-                        myRef.child("users").child(userID).child("registered courses").child(textView1.getText().toString()).removeValue();
-                        rcourses.remove(0);
+                        else {
+                            String num = dataSnapshot.child("subjects").child(depart).child(textView1.getText().toString()).child("numberOfStudents").getValue().toString();
+                            String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView1.getText().toString()).child("waitlistnum").getValue().toString();
+                            int numint = Integer.parseInt(num);
+                            int numintwaitnum = Integer.parseInt(numwaitnum);
+                            if (numintwaitnum > 0) {
+                                int numintwaitnum1 = numintwaitnum - 1;
+                                myRef.child("subjects").child(depart).child(textView1.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
 
+                            } else if (numint > 0) {
+                                int numint1 = numint - 1;
+                                myRef.child("subjects").child(depart).child(textView1.getText().toString()).child("numberOfStudents").setValue(numint1);
+                            }
+                            myRef.child("users").child(userID).child("registered courses").child(textView1.getText().toString()).removeValue();
+                            rcourses.remove(0);
 
+                        }
                     }
                 });
             }
@@ -212,25 +216,30 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView2.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
-                        System.out.println(depart);
-
-                        String num = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("numberOfStudents").getValue().toString();
-                        String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("waitlistnum").getValue().toString();
-                        int numint = Integer.parseInt(num);
-                        int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintwaitnum > 0) {
-                            int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(depart).child(textView2.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
-
-                        } else if (numint > 0) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(depart).child(textView2.getText().toString()).child("numberOfStudents").setValue(numint1);
+                        if(textView2.getText().toString().equals("No registered courses")) {
+                            Toast.makeText(Adddroptable.this, "You have no course to drop.", Toast.LENGTH_LONG).show();
                         }
-                        myRef.child("users").child(userID).child("registered courses").child(textView2.getText().toString()).removeValue();
+                        else {
 
-                        rcourses.remove(1);
+                            String num = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("numberOfStudents").getValue().toString();
+                            String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("waitlistnum").getValue().toString();
+                            int numint = Integer.parseInt(num);
+                            int numintwaitnum = Integer.parseInt(numwaitnum);
+                            if (numintwaitnum > 0) {
+                                int numintwaitnum1 = numintwaitnum - 1;
+                                myRef.child("subjects").child(depart).child(textView2.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
+
+                            } else if (numint > 0) {
+                                int numint1 = numint - 1;
+                                myRef.child("subjects").child(depart).child(textView2.getText().toString()).child("numberOfStudents").setValue(numint1);
+                            }
+                            myRef.child("users").child(userID).child("registered courses").child(textView2.getText().toString()).removeValue();
+
+                            rcourses.remove(1);
+                        }
 
                     }
+
                 });
             }
             @Override
@@ -255,22 +264,26 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView3.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
+                        if(textView3.getText().toString().equals("No registered courses")) {
+                            Toast.makeText(Adddroptable.this, "You have no course to drop.", Toast.LENGTH_LONG).show();
 
-                        String num = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").getValue().toString();
-                        String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("waitlistnum").getValue().toString();
-                        int numint = Integer.parseInt(num);
-                        int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintwaitnum > 0) {
-                            int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(depart).child(textView3.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
-
-                        } else if (numint > 0) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
-                        myRef.child("users").child(userID).child("registered courses").child(textView3.getText().toString()).removeValue();
-                        rcourses.remove(2);
+                        else {
+                            String num = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").getValue().toString();
+                            String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("waitlistnum").getValue().toString();
+                            int numint = Integer.parseInt(num);
+                            int numintwaitnum = Integer.parseInt(numwaitnum);
+                            if (numintwaitnum > 0) {
+                                int numintwaitnum1 = numintwaitnum - 1;
+                                myRef.child("subjects").child(depart).child(textView3.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
 
+                            } else if (numint > 0) {
+                                int numint1 = numint - 1;
+                                myRef.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").setValue(numint1);
+                            }
+                            myRef.child("users").child(userID).child("registered courses").child(textView3.getText().toString()).removeValue();
+                            rcourses.remove(2);
+                        }
                     }
                 });
            }
@@ -296,22 +309,25 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView4.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
-
-                        String num = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").getValue().toString();
-                        String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("waitlistnum").getValue().toString();
-                        int numint = Integer.parseInt(num);
-                        int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintwaitnum > 0) {
-                            int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(depart).child(textView4.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
-
-                        } else if (numint > 0) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").setValue(numint1);
+                        if(textView4.getText().toString().equals("No registered courses")) {
+                            Toast.makeText(Adddroptable.this, "You have no course to drop.", Toast.LENGTH_LONG).show();
                         }
-                        myRef.child("users").child(userID).child("registered courses").child(textView4.getText().toString()).removeValue();
-                        rcourses.remove(3);
+                        else {
+                            String num = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").getValue().toString();
+                            String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("waitlistnum").getValue().toString();
+                            int numint = Integer.parseInt(num);
+                            int numintwaitnum = Integer.parseInt(numwaitnum);
+                            if (numintwaitnum > 0) {
+                                int numintwaitnum1 = numintwaitnum - 1;
+                                myRef.child("subjects").child(depart).child(textView4.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
 
+                            } else if (numint > 0) {
+                                int numint1 = numint - 1;
+                                myRef.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").setValue(numint1);
+                            }
+                            myRef.child("users").child(userID).child("registered courses").child(textView4.getText().toString()).removeValue();
+                            rcourses.remove(3);
+                        }
                     }
                 });
             }
@@ -337,22 +353,26 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView5.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
+                        if(textView5.getText().toString().equals("No registered courses")) {
+                            Toast.makeText(Adddroptable.this, "You have no course to drop.", Toast.LENGTH_LONG).show();
 
-                        String num = dataSnapshot.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").getValue().toString();
-                        String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView5.getText().toString()).child("waitlistnum").getValue().toString();
-                        int numint = Integer.parseInt(num);
-                        int numintwaitnum = Integer.parseInt(numwaitnum);
-                        if (numintwaitnum > 0) {
-                            int numintwaitnum1 = numintwaitnum - 1;
-                            myRef.child("subjects").child(depart).child(textView5.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
-
-                        } else if (numint > 0) {
-                            int numint1 = numint - 1;
-                            myRef.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").setValue(numint1);
                         }
-                        myRef.child("users").child(userID).child("registered courses").child(textView5.getText().toString()).removeValue();
-                        rcourses.remove(4);
+                        else {
+                            String num = dataSnapshot.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").getValue().toString();
+                            String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView5.getText().toString()).child("waitlistnum").getValue().toString();
+                            int numint = Integer.parseInt(num);
+                            int numintwaitnum = Integer.parseInt(numwaitnum);
+                            if (numintwaitnum > 0) {
+                                int numintwaitnum1 = numintwaitnum - 1;
+                                myRef.child("subjects").child(depart).child(textView5.getText().toString()).child("waitlistnum").setValue(numintwaitnum1);
 
+                            } else if (numint > 0) {
+                                int numint1 = numint - 1;
+                                myRef.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").setValue(numint1);
+                            }
+                            myRef.child("users").child(userID).child("registered courses").child(textView5.getText().toString()).removeValue();
+                            rcourses.remove(4);
+                        }
                     }
                 });
             }
