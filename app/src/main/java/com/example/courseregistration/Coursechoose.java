@@ -301,8 +301,8 @@ public class Coursechoose extends AppCompatActivity {
                                     int start1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("starttime").getValue().toString());
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
-                                    System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
+                                    int end = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString());
+                                    if ((end >= start1 && end <= end1) || (start1 <= start && start <= end1)&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
                                     if(rcourses.get(i).toString().equals(message1)) {
@@ -373,8 +373,8 @@ public class Coursechoose extends AppCompatActivity {
                                     int start1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("starttime").getValue().toString());
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
-                                    System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
+                                    int end = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString());
+                                    if ((end >= start1 && end <= end1) || (start1 <= start && start <= end1)&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
                                     if(rcourses.get(i).toString().equals(message1)) {
@@ -414,11 +414,11 @@ public class Coursechoose extends AppCompatActivity {
                             if (numintcap > numint) {
                                 int numint1 = numint + 1;
                                 myRef.child("subjects").child(message).child(message1).child("numberOfStudents").setValue(numint1);
-                                checkbox11.setChecked(false);
+                                checkbox12.setChecked(false);
                             } else {
                                 int numintwaitnum1 = numintwaitnum + 1;
                                 myRef.child("subjects").child(message).child(message1).child("waitlistnum").setValue(numintwaitnum1);
-                                checkbox11.setChecked(false);
+                                checkbox12.setChecked(false);
                             }
                         }
                         if (checkbox13.isChecked()) {
@@ -442,8 +442,8 @@ public class Coursechoose extends AppCompatActivity {
                                     int start1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("starttime").getValue().toString());
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
-                                    System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
+                                    int end = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString());
+                                    if ((end >= start1 && end <= end1) || (start1 <= start && start <= end1)&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
                                     if(rcourses.get(i).toString().equals(message1)) {
@@ -482,11 +482,11 @@ public class Coursechoose extends AppCompatActivity {
                             if (numintcap > numint) {
                                 int numint1 = numint + 1;
                                 myRef.child("subjects").child(message).child(message1).child("numberOfStudents").setValue(numint1);
-                                checkbox11.setChecked(false);
+                                checkbox13.setChecked(false);
                             } else {
                                 int numintwaitnum1 = numintwaitnum + 1;
                                 myRef.child("subjects").child(message).child(message1).child("waitlistnum").setValue(numintwaitnum1);
-                                checkbox11.setChecked(false);
+                                checkbox13.setChecked(false);
                             }
                         }
 
@@ -511,8 +511,8 @@ public class Coursechoose extends AppCompatActivity {
                                     int start1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("starttime").getValue().toString());
                                     int end1 = Integer.parseInt(dataSnapshot.child("users").child(userID).child("registered courses").child(rcourses.get(i).toString()).child("endtime").getValue().toString());
                                     int start = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString());
-                                    System.out.println(start1 + " " + end1 + " " + start);
-                                    if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
+                                    int end = Integer.parseInt(dataSnapshot.child("subjects").child(message).child(message1).child("time").child("end").getValue().toString());
+                                    if ((end >= start1 && end <= end1) || (start1 <= start && start <= end1)&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
                                     if(rcourses.get(i).toString().equals(message1)) {
@@ -551,11 +551,11 @@ public class Coursechoose extends AppCompatActivity {
                             if (numintcap > numint) {
                                 int numint1 = numint + 1;
                                 myRef.child("subjects").child(message).child(message1).child("numberOfStudents").setValue(numint1);
-                                checkbox11.setChecked(false);
+                                checkbox14.setChecked(false);
                             } else {
                                 int numintwaitnum1 = numintwaitnum + 1;
                                 myRef.child("subjects").child(message).child(message1).child("waitlistnum").setValue(numintwaitnum1);
-                                checkbox11.setChecked(false);
+                                checkbox14.setChecked(false);
                             }
 
                             Toast.makeText(Coursechoose.this, "This courses need a special pre courses", Toast.LENGTH_SHORT).show();
