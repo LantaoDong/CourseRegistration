@@ -85,7 +85,7 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         returnToUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToD = new Intent(ViewScheduleSingleDay.this, UserActivity.class);
+                Intent intentToD = new Intent(ViewScheduleSingleDay.this, ViewSchedule.class);
                 intentToD.putExtra("userID", userID);
                 startActivity(intentToD);
             }
