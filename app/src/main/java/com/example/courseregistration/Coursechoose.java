@@ -82,8 +82,6 @@ public class Coursechoose extends AppCompatActivity {
 
         final NotificationManager notificationManager = (NotificationManager) getSystemService
                 (NOTIFICATION_SERVICE);
-
-
         final String NOTIFICATION_CHANNEL_ID = "4565";
         final String NOTIFICATION_CHANNEL_NAME="conflict";
         CharSequence channelName = NOTIFICATION_CHANNEL_NAME;
@@ -286,7 +284,7 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
@@ -303,11 +301,11 @@ public class Coursechoose extends AppCompatActivity {
                                 notificationManager.notify(1, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
 
                                 mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 notificationManager.notify(1, mBuilder.build());
                             }
@@ -354,7 +352,7 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
@@ -370,10 +368,10 @@ public class Coursechoose extends AppCompatActivity {
                                 notificationManager.notify(10, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
                                 mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 notificationManager.notify(10, mBuilder.build());
                             }
@@ -419,7 +417,7 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
@@ -435,10 +433,10 @@ public class Coursechoose extends AppCompatActivity {
                                 notificationManager.notify(10, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
                                 mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 notificationManager.notify(10, mBuilder.build());
                             }
@@ -484,7 +482,7 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
@@ -500,10 +498,10 @@ public class Coursechoose extends AppCompatActivity {
                                 notificationManager.notify(10, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
                                 mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 notificationManager.notify(10, mBuilder.build());
                             }
