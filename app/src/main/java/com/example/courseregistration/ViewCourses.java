@@ -29,6 +29,7 @@ public class ViewCourses extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //view the course
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_courses);
         Intent intent = getIntent();

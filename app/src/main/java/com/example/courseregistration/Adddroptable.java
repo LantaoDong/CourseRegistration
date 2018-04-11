@@ -23,7 +23,7 @@ import java.util.LinkedHashSet;
 public class Adddroptable extends AppCompatActivity {
 
     /**
-     * Created by dengyiran & Jiabin Liu on 2018-04-08.
+     * Created by Yiran Deng & Jiabin Liu on 2018-04-08.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class Adddroptable extends AppCompatActivity {
         final ArrayList<String> rcourses = new ArrayList<String>();
 
         //show courses the user has already choosen
-
+        //change the text when course be dropped
        rcRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -155,7 +155,7 @@ public class Adddroptable extends AppCompatActivity {
         });
 
 
-        // drop function
+        // drop course function
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {

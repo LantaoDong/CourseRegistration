@@ -1,7 +1,6 @@
 package com.example.courseregistration;
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.graphics.BitmapFactory;
@@ -37,14 +36,15 @@ public class Coursechoose extends AppCompatActivity {
 
     //FirebaseHelper firebasehelper;
     /**
-     * Created by dengyiran & Jiabin on 2018-04-08.
+     * Created by Yiran Deng & Jiabin Liu on 2018-04-08.
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursechoose);
-        Button back = (Button) findViewById(R.id.back);
+
+        back = (Button) findViewById(R.id.back);
 
         next = (Button) findViewById(R.id.button3);
         final Button summer = (Button) findViewById(R.id.button10);
@@ -89,6 +89,7 @@ public class Coursechoose extends AppCompatActivity {
         final DatabaseReference myRef = database.getReference();
         final DatabaseReference courseRef = myRef.child("subjects").child(message);
 
+        //notification build
         final NotificationManager notificationManager = (NotificationManager) getSystemService
                 (NOTIFICATION_SERVICE);
         final String NOTIFICATION_CHANNEL_ID = "4565";
@@ -104,7 +105,7 @@ public class Coursechoose extends AppCompatActivity {
 
 
 
-        // add term function well
+        //add term function well
         courseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -334,6 +335,7 @@ public class Coursechoose extends AppCompatActivity {
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 notificationManager.notify(1, mBuilder.build());
                             }
+                            //used to check the conflict class
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
                             String numwaitnum = dataSnapshot.child("subjects").child(message).child(message1).child("waitlistnum").getValue().toString();
