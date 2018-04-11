@@ -1,7 +1,6 @@
 package com.example.courseregistration;
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.graphics.BitmapFactory;
@@ -37,14 +36,15 @@ public class Coursechoose extends AppCompatActivity {
 
     //FirebaseHelper firebasehelper;
     /**
-     * Created by dengyiran & Jiabin on 2018-04-08.
+     * Created by Yiran Deng & Jiabin Liu on 2018-04-08.
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursechoose);
-        Button back = (Button) findViewById(R.id.back);
+
+        back = (Button) findViewById(R.id.back);
 
         next = (Button) findViewById(R.id.button3);
         final Button summer = (Button) findViewById(R.id.button10);
