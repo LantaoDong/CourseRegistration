@@ -24,10 +24,6 @@
         <activity android:name=".Departmentchoose" />
         <activity android:name=".Coursechoose" />
         <activity android:name=".Adddroptable" />
-        <activity
-            android:name=".UI.ClassInfo"
-            android:label="@string/title_activity_class_info"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MondaySchdule" />
         <activity android:name=".CourseFilter" />
         <activity android:name=".StatisticsCourses" />
