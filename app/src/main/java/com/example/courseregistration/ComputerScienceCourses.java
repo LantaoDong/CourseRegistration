@@ -36,6 +36,7 @@ public class ComputerScienceCourses extends AppCompatActivity {
         courses = (ListView) findViewById(R.id.CS);
         back = (Button) findViewById(R.id.back);
         //retrieve cs courses from Firebase into a listview
+        //information about computer science courses
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/computer science");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
