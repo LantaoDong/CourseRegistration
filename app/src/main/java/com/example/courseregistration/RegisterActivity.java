@@ -1,5 +1,9 @@
 package com.example.courseregistration;
 
+/**
+ * Created by Lantao & Tianyi on 2018-03-19.
+ */
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

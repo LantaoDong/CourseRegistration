@@ -13,6 +13,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * Created by LanTao Haining on 2018-03-22.
+ */
 public class MathCoursesDescription extends AppCompatActivity {
     Button back;
     String courseName = "";

@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Created by Lantao on 2018-03-10.
+ */
 public class UserActivity extends AppCompatActivity {
     private Button back;
     private Button drop;

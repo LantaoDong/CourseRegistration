@@ -18,6 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Lantao & Tianyi on 2018-03-20.
+ */
 public class StatisticsCourses extends AppCompatActivity {
     ListView courses;
     ArrayList<String> course = new ArrayList<String>();

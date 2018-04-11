@@ -18,7 +18,7 @@ public class Departmentchoose extends AppCompatActivity {
     Button back;
 
     /**
-     * Created by dengyiran on 2018-04-08.
+     * Created by dengyiran & Jiabin on 2018-04-08.
      */
     @Override
     //choose departments

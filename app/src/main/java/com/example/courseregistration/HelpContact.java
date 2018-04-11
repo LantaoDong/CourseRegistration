@@ -18,6 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Lantao & Haining on 2018-04-08.
+ */
 public class HelpContact extends AppCompatActivity {
 
     Button back;

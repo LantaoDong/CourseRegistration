@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * Created by Haofan & TIanyi on 2018-04-08.
+ */
 public class CourseDetailActivity extends AppCompatActivity {
 
     TextView tv_courseid, tv_coursename, tv_coursesection, tv_coursetype, tv_coursecrdhrs,

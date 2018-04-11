@@ -37,7 +37,7 @@ public class Coursechoose extends AppCompatActivity {
 
     //FirebaseHelper firebasehelper;
     /**
-     * Created by dengyiran on 2018-04-08.
+     * Created by dengyiran & Jiabin on 2018-04-08.
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override

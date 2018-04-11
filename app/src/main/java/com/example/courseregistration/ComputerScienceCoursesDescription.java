@@ -12,7 +12,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+/**
+ * Created by Lantao Haining on 2018-04-01.
+ */
 public class ComputerScienceCoursesDescription extends AppCompatActivity {
     Button back;
     String courseName = "";

@@ -23,6 +23,9 @@ import java.util.ArrayList;
 /**
  * The Activity is to list majors.
  */
+/**
+ * Created by Haofan & TIanyi on 2018-04-08.
+ */
 public class MajorListActivity extends AppCompatActivity {
 
     DatabaseReference db;

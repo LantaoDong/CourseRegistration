@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 /**
- * Created by Justin Jaspe on 2018-03-25.
+ * Created by Justin Jasper on 2018-03-25.
  */
 public class ViewScheduleSingleDay extends AppCompatActivity {
     /**Refactoring Comment**/

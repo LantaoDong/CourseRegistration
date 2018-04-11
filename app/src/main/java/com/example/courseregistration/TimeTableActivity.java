@@ -32,6 +32,10 @@ import java.util.ArrayList;
  * The Activity is to list the courses.
  * Changes in Iteration 3: querying courses sorting by terms.
  */
+
+/**
+ * Created by Haofan & Tianyi on 2018-03-20.
+ */
 public class TimeTableActivity extends AppCompatActivity {
 
     DatabaseReference db;
