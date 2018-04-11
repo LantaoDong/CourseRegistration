@@ -89,6 +89,7 @@ public class Coursechoose extends AppCompatActivity {
         final DatabaseReference myRef = database.getReference();
         final DatabaseReference courseRef = myRef.child("subjects").child(message);
 
+        //notification build
         final NotificationManager notificationManager = (NotificationManager) getSystemService
                 (NOTIFICATION_SERVICE);
         final String NOTIFICATION_CHANNEL_ID = "4565";
@@ -334,6 +335,7 @@ public class Coursechoose extends AppCompatActivity {
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 notificationManager.notify(1, mBuilder.build());
                             }
+                            //used to check the conflict class
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
                             String numwaitnum = dataSnapshot.child("subjects").child(message).child(message1).child("waitlistnum").getValue().toString();

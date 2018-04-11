@@ -155,7 +155,7 @@ public class Adddroptable extends AppCompatActivity {
         });
 
 
-        // drop function
+        // drop course function
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
