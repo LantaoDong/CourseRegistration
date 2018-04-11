@@ -16,7 +16,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+/**
+ * Created by Justin on 2018-03-29.
+ */
 public class ViewCourses extends AppCompatActivity {
     private Button back;
     private ListView courseListView;

@@ -11,7 +11,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
+/**
+ * Created by Justin on 2018-03-20.
+ */
 public class ViewSchedule extends AppCompatActivity{
 
 

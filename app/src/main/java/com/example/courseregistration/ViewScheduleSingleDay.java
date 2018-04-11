@@ -20,7 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+/**
+ * Created by Justin Jaspe on 2018-03-25.
+ */
 public class ViewScheduleSingleDay extends AppCompatActivity {
     /**Refactoring Comment**/
     /**Displaying user's course schedule after registration. Retrieved courses start and end time from database
