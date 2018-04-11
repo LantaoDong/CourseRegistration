@@ -35,7 +35,7 @@ public class StatisticsCoursesDescription extends AppCompatActivity {
         if(courseDetail!=null){
             courseName = (String) courseDetail.get("name");
         }
-        //retrieve course description from Firebase
+        //retrieve course description from firebase
         DatabaseReference stat = FirebaseDatabase.getInstance().getReference("subjects/Statistics");
 
         stat.addListenerForSingleValueEvent(new ValueEventListener() {

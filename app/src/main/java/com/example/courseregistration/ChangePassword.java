@@ -28,7 +28,7 @@ public class ChangePassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //change password
+        //change passwords
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         change = (Button) findViewById(R.id.change);

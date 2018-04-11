@@ -37,7 +37,8 @@ public class MathCourses extends AppCompatActivity {
         setContentView(R.layout.activity_math_courses);
         courses = (ListView) findViewById(R.id.math);
         back = (Button) findViewById(R.id.back);
-        //retrieve math courses from Firebase into a listview
+        //retrieve math courses from firebase into a listview
+        //information about math courses
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("subjects/math");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

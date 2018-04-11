@@ -55,6 +55,7 @@ public class StatisticsCourses extends AppCompatActivity {
             }
         });
         //Set click listener for each item of the list
+        //information about stat courses
         courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, View view, final int i, long l) {

@@ -63,7 +63,7 @@ public class Adddroptable extends AppCompatActivity {
         final ArrayList<String> rcourses = new ArrayList<String>();
 
         //show courses the user has already choosen
-
+        //change the text when course be dropped
        rcRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
