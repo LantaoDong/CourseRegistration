@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 /**
  * The Activity is to list the courses.
+ * Changes in Iteration 3: querying courses sorting by terms.
  */
 public class TimeTableActivity extends AppCompatActivity {
 
