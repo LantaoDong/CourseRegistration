@@ -14,7 +14,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Created by Lantao & Tianyi on 2018-03-15.
+ *
+ * This page shows the description of a selected course
+ *
+ * Created by Lantao & Haining on 2018-03-15.
  */
 public class StatisticsCoursesDescription extends AppCompatActivity {
     Button back;

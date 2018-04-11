@@ -14,7 +14,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Created by LanTao Haining on 2018-03-22.
+ * This page shows the description of a selected math course
+ *
+ * Created by Lantao & Haining on 2018-03-22.
  */
 public class MathCoursesDescription extends AppCompatActivity {
     Button back;

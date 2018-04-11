@@ -12,7 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 /**
- * Created by Justin Jasper on 2018-03-29.
+ * Created by Justin & Jasper on 2018-03-29.
  */
 public class ViewScheduleSemester extends AppCompatActivity{
 

@@ -19,7 +19,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 /**
- * Created by Lantao Haining on 2018-03-25.
+ *
+ * This activity retrieves all the CS courses from firebase into a listview
+ *
+ * Created by Lantao & Haining on 2018-03-25.
  */
 public class ComputerScienceCourses extends AppCompatActivity {
 

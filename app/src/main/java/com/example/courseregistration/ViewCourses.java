@@ -17,7 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 /**
- * Created by Justin & Jasper on 2018-03-29.
+ * This activity allows users to view registered courses for a specific term
+ *
+ * Created by Lantao & Haining on 2018-03-29.
  */
 public class ViewCourses extends AppCompatActivity {
     private Button back;
