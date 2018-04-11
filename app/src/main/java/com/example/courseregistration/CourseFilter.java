@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 /**
- * Created by Haofan & TIanyi on 2018-04-08.
+ * Created by Haofan & Tianyi on 2018-04-08.
  */
 public class CourseFilter extends AppCompatActivity{
     Button back;

@@ -16,7 +16,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 
-
+/**
+ * The login page of the application
+ *
+ *
+ * @author Lantao & Jiabin
+ **/
 public class LoginActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;

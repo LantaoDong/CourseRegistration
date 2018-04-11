@@ -23,7 +23,7 @@ import java.util.LinkedHashSet;
 public class Adddroptable extends AppCompatActivity {
 
     /**
-     * Created by dengyiran Jiabin Liu on 2018-04-08.
+     * Created by dengyiran & Jiabin Liu on 2018-04-08.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
