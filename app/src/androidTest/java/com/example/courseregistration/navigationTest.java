@@ -94,7 +94,7 @@ public class navigationTest {
             e.printStackTrace();
         }
         ViewInteraction appCompatButton4 = onView(
-                allOf(withId(R.id.backToLogin), withText("Back"), isDisplayed()));
+                allOf(withId(R.id.backToLogin), withText("Logout"), isDisplayed()));
         appCompatButton4.perform(click());
 
         try {

@@ -32,9 +32,9 @@ public class simpleespressotestforadddrop {
         public void check0Activity() {
                 onView(withId(R.id.checkBox6)).check(matches(isNotChecked()));
                 onView(withId(R.id.checkBox7)).check(matches(isNotChecked()));
-                onView(withId(R.id.checkBox8)).check(matches(isNotChecked()));
-                onView(withId(R.id.checkBox9)).check(matches(isNotChecked()));
-                onView(withId(R.id.checkBox10)).check(matches(isNotChecked()));
+                //onView(withId(R.id.checkBox8)).check(matches(isNotChecked()));
+                //onView(withId(R.id.checkBox9)).check(matches(isNotChecked()));
+                //onView(withId(R.id.checkBox10)).check(matches(isNotChecked()));
                  //onView(withId(R.id.button3)).check(matches(isDisplayed()));
 
         }
