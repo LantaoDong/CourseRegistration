@@ -105,7 +105,7 @@ public class Coursechoose extends AppCompatActivity {
 
 
 
-        //add term function well
+        // add term function well
         courseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
