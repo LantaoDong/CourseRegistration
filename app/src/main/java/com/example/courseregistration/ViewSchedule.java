@@ -47,7 +47,6 @@ public class ViewSchedule extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Day that was clicked on by the user
                 String selectedDay = String.valueOf(parent.getItemAtPosition(position));
-
                 Intent intent = new Intent(ViewSchedule.this, ViewScheduleSingleDay.class);
                 intent.putExtra("day", selectedDay);
                 intent.putExtra("userID", userID);
@@ -60,7 +59,7 @@ public class ViewSchedule extends AppCompatActivity{
         returnToUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToD = new Intent(ViewSchedule.this, UserActivity.class);
+                Intent intentToD = new Intent(ViewSchedule.this, ViewScheduleSemester.class);
                 intentToD.putExtra("userID", userID);
                 startActivity(intentToD);
             }

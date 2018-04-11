@@ -14,6 +14,7 @@ public class UserActivity extends AppCompatActivity {
     private Button search;
     private Button help;
     private Button changePassword;
+    private Button registeredCourses;
 
 
     @Override
@@ -25,6 +26,7 @@ public class UserActivity extends AppCompatActivity {
         viewSchedule = (Button) findViewById(R.id.schedule);
         drop = (Button) findViewById(R.id.drop);
         changePassword = (Button) findViewById(R.id.changePassword);
+        registeredCourses =(Button) findViewById(R.id.registeredCourses);
 
         Intent intent = getIntent();
         final String userID = intent.getStringExtra("userID");
@@ -90,5 +92,14 @@ public class UserActivity extends AppCompatActivity {
                startActivity(changeP);
             }
         });
+        registeredCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewCourses = new Intent(UserActivity.this,Semesters.class);
+                viewCourses.putExtra("userID",userID);
+                startActivity(viewCourses);
+            }
+        });
+
     }
 }
