@@ -136,7 +136,7 @@ public class Adddroptable extends AppCompatActivity {
                 }
                 if(rcourses.size()==0) {
 
-                    textView1.setText("You have no courses registered.");
+                    textView1.setText("No registered courses");
                     textView2.setText("No registered courses");
                     textView3.setText("No registered courses");
                     textView4.setText("No registered courses");
@@ -144,8 +144,9 @@ public class Adddroptable extends AppCompatActivity {
 
                 }
                 if(rcourses.size()>5) {
-                    Toast.makeText(Adddroptable.this, "You have already have 5 courses.", Toast.LENGTH_LONG).show();
-                    //rcourses.remove(5);
+                    Toast.makeText(Adddroptable.this, "You already have 5 courses.", Toast.LENGTH_LONG).show();
+                    rcRef.child(rcourses.get(5).toString()).removeValue();
+                    rcourses.remove(5);
                 }
             }
             @Override
@@ -169,6 +170,9 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         if(textView1.getText().toString().contains("STAT")) {
                             depart = "Statistics";
+                        }
+                        if(textView1.getText().toString().equals("No registered courses")){
+                            Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
                         }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView1.getText().toString()).child("numberOfStudents").getValue().toString();
@@ -212,7 +216,10 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView2.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
-                        System.out.println(depart);
+                        if(textView2.getText().toString().equals("No registered courses")){
+                            Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
+                        }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("numberOfStudents").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView2.getText().toString()).child("waitlistnum").getValue().toString();
@@ -255,6 +262,10 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView3.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
+                        if(textView3.getText().toString().equals("No registered courses")){
+                            Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
+                        }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("numberOfStudents").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView3.getText().toString()).child("waitlistnum").getValue().toString();
@@ -296,6 +307,10 @@ public class Adddroptable extends AppCompatActivity {
                         if(textView4.getText().toString().contains("STAT")) {
                             depart = "Statistics";
                         }
+                        if(textView4.getText().toString().equals("No registered courses")){
+                            Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
+                        }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("numberOfStudents").getValue().toString();
                         String numwaitnum = dataSnapshot.child("subjects").child(depart).child(textView4.getText().toString()).child("waitlistnum").getValue().toString();
@@ -336,6 +351,10 @@ public class Adddroptable extends AppCompatActivity {
                         }
                         if(textView5.getText().toString().contains("STAT")) {
                             depart = "Statistics";
+                        }
+                        if(textView5.getText().toString().equals("No registered courses")){
+                            Toast.makeText(Adddroptable.this,"You have no course to drop.", Toast.LENGTH_LONG);
+                            finish();
                         }
 
                         String num = dataSnapshot.child("subjects").child(depart).child(textView5.getText().toString()).child("numberOfStudents").getValue().toString();

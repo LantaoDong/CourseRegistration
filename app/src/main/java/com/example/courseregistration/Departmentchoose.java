@@ -18,7 +18,7 @@ public class Departmentchoose extends AppCompatActivity {
     Button back;
 
     /**
-     * Created by dengyiran on 2018-04-08.
+     * Created by Yiran Deng & Jiabin Liu on 2018-04-08.
      */
     @Override
     //choose departments
@@ -30,7 +30,7 @@ public class Departmentchoose extends AppCompatActivity {
         Intent intent1 = getIntent();
         final String userID = intent1.getStringExtra("userID");
 
-
+        //department select
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,21 +47,18 @@ public class Departmentchoose extends AppCompatActivity {
                     stat.setEnabled(false);
 
                 }
-                //checkbox6.setChecked(false);
                 if (checkbox7.isChecked()) {
                     message = checkbox7.getText().toString();
                     checkbox6.setEnabled(false);
                     stat.setEnabled(false);
 
                 }
-                //checkbox7.setChecked(false);
                 if (stat.isChecked()) {
                     message = stat.getText().toString();
                     checkbox6.setEnabled(false);
                     checkbox7.setEnabled(false);
 
                 }
-                //stat.setChecked(false);
 
                 Intent intent = new Intent();
                 intent.setClass(Departmentchoose.this, Coursechoose.class);

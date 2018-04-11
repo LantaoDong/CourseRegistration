@@ -1,7 +1,12 @@
 package com.example.courseregistration;
 import com.example.courseregistration.DBHelper.FirebaseHelper;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,18 +39,13 @@ public class Coursechoose extends AppCompatActivity {
     /**
      * Created by dengyiran on 2018-04-08.
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursechoose);
         Button back = (Button) findViewById(R.id.back);
-        /*back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent backToDepartment = new Intent(Coursechoose.this, Departmentchoose.class);
-                startActivity(backToDepartment);
-            }
-        });*/
+
         next = (Button) findViewById(R.id.button3);
         final Button summer = (Button) findViewById(R.id.button10);
         final Button fall = (Button) findViewById(R.id.button11);
@@ -83,8 +83,17 @@ public class Coursechoose extends AppCompatActivity {
 
         final NotificationManager notificationManager = (NotificationManager) getSystemService
                 (NOTIFICATION_SERVICE);
+        final String NOTIFICATION_CHANNEL_ID = "4565";
+        final String NOTIFICATION_CHANNEL_NAME="conflict";
+        CharSequence channelName = NOTIFICATION_CHANNEL_NAME;
+        int importance = NotificationManager.IMPORTANCE_LOW;
+        NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, importance);
+        notificationManager.createNotificationChannel(notificationChannel);
 
-        final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+
+
+
 
 
         // add term function well
@@ -218,6 +227,18 @@ public class Coursechoose extends AppCompatActivity {
                             c4maxtextView.setText(maxnum4);
                             c4curtextView.setText(curnum4);
                         }
+                        if(checkbox11.getText().toString().equals("No course")){
+                            checkbox11.setEnabled(false);
+                        }
+                        if(checkbox12.getText().toString().equals("No course")){
+                            checkbox12.setEnabled(false);
+                        }
+                        if(checkbox13.getText().toString().equals("No course")){
+                            checkbox13.setEnabled(false);
+                        }
+                        if(checkbox14.getText().toString().equals("No course")){
+                            checkbox14.setEnabled(false);
+                        }
                     }
                 });
             }
@@ -264,25 +285,34 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
                             }
 
                             if(check == 0) {
-                                Toast.makeText(Coursechoose.this, "You have a conflict course.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a conflict course.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have a conflict course.");
+                                mBuilder.setContentText("You have registered a conflict course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(1, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
-                                mBuilder.setSmallIcon(0);
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
+
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
                                 mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(1, mBuilder.build());
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -327,22 +357,32 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
                             }
 
                             if(check == 0) {
-                                Toast.makeText(Coursechoose.this, "You have a conflict course.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a conflict course.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have a conflict course.");
+                                mBuilder.setContentText("You have registered a conflict course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
+                                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(10, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
+                                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(10, mBuilder.build());
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -386,22 +426,32 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
                             }
 
                             if(check == 0) {
-                                Toast.makeText(Coursechoose.this, "You have a conflict course.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a conflict course.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have a conflict course.");
+                                mBuilder.setContentText("You have registered a conflict course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
+                                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(10, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
+                                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(10, mBuilder.build());
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();
@@ -445,22 +495,32 @@ public class Coursechoose extends AppCompatActivity {
                                     if (start1 <= start && start <= end1&&!rcourses.get(i).toString().equals(message1)) {
                                         check = 0;
                                     }
-                                    else {
+                                    if(rcourses.get(i).toString().equals(message1)) {
                                         check = 2;
                                     }
                                 }
                             }
 
                             if(check == 0) {
-                                Toast.makeText(Coursechoose.this, "You have a conflict course.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a conflict course.", Toast.LENGTH_LONG).show();
                                 myRef.child("users").child(userID).child("registered courses").child(message1).removeValue();
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have a conflict course.");
+                                mBuilder.setContentText("You have registered a conflict course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
+                                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(10, mBuilder.build());
                             }
                             if(check == 2) {
-                                Toast.makeText(Coursechoose.this, "You have a same course in list.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Coursechoose.this, "You have registered a repeated course.", Toast.LENGTH_LONG).show();
+                                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                                 mBuilder.setContentTitle("conflict");
-                                mBuilder.setContentText("You have added a repeated course.");
+                                mBuilder.setContentText("You have registered a repeated course.");
+                                mBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                                mBuilder.setTicker("CONFLICT!!!");
+                                mBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                notificationManager.notify(10, mBuilder.build());
                             }
                             String num = dataSnapshot.child("subjects").child(message).child(message1).child("numberOfStudents").getValue().toString();
                             String numcap = dataSnapshot.child("subjects").child(message).child(message1).child("capacity").getValue().toString();

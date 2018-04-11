@@ -13,6 +13,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * This page shows the contact information of a selected technical team
+ *
+ * Created by Lantao Haining on 2018-04-08.
+ */
 public class HelpContactDetail extends AppCompatActivity {
     Button back;
     TextView detail;

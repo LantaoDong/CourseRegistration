@@ -14,6 +14,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ *
+ * This activity allows users to change their password
+ *
+ *
+ * Created by Lantao & Haining on 2018-04-01.
+ */
 public class ChangePassword extends AppCompatActivity {
     private EditText oldPassword, newPassword;
     private Button change, back;

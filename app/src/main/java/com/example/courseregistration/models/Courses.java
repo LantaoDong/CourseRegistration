@@ -1,7 +1,7 @@
 package com.example.courseregistration.models;
 
 /**
- * Created by 71578 on 2018/3/21.
+ * Created by Jiabin Liu && Yiran Deng on 2018/3/21.
  */
 
 import com.google.firebase.database.Exclude;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-
+//courses object
 public class Courses implements Serializable {
     public String courseID;
     public String subject;

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
- * Created by Jaspering21 on 2018-03-20.
+ * Created by Jaspering21 & Justin on 2018-03-20.
  */
 
 public class SchduleActivity extends AppCompatActivity {

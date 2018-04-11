@@ -1,5 +1,13 @@
 package com.example.courseregistration;
 
+/**
+ *
+ * This class allows users to create a new account
+ *
+ *
+ * Created by Lantao & Jiabin on 2018-03-19.
+ */
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

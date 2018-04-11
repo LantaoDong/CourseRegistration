@@ -11,6 +11,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Jaspering21 & Justin on 2018-03-20.
+ */
 public class Semesters extends AppCompatActivity {
     private ListView semestersListView;
     private Button back;

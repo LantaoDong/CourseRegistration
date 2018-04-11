@@ -18,6 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * This Activity is to create a new course
  */
+/**
+ * Created by Haofan & Tianyi on 2018-03-20.
+ */
 public class AddCoursesActivity extends AppCompatActivity {
 
     DatabaseReference db;

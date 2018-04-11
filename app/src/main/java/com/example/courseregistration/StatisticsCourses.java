@@ -18,6 +18,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * This page retrieves all the courses for Statistic from firebase into a listview
+ *
+ * Created by Lantao & Haining on 2018-03-20.
+ */
 public class StatisticsCourses extends AppCompatActivity {
     ListView courses;
     ArrayList<String> course = new ArrayList<String>();
