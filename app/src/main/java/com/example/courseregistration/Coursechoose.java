@@ -96,7 +96,7 @@ public class Coursechoose extends AppCompatActivity {
 
 
 
-        // add term function well
+        // add term function well in iterration 3
         courseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -249,7 +249,7 @@ public class Coursechoose extends AppCompatActivity {
             }
         });
 
-        // set checkbox with the courses user can choose
+        // set checkbox with the courses user can choose in iterration 1
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -266,6 +266,7 @@ public class Coursechoose extends AppCompatActivity {
                                 String courseKey = snapshot.getKey().toString();
                                 rcourses.add(courseKey);
                             }
+                            //check the waitlist and capacity in iteration 2
                             String courseID = dataSnapshot.child("subjects").child(message).child(message1).child("courseID").getValue().toString();
                             String subject = message;
                             String starttime = dataSnapshot.child("subjects").child(message).child(message1).child("time").child("start").getValue().toString();
@@ -559,6 +560,7 @@ public class Coursechoose extends AppCompatActivity {
 
             }
         });
+        //back to precious activity
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

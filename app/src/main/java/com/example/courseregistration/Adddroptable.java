@@ -62,7 +62,7 @@ public class Adddroptable extends AppCompatActivity {
 
         final ArrayList<String> rcourses = new ArrayList<String>();
 
-        //show courses the user has already choosen
+        //show courses the user has already choosen fixed bugs in iteration 3
 
        rcRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -155,7 +155,7 @@ public class Adddroptable extends AppCompatActivity {
         });
 
 
-        // drop function
+        // drop function in iteration 1 and fixed bugs in iteration 3
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -201,6 +201,7 @@ public class Adddroptable extends AppCompatActivity {
 
         });
 
+        //button to drop course
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
