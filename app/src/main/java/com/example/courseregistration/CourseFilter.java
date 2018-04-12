@@ -39,7 +39,6 @@ public class CourseFilter extends AppCompatActivity{
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     majors.add(snapshot.getKey());
 
-
                 }
                 ListAdapter adapter = new ArrayAdapter<String>(CourseFilter.this,android.R.layout.simple_list_item_1,majors);
                 subjects = (ListView) findViewById(R.id.subject);

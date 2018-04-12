@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 /**
  * A model of major information
+ * @author Haofan & Qunzhi
  */
 
 @IgnoreExtraProperties

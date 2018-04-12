@@ -21,6 +21,7 @@ public class Courses implements Serializable {
     public String term;
     public Courses(){}
 
+
     public Courses(String cid, String sj, String st, String et, String d,String term){
         courseID=cid;
         subject=sj;

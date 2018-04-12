@@ -20,6 +20,7 @@
             android:textStyle="bold"
             android:text="course_id" />
 
+
         <TextView
             android:id="@+id/tv_coursename"
             android:layout_width="match_parent"

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /**
  * An interface callbacks the results returned by Firebase db
+ *
+ * @author Haofan & Qunzhi
  */
 public interface CourseCallbacks {
     void onCourseCallback(ArrayList<CourseInfo> courseInfos);

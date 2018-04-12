@@ -52,7 +52,6 @@ public class MathCourses extends AppCompatActivity {
                 courses = (ListView) findViewById(R.id.math);
                 courses.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

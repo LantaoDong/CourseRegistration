@@ -35,7 +35,6 @@ public class Departmentchoose extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 String message = "";
                 final CheckBox checkbox6 = (CheckBox) findViewById(R.id.checkBox6);
                 final CheckBox checkbox7 = (CheckBox) findViewById(R.id.checkBox7);

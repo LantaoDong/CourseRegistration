@@ -13,4 +13,5 @@ public class MyApplicationData extends Application {
     public DatabaseReference firebaseReference;
     public FirebaseDatabase firebaseDBInstance;
 
+
 }

@@ -26,6 +26,7 @@
         app:layout_constraintVertical_bias="1.0"
         tools:text="Username" />
 
+
     <EditText
         android:id="@+id/password"
         android:layout_width="278dp"

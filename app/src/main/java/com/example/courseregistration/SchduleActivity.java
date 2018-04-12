@@ -42,6 +42,7 @@ public class SchduleActivity extends AppCompatActivity {
                 "Thursday",
                 "Friday"
         };
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SchduleActivity.this, android.R.layout.simple_list_item_1, majors);
         schdule.setAdapter(adapter);
         schdule.setOnItemClickListener(new AdapterView.OnItemClickListener() {

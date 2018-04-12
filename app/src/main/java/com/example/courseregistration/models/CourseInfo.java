@@ -4,6 +4,8 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 /**
  * A model of course information
+ *
+ * @author Haofan & Qunzhi
  */
 
 @IgnoreExtraProperties

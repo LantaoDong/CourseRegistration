@@ -9,9 +9,8 @@ import android.widget.TextView;
 /**
  * The Activity is to list terms.
  * Changes in Iteration 3: add this page to Time Table, letting users select terms before selecting majors.
- */
-/**
- * Created by Haofan & Tianyi on 2018-03-20.
+ *
+ * @author Haofan & Tianyi
  */
 public class TermListActivity extends AppCompatActivity {
 

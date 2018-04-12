@@ -8,6 +8,7 @@ import java.util.Map;
  */
 
 public class user {
+
     CourseInfo ci = new CourseInfo();
     public String user_name;
     public String user_password;

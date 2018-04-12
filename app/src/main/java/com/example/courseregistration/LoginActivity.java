@@ -89,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                     if(user.equals(userName)){
                         usernameFound = true;
                         userID = userKey;
-
                     }
                 }
                 //if the input username is in database, check if password is correct

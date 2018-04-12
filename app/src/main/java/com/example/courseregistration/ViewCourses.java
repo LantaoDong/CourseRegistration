@@ -48,7 +48,6 @@ public class ViewCourses extends AppCompatActivity {
                     if (Integer.parseInt(snapshot.child("term").getValue().toString()) == getTermCode(selectedSemester)) {
                         courseName = snapshot.child("courseID").getValue().toString();
                         courses.add(courseName);
-
                     }
                 }
 

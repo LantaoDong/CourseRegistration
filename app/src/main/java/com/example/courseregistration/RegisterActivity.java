@@ -95,7 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String key = db.push().getKey();
                 db.push().setValue(users);*/
 
-
             }
         });
     }

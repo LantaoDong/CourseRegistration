@@ -80,7 +80,6 @@ public class Coursechoose extends AppCompatActivity {
         checkbox13.setEnabled(false);
         checkbox14.setEnabled(false);
 
-
         Intent intent = getIntent();
         final String message = intent.getStringExtra("data");
         final String userID = intent.getStringExtra("userID");

@@ -50,7 +50,6 @@ public class HelpContactDetail extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 

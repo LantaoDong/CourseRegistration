@@ -46,6 +46,7 @@ public class Semesters extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

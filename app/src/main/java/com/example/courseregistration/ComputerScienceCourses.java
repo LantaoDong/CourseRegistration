@@ -56,6 +56,7 @@ public class ComputerScienceCourses extends AppCompatActivity {
 
             }
         });
+
         //set click listener for each item of the list
         courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

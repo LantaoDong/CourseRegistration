@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * A controller to process the operations with Firebase db
+ * @author Haofan & Qunzhi
  */
 public class FirebaseHelper{
 

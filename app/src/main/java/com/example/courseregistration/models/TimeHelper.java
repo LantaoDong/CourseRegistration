@@ -17,6 +17,7 @@ public class TimeHelper {
         this.start=start;
         this.end=end;
     }
+
     public String getDays(){
         return days;
     }

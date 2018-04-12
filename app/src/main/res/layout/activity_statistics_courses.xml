@@ -25,4 +25,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statistics" />
+
 </android.support.constraint.ConstraintLayout>

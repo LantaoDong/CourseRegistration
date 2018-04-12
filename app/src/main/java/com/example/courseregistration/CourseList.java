@@ -13,6 +13,7 @@ public class CourseList extends AppCompatActivity {
 
     public class MajorListActivity extends AppCompatActivity {
         ListView listView;
+
         //DatabaseReference db;
         // FirebaseHelper firebasehelper;
         // MajorListAdapter adapter;

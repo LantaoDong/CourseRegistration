@@ -32,7 +32,6 @@ public class ViewSchedule extends AppCompatActivity{
 
         returnToUser = (Button) findViewById(R.id.ReturnToUser);
 
-
         daysListView = (ListView) findViewById(R.id.lstView);
         ArrayList<String> days = new ArrayList<String>();
         days.add("Monday");

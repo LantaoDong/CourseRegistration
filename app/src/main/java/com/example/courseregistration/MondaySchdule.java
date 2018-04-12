@@ -45,7 +45,6 @@ public class MondaySchdule  extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 

@@ -49,7 +49,6 @@ public class HelpContact extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
         //put the name of technical team into a list view

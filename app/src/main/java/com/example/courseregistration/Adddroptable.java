@@ -74,7 +74,6 @@ public class Adddroptable extends AppCompatActivity {
                     rcourses.add(courseKey);
                 }
 
-
                 if(rcourses.size()==5) {
 
                     String course1 = rcourses.get(0);

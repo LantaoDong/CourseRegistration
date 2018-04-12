@@ -21,7 +21,6 @@ public class UserActivity extends AppCompatActivity {
     private Button changePassword;
     private Button registeredCourses;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

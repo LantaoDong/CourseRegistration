@@ -31,7 +31,6 @@ public class ViewScheduleSemester extends AppCompatActivity{
 
         returnToUser = (Button) findViewById(R.id.ReturnToUser);
 
-
         semestersListView = (ListView) findViewById(R.id.semesterListView);
         ArrayList<String> semesters = new ArrayList<String>();
         semesters.add("Fall");

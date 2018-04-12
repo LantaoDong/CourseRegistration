@@ -23,4 +23,5 @@ public class Course {
         result.put("course name", courseName);
         return  result;
     }
+
 }

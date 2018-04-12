@@ -11,5 +11,6 @@
 
     <include layout="@layout/content_major_list" />
 
+
 </LinearLayout>
 

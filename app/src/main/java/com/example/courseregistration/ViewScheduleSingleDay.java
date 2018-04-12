@@ -42,7 +42,6 @@ public class ViewScheduleSingleDay extends AppCompatActivity {
         final String userID = intent.getStringExtra("userID");
         final String selectedSemester = intent.getStringExtra("semester");
 
-
         // The code of the selected day. Mon = M, Tues = T, Wed = W, Thurs = R, Fri = F
         final String selectedDayCode = getDayCode(selectedDay);
 

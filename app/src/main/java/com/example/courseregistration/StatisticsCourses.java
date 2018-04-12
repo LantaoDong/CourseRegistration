@@ -48,7 +48,6 @@ public class StatisticsCourses extends AppCompatActivity {
                 courses = (ListView) findViewById(R.id.statistics);
                 courses.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

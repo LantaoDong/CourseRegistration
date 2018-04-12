@@ -74,5 +74,6 @@ public class CourseDetailActivity extends AppCompatActivity {
         tv_courseinstructor.setText(course_instructor);
         tv_coursedescription.setText(course_description);
         tv_courseprerequire.setText(course_prerequire);
+
     }
 }
